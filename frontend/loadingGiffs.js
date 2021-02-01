@@ -1,0 +1,1 @@
+const loadingGiff1 = "https://cdn.dribbble.com/users/801336/screenshots/10037782/media/d7f28f902699655bba0b75e34dd9eb44.gif"
