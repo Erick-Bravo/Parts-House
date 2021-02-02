@@ -1,0 +1,64 @@
+Project Description:
+-   Parts House is your very own customizable parts tracker, 
+    where you can record valuable info of individual parts from your 
+    appliances and/or electronics. Record model numbers, serial numbers
+    and even where to re-purchase these items when you need them most.
+    Parts House is your very own customizable parts-house!
+    
+MVP
+    (Can we allow users to add a )
+- Side NavBar of complete tools
+- Create/Delete an Appliance and/or electronic
+- Record part info for Appliance and/or electronics
+- Ability to save url of where to buy
+
+Bonus Features/Stretch Goals
+- Button that takes you to a google search of that part
+- Notifications
+- Ability to connect other users to your parts house
+- Drag and Drop sections/records/parts into other sections
+
+Database Schema and Diagram
+- check
+
+Sketches of Wireframes
+- (work on tonight)
+
+Planned Routes
+- / (intro page)
+    - login
+    - signup
+    - demo
+
+- /user-parts-house
+    - Side NavBar
+      
+        - Account (/account)
+                                - Username
+                                - (Bonus: Subscription)
+                                - logout
+       
+        - Your Parts House
+            - Applicances
+                                - example: Air Conditioning
+                                - example: Refrigerator
+                                - example: Keurig
+                                - example: Washing Machine
+
+            - Electronics
+                                - example: Living Room TV Remote
+                                - example: Wireless Headphones
+                                - example: PC Build
+
+            - Other 
+                                - example: Office Desk Lamp
+
+React Component List
+
+List of planned technologies
+- Node
+- Js
+- Express
+- Sequelize
+- React
+- Redux

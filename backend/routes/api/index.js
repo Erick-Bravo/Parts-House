@@ -39,6 +39,11 @@ router.post('/test', function (req, res) {
   res.json({ requestBody: req.body });
 });
 
+router.get("/ohya", (req, res) => {
+  const hi = "oh hi"
+  return res.json({hi: hi})
+})
+
 router.use('/session', sessionRouter);
 
 router.use('/users', usersRouter);
