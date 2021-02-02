@@ -3,21 +3,11 @@
 ## Table of Contents
 
 1. [Introduction](#introduction)
-2.  [Dependencies](#technologies)
-3.  [Features](#features)
-	- [Register](#register)
-	- [Login](#login)
-	- [Parks](#parks)
-	- [Search](#search)
-	- [User Experience](#user-experience)
-		- [Create List](#create-list)
-		- [Add Park](#add-park)
-		- [Remove Park](#remove-park)
-		- [Rate Park](#rate-park)
-		- [Review Park](#review-park)
-		- [View](#view)
-			- [View Routes](#view-routes)
-			- [View Visited](#view-visited)
+2. [Dependencies](#technologies)
+3. [Features](#features)
+4. [Routes](#routes)
+
+
 
 ## Introduction
 
@@ -58,4 +48,19 @@ Parts House is your very own customizable parts-house!
 
 ## Routes
 
-  - 
+(Get)
+ - Splash Page (/)
+ - User Parts House (/user/:userId/parts-house/:partsHouseId) 
+ - Appliances (/user/:userId/parts-house/:partsHouseId/locations/:locationId/appliances)
+ - Electronics (/user/:userId/parts-house/:partsHouseId/locations/:locationId/electronics)
+ - Other (/user/:userId/parts-house/:partsHouseId/locations/:locationId/other)
+  
+ (POST/DELETE)
+ - Create "location" (/user/:userId/parts-house/:partsHouseId/locations/create)
+ - Delete "location" (/user/:userId/parts-house/:partsHouseId/locations/:locationId/delete)
+ 
+ - Create "Record" (/user/:userId/parts-house/:partsHouseId/locations/:locationId/records/create)
+ - Delete "Record" (/user/:userId/parts-house/:partsHouseId/locations/:locationId/records/:recordsId/delete)
+ 
+ - Create "Part" (/user/:userId/parts-house/:partsHouseId/locations/:locationId/records/:recordsId/parts/create)
+ - Delete "Part" (/user/:userId/parts-house/:partsHouseId/locations/:locationId/records/:recordsId/parts/:partsId/delete)
