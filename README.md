@@ -33,15 +33,12 @@ Parts House is your very own customizable parts-house!
 - ### Sign-Up, Login, Demo, and About
 	A function integrated into the splash page that will allow the user to login, sign-up, use a demo version the site, or read an about section with a detailed walkthrough.
 
-	![](./assets/Login-SignUp10.gif)
-
 - ### User Parts House
   Registered users have access to a user-parts-house page, which contains a side NavBar with all necessary tools and ability to view owned items.
 	
 - ### Side NavBar
 	User has ability to create/edit/delete appliances/electronics.
   User ability to create/edit/delete parts.
-	![](./assets/Search.gif)
   
 - ### Where to Buy Part
   User can save the URL of the exact place to purchase the part (optional)
