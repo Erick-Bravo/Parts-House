@@ -1,7 +1,7 @@
 import React from "react"
-import Navigation from "../Navigation"
+import LoginFormModal from "../LoginFormModal"
 import "./index.css"
-const logo = require("./mascot.png")
+
 
 const Splash = ({isLoaded}) => {
 
@@ -13,7 +13,7 @@ const Splash = ({isLoaded}) => {
                     <h3>Parts House</h3>
                 </div>
                 <div id="splash-button-container">
-                    <button>Log-In</button>
+                    <LoginFormModal />
                     <button>Sign-Up</button>
                     <button>Demo</button>
                     <button>About</button>

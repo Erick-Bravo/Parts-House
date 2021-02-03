@@ -1,0 +1,19 @@
+#login-form-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #F4EADE;
+    width: 220px;
+    height: 160px;
+    padding: 25px;
+    text-align: center;
+}
+
+#login-form-container button {
+    background-color: #2F496E;
+    color: #F4EADE;
+    border: none;
+    border-radius: 5px;
+    margin: 10px;
+}

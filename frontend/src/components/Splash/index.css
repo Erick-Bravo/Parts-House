@@ -34,3 +34,7 @@
     border-radius: 5px;
     margin: 10px;
 }
+
+#splash-page button:hover {
+    background-color: #3a4e69;
+}
