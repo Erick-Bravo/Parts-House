@@ -1,0 +1,21 @@
+Effective Computing with Javascript/python/any other language
+
+    - Good code is meant to be read by humans.
+        - Clever code is bad code.
+    - Simple code is good.
+        - Simple cose is NOT east to write.
+
+
+    I want you to write a programming interface that is meanst to be used as
+    a tool in real estate manaement
+
+    This programming interface would provide the following actions:
+        - Allow a user to input someones yearly salary and ouput
+          the maximun monthly rent for an apartment 
+          if they are allowed to use 40% of their yearly income.
+
+        - how to calculate a percentage?
+
+        const maxMonthlyRent = (salary) => {
+            return `Your ideal max rent is ${salary / 40}`
+        }
