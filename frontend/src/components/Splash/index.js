@@ -1,4 +1,5 @@
 import React from "react"
+import { NavLink } from "react-router-dom"
 import LoginFormModal from "../LoginFormModal"
 import "./index.css"
 
@@ -14,7 +15,7 @@ const Splash = ({isLoaded}) => {
                 </div>
                 <div id="splash-button-container">
                     <LoginFormModal />
-                    <button>Sign-Up</button>
+                    <NavLink to="/signup">Sign Up</NavLink>
                     <button>Demo</button>
                     <button>About</button>
                 </div>
