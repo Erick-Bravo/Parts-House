@@ -1,0 +1,29 @@
+#sign-up-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    background-image: linear-gradient(45deg, #4a95bd,  #163a6d);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+
+}
+
+#sign-up-container form {
+    width: 200px;
+    height: 200px;
+}
+
+#sign-up-container button {
+    margin: 20px;
+    border: none;
+    background-color:  #2F496E;
+    color: #F4EADE;
+    border-radius: 5px;
+}
+
+#sign-up-container button:hover {
+    background-color:  #3a4e69
+}
