@@ -2,7 +2,6 @@
 module.exports = (sequelize, DataTypes) => {
   const Part = sequelize.define('Part', {
     name: DataTypes.STRING,
-    description: DataTypes.STRING,
     cost: DataTypes.INTEGER,
     make: DataTypes.STRING,
     model: DataTypes.STRING,
