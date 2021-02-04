@@ -1,0 +1,12 @@
+#user-main-page {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    background-color: #F4EADE;
+    height: 100%;
+    width: 100%;
+}
+
+#user-main-page img {
+    padding: 15px;
+}
