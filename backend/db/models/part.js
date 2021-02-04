@@ -12,6 +12,15 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Part.associate = function(models) {
     // associations can be defined here
+    Part.hasMany(models.Notification, {
+      foreignKey: 'partId'
+    });
+
+    Part.belongsTo(models.Record, {
+      foreignKey: "recordId"
+    })
+
+
   };
   return Part;
 };

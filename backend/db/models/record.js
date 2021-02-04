@@ -13,7 +13,14 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Record.associate = function(models) {
     // associations can be defined here
-    
+    Record.hasMany(models.Part, {
+      foreignKey: 'recordId'
+    });
+
+    Record.belongsTo(models.PartsHouse, {
+      foreignKey: "partsHouseId"
+    })
+
   };
   return Record;
 };

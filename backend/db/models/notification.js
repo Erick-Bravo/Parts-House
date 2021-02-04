@@ -8,6 +8,14 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Notification.associate = function(models) {
     // associations can be defined here
+    Notification.belongsTo(models.User, {
+      foreignKey: "userId"
+    })
+
+    Notification.belongsTo(models.Part, {
+      foreignKey: "partId"
+    })
+
   };
   return Notification;
 };
