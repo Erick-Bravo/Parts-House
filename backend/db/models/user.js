@@ -18,6 +18,16 @@ module.exports = (sequelize, DataTypes) => {
           }
         }
       },
+      firstName: {
+        type: DataTypes.STRING,
+        allowNull: false,
+
+      },
+      lastName: {
+        type: DataTypes.STRING,
+        allowNull: false,
+
+      },
       email: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -51,6 +61,15 @@ module.exports = (sequelize, DataTypes) => {
   );
   User.associate = function (models) {
     // associations can be defined here
+    User.hasMany(models.PartsHouse, {
+      foreignKey: "userId"
+    });
+    User.hasMany(models.Notification, {
+      foreignKey: "userId"
+    })
+
+
+
   };
   User.prototype.toSafeObject = function () {
     // remember, this cannot be an arrow function
