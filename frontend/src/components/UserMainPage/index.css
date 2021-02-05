@@ -10,3 +10,11 @@
 #user-main-page img {
     padding: 15px;
 }
+
+#left-nav-bar {
+    height: 100%;
+    width: 200px;
+    background-color: #2F496E;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #F4EADE;
+}
