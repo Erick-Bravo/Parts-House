@@ -1,8 +1,9 @@
-import React from "react"
+import React, { useState, useEffect }from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink, Redirect } from "react-router-dom"
-import { logout } from "../../store/session"
+import { NavLink, Redirect } from "react-router-dom";
+import { logout } from "../../store/session";
 // import LeftNavBar from "./LeftNavBar"
+import { fetchUserPartsHouses } from "../../store/partshouse"
 import "./index.css";
 
 
@@ -11,9 +12,19 @@ import "./index.css";
 //user <NavLink to={`/users/${userId}/partshouses/create`}>add</NavLink>
 
 
-const LeftNavBar = () => {
+const LeftNavBar = ({userId}) => {
 
     const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(fetchUserPartsHouses(userId));
+    }, [dispatch]);
+
+    const userPartsHouses = useSelector(state => state )
+
+
+
+
 
     const logoutHandler = (e) => {
         e.preventDefault();
@@ -31,8 +42,8 @@ const LeftNavBar = () => {
             </div>
 
         </div>
-    )
-}
+    );
+};
 
 
 
@@ -42,7 +53,7 @@ const UserMainPage = () => {
     
     if(!sessionUser) return <Redirect to={"/"} />;
 
-    const userId = sessionUser.id
+    const userId = sessionUser.id;
 
 
     return (
@@ -53,7 +64,7 @@ const UserMainPage = () => {
                 <img src="https://i.ibb.co/Sx3THPm/vector-creator-1500-1by1.png" alt="vector-creator-1500-1by1" border="0" height="100px"/>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default UserMainPage
+export default UserMainPage;
