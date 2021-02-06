@@ -1,7 +1,6 @@
 import React from "react"
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
-import { NavLink } from "react-router-dom"
+import { NavLink, Redirect } from "react-router-dom"
 import LoginFormModal from "../LoginFormModal"
 import "./index.css"
 
@@ -13,9 +12,12 @@ import "./index.css"
 const Splash = () => {
     const sessionUser = useSelector((state) => state.session.user);
 
-    const userId = sessionUser.id
-
-    if (sessionUser) return <Redirect to={`/users/${userId}`} />;
+    
+    
+    if (sessionUser) {
+        const userId = sessionUser.id
+        return <Redirect to={`/users/${userId}`} />
+    };
 
     return (
         <> 

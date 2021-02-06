@@ -4,7 +4,7 @@ const asyncHandler = require('express-async-handler');
 
 const { handleValidationErrors } = require('../../utils/validation');
 const { setTokenCookie, requireAuth } = require('../../utils/auth');
-const { User } = require('../../db/models');
+const { User, PartsHouse } = require('../../db/models');
 
 const router = express.Router();
 
@@ -25,6 +25,15 @@ const validateSignup = [
   handleValidationErrors
 ];
 
+router.get("/", async(req, res, next) => {
+  try {
+      const users = await User.findAll();
+      res.json({users: users})
+  } catch (e) {
+      next(e)
+  }
+})
+
 // Sign up
 router.post(
   '/',
@@ -40,5 +49,17 @@ router.post(
     });
   })
 );
+
+
+// Parts Houses
+router.get("/:userId/partshouses", asyncHandler(async(req, res) => {
+  const { userId } = req.params;
+
+  const partshouses = await PartsHouse.findAll({
+    where: { userId: userId },
+  })
+  res.json({ partshouses })
+}));
+
 
 module.exports = router;

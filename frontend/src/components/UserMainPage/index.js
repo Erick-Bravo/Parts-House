@@ -1,8 +1,9 @@
 import React from "react"
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink } from "react-router-dom"
+import { NavLink, Redirect } from "react-router-dom"
+import { logout } from "../../store/session"
 // import LeftNavBar from "./LeftNavBar"
-import "./index.css"
+import "./index.css";
 
 
 // on Add Parts House should probably be a hidden form
@@ -10,9 +11,14 @@ import "./index.css"
 //user <NavLink to={`/users/${userId}/partshouses/create`}>add</NavLink>
 
 
+const LeftNavBar = () => {
 
+    const dispatch = useDispatch();
 
-const LeftNavBar = ({userId}) => {
+    const logoutHandler = (e) => {
+        e.preventDefault();
+        dispatch(logout());
+      };
 
     return (
         <div id="left-nav-bar">
@@ -20,7 +26,7 @@ const LeftNavBar = ({userId}) => {
                 <button>add parts house +</button>
             </div>
             <div className="bottom-section-navbar">
-                <button>Logout</button>
+                <button onClick={logoutHandler}>Logout</button>
                 <div className="empty-space-leftNav"></div>
             </div>
 
@@ -33,11 +39,15 @@ const LeftNavBar = ({userId}) => {
 const UserMainPage = () => {
 
     const sessionUser = useSelector((state) => state.session.user);
+    
+    if(!sessionUser) return <Redirect to={"/"} />;
 
     const userId = sessionUser.id
 
+
     return (
         <div id="user-main-page">
+            
             <LeftNavBar userId={userId}/>
             <div id="mascot">
                 <img src="https://i.ibb.co/Sx3THPm/vector-creator-1500-1by1.png" alt="vector-creator-1500-1by1" border="0" height="100px"/>
