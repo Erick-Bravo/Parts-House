@@ -20,9 +20,9 @@ const LeftNavBar = ({userId}) => {
         dispatch(fetchUserPartsHouses(userId));
     }, [dispatch]);
 
-    const userPartsHouses = useSelector(state => state )
+    const userPartsHouses = useSelector(state => state.partsHouses )
 
-
+    
 
 
 
@@ -35,6 +35,10 @@ const LeftNavBar = ({userId}) => {
         <div id="left-nav-bar">
             <div className="top-section-navbar">
                 <button>add parts house +</button>
+                {!userPartsHouses && <p>{`<Parts Houses Empty>`}</p>}
+                {userPartsHouses && userPartsHouses.map(partsHouse => {
+                    return <button>{`${partsHouse.name}`}</button>
+                })}
             </div>
             <div className="bottom-section-navbar">
                 <button onClick={logoutHandler}>Logout</button>
