@@ -5,7 +5,7 @@ import SignupFormPage from "./components/SignupFormPage";
 import LoginFormPage from "./components/LoginFormPage"
 // import LoginFormPage from "./components/LoginFormPage";
 import * as sessionActions from "./store/session";
-import Navigation from "./components/Navigation";
+import UserMainPage from "./components/UserMainPage"
 import Splash from "./components/Splash"
 
 function App() {
@@ -27,6 +27,9 @@ function App() {
           </Route>
           <Route exact path="/">
             <Splash isLoaded={isLoaded} />
+          </Route>
+          <Route exact path="/users/:userId">
+            <UserMainPage />
           </Route>
         </Switch>
       )}

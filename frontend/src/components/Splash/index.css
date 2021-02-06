@@ -12,26 +12,28 @@
     margin: 0px;
 }
 
-#splash-page h2 {
+#splash-page p {
+    font-size: 60px;
+     /* border: 2px solid black ; */
     color: #ED8C72;
     text-align: center;
     font-family:cursive;
 }
 
 #splash-button-container {
-    width: 175px;
-    
+    width: 305px;
+    /* border: 2px solid black ; */
     position: relative
 }
 
 #splash-page button {
     background-color: #2F496E;
     color: #F4EADE;
-    width: 65px;
-    font-size: 12px;
+    width: 130px;
+    font-size: 30px;
     border: none;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 10px;
     margin: 10px;
 }
 
@@ -43,10 +45,11 @@
     background-color: #2F496E;
     color: #F4EADE;
     font-family: sans-serif;
-    font-size: 12px;
+    
+    font-size: 30px;
     border: none;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 10px;
     margin: 10px;
     padding: 1.25px;
     padding-left: 12px;
