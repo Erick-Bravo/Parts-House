@@ -4,7 +4,7 @@ const asyncHandler = require('express-async-handler');
 
 const { handleValidationErrors } = require('../../utils/validation');
 const { setTokenCookie, requireAuth } = require('../../utils/auth');
-const { User, PartsHouse } = require('../../db/models');
+const { User, PartsHouse, Record, Part } = require('../../db/models');
 
 const router = express.Router();
 
@@ -51,15 +51,33 @@ router.post(
 );
 
 
-// Parts Houses
+// Get ALL PartsHouses w/ Records associated
 router.get("/:userId/partshouses", asyncHandler(async(req, res) => {
   const { userId } = req.params;
 
   const partshouses = await PartsHouse.findAll({
     where: { userId: userId },
+    include: Record,
   })
   res.json({ partshouses })
 }));
+
+
+// Get All Records w/ Parts associated
+router.get("/:userId/partshouses/:partshouseId/records", asyncHandler(async(req, res) => {
+  const { partshouseId } = req.params;
+
+  const records = await Record.findAll({
+    where: { partsHouseId: partshouseId },
+    include: Part,
+  })
+  res.json({ records })
+}))
+
+
+
+// //Get All Parts for One Record
+// router.get("/:userId/partshouses/:partshouseId/records:recordsId")
 
 
 module.exports = router;
