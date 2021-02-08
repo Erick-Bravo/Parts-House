@@ -14,7 +14,6 @@ const RecordCard = ({ record }) => {
             <div>{record.make}</div>
             <div>{record.model}</div>
             <div>{record.serial}</div>
-
         </div>
     )
 }
@@ -22,7 +21,7 @@ const RecordCard = ({ record }) => {
 
 
 
-const ApplianceList = () => {
+const ApplianceList = ({userPartsHouses}) => {
 
     const dispatch = useDispatch();
 
@@ -30,16 +29,28 @@ const ApplianceList = () => {
     const numuserId = parseInt(userId)
     const numpartsHouseId = parseInt(partsHouseId)
 
+    
+    const partsHouses = userPartsHouses
 
-    useEffect(() => {
-        dispatch(fetchUserPartsHouses(userId));
-    }, [dispatch]);
-
-    // const partsHouses = useSelector(state => state.partsHouses)
+    console.log(partsHouses)
 
     // const selectedPartsHouse = partsHouses.filter(ph => ph.id === numpartsHouseId)
 
+    // console.log(selectedPartsHouse)
+
+    // let records
+    // let loaded
+
+    // if (selectedPartsHouse[0].Records) {
+    //     records = selectedPartsHouse[0].Records
+    //     const record = records.filter(rec => rec.type === "Appliances")
+    //     loaded = record
+    //     console.log(loaded)
+    // }
+
     // const records = selectedPartsHouse[0].Records
+
+    // console.log(records)
 
     // const applianceType = records.filter(rec => rec.type === "Appliances")
 
@@ -61,7 +72,7 @@ const ApplianceList = () => {
             </div>
 
             <div id="display-box">
-
+        
             </div>
 
             <div id="mascot">

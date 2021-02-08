@@ -9,6 +9,7 @@ import EmptyDisplayPage from "./components/UserMainPage"
 import Splash from "./components/Splash"
 import LeftNavBar from "./components/UserMainPage/LeftNavBar"
 import ApplianceList from "./components/RecordLists/ApplianceList"
+import { fetchUserPartsHouses } from "./store/partshouse"
 
 
 function App() {
@@ -21,8 +22,21 @@ function App() {
 
   const sessionUser = useSelector((state) => state.session.user);
 
-  const userPartsHouses = useSelector(state => state.partsHouses);
+  // const userId = sessionUser.id
 
+  const userPartsHouses = useSelector(state => state.partsHouses);
+  
+  if(!sessionUser) return <Redirect to={"/"} />;
+
+  // let userPartsHouses
+
+  // if (sessionUser) {
+  //   useEffect(() => {
+  //     dispatch(fetchUserPartsHouses(userId));
+  //   }, [dispatch]);
+
+  //   userPartsHouses = useSelector(state => state.partsHouses);
+  // }
 
   return (
     <>
@@ -42,7 +56,8 @@ function App() {
             <EmptyDisplayPage />
           </Route>
           <Route exact path="/users/:userId/parts-house/:partsHouseId/appliances">
-            <ApplianceList />
+            <ApplianceList userPartsHouses={userPartsHouses} />
+         
           </Route>
         </Switch>
       )}
