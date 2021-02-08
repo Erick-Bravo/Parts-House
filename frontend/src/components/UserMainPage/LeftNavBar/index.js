@@ -19,7 +19,6 @@ const LeftNavBar = ({userPartsHouses}) => {
         dispatch(logout());
       };
 
-      console.log(displayBox)
 
     return (
         <div id="left-nav-bar">

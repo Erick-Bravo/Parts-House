@@ -1,7 +1,6 @@
 import React, { useState, useEffect }from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect, Route, NavLink, useParams } from "react-router-dom";
-import LeftNavBar from "./LeftNavBar"
 import { fetchUserPartsHouses } from "../../store/partshouse"
 import "./index.css";
 
@@ -16,6 +15,8 @@ const UserMainPage = () => {
 
     const dispatch = useDispatch();
 
+ 
+
     const { userId } = useParams();
     
     useEffect(() => {
@@ -25,13 +26,12 @@ const UserMainPage = () => {
     const userPartsHouses = useSelector(state => state.partsHouses);
     const sessionUser = useSelector((state) => state.session.user);
 
-    if(!sessionUser) return <Redirect to={"/"} />;
+    // if(!sessionUser) return <Redirect to={"/"} />;
     
 
     return (
         <div id="user-main-page">
             
-            <LeftNavBar userId={userId} userPartsHouses={userPartsHouses}/>
             <div id="display-box">
    
             </div>
