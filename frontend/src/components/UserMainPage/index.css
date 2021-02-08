@@ -35,14 +35,14 @@
 }
 
 #left-nav-bar a {
-    font-size: 20px;
+    /* font-size: 20px;
     /* background-color:  #2F496E; */
-    background-color:  #012c68;
+    /* background-color:  #012c68;
     color: #F4EADE;
     margin: 40px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     border: none;
-    text-align: left;
+    text-align: left; */ 
     text-decoration: none;
 }
 

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { NavLink, useParams } from "react-router-dom"
+import { useDispatch, useSelector } from "react-redux";
+import { NavLink } from "react-router-dom"
 import { logout } from "../../../store/session";
 
 
@@ -13,7 +13,7 @@ const LeftNavBar = ({ userPartsHouses }) => {
 
     const dispatch = useDispatch();
 
-    const { userId } = useParams()
+
 
     const [displayBox, setDisplayBox] = useState("Hello! Having a Good Day?");
 
@@ -22,6 +22,12 @@ const LeftNavBar = ({ userPartsHouses }) => {
         dispatch(logout());
     };
 
+    // const handleSubmit = (e) => {
+    //     e.preventDefault()
+    //     history.push(`/users/${userId}/parts-house/${partsHouse.id}`)
+    // }
+    // (`/users/${userId}/parts-house/${partsHouse.id}/appliances`)
+    const userId = useSelector(state => state.session.user.id)
 
     return (
         <div id="left-nav-bar">
@@ -29,10 +35,9 @@ const LeftNavBar = ({ userPartsHouses }) => {
                 <button>add parts house +</button>
                 {!userPartsHouses && <p>{`<Parts Houses Empty>`}</p>}
                 {userPartsHouses && userPartsHouses.map(partsHouse => {
-                    return <NavLink to={`/users/${userId}/parts-house/${partsHouse.id}/appliances`}
-                        key={partsHouse.id}>
-                        {`${partsHouse.name}`}
-                    </NavLink>
+                    return <NavLink to={`/users/${userId}/parts-house/${partsHouse.id}/appliances`} key={partsHouse.id}>
+                        <button>{`${partsHouse.name}`}</button>
+                        </NavLink>
                 })}
             </div>
             <div className="bottom-section-navbar">
