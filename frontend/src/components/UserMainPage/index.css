@@ -1,6 +1,7 @@
 #user-main-page {
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
     position: absolute;
     background-color: #F4EADE;
     height: 100%;

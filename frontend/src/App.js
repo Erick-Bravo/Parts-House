@@ -8,6 +8,7 @@ import * as sessionActions from "./store/session";
 import EmptyDisplayPage from "./components/UserMainPage"
 import Splash from "./components/Splash"
 import LeftNavBar from "./components/UserMainPage/LeftNavBar"
+import ApplianceList from "./components/RecordLists/ApplianceList"
 
 
 function App() {
@@ -39,6 +40,9 @@ function App() {
           </Route>
           <Route exact path="/users/:userId">
             <EmptyDisplayPage />
+          </Route>
+          <Route exact path="/users/:userId/parts-house/:partsHouseId/appliances">
+            <ApplianceList />
           </Route>
         </Switch>
       )}

@@ -1,0 +1,18 @@
+#record-navbar {
+    display: flex;
+    justify-content: center;
+}
+
+#record-navbar a{
+    text-decoration: none;
+    color: #2F496E;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    /* border: 2px solid black; */
+    margin: 40px;
+    font-size: 25px;
+}
+
+.active {
+    color: #ED8C72;
+}
+

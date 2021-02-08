@@ -5,9 +5,7 @@ import { fetchUserPartsHouses } from "../../store/partshouse"
 import "./index.css";
 
 
-// on Add Parts House should probably be a hidden form
-//need to use useState and controll a "hidden" attribute
-//user <NavLink to={`/users/${userId}/partshouses/create`}>add</NavLink>
+
 
 
 
@@ -24,7 +22,6 @@ const EmptyDisplayPage = () => {
 
     // if(!sessionUser) return <Redirect to={"/"} />;
     
-
     return (
         <div id="user-main-page">
             
