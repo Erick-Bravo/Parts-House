@@ -1,6 +1,6 @@
 import React, { useState, useEffect }from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect, Route, NavLink } from "react-router-dom";
+import { Redirect, Route, NavLink, useParams } from "react-router-dom";
 import LeftNavBar from "./LeftNavBar"
 import { fetchUserPartsHouses } from "../../store/partshouse"
 import "./index.css";
@@ -16,28 +16,24 @@ const UserMainPage = () => {
 
     const dispatch = useDispatch();
 
-    
-    
+    const { userId } = useParams();
     
     useEffect(() => {
         dispatch(fetchUserPartsHouses(userId));
     }, [dispatch]);
     
-    const userPartsHouses = useSelector(state => state.partsHouses)
+    const userPartsHouses = useSelector(state => state.partsHouses);
     const sessionUser = useSelector((state) => state.session.user);
 
     if(!sessionUser) return <Redirect to={"/"} />;
     
-    const userId = sessionUser.id;
 
     return (
         <div id="user-main-page">
             
             <LeftNavBar userId={userId} userPartsHouses={userPartsHouses}/>
             <div id="display-box">
-                <Route path="/users/:userId/parts-house/:partsHouseId/records">
-                    
-                </Route>
+   
             </div>
             <div id="mascot">
                 <img src="https://i.ibb.co/Sx3THPm/vector-creator-1500-1by1.png" alt="vector-creator-1500-1by1" border="0" height="100px"/>

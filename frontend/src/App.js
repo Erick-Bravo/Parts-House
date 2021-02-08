@@ -11,12 +11,14 @@ import Splash from "./components/Splash"
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
+
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
 
   return (
     <>
+      {}
       {isLoaded && (
         <Switch>
           <Route path="/login" >
@@ -26,7 +28,7 @@ function App() {
             <SignupFormPage />
           </Route>
           <Route exact path="/">
-            <Splash isLoaded={isLoaded} />
+            <Splash />
           </Route>
           <Route exact path="/users/:userId">
             <UserMainPage />
