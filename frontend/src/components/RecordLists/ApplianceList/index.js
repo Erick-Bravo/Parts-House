@@ -35,13 +35,13 @@ const ApplianceList = () => {
         dispatch(fetchUserPartsHouses(userId));
     }, [dispatch]);
 
-    const partsHouses = useSelector(state => state.partsHouses)
+    // const partsHouses = useSelector(state => state.partsHouses)
 
-    const selectedPartsHouse = partsHouses.filter(ph => ph.id === numpartsHouseId)
+    // const selectedPartsHouse = partsHouses.filter(ph => ph.id === numpartsHouseId)
 
-    const records = selectedPartsHouse[0].Records
+    // const records = selectedPartsHouse[0].Records
 
-    const applianceType = records.filter(rec => rec.type === "Appliances")
+    // const applianceType = records.filter(rec => rec.type === "Appliances")
 
     // console.log(applianceType)
 
@@ -61,9 +61,7 @@ const ApplianceList = () => {
             </div>
 
             <div id="display-box">
-            {selectedPartsHouse && applianceType.map((record) => {
-                    <RecordCard record={record} />
-                })}
+
             </div>
 
             <div id="mascot">
