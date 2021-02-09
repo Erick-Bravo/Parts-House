@@ -16,3 +16,16 @@
     color: #ED8C72;
 }
 
+#display-box {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    /* border: 2px solid black; */
+    /* padding: 100px */
+}
+
+#display-box #empty-space {
+    height: 50px;
+}

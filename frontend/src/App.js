@@ -9,7 +9,8 @@ import EmptyDisplayPage from "./components/UserMainPage"
 import Splash from "./components/Splash"
 import LeftNavBar from "./components/UserMainPage/LeftNavBar"
 import ApplianceList from "./components/RecordLists/ApplianceList"
-import { fetchUserPartsHouses } from "./store/partshouse"
+import ElectronicList from "./components/RecordLists/ElectronicList"
+
 
 
 function App() {
@@ -22,18 +23,6 @@ function App() {
 
   const sessionUser = useSelector((state) => state.session.user);
 
-  // const userId = sessionUser.id
-
- 
-  
-  // let userPartsHouses
-
-    // useEffect(() => {
-    //   dispatch(fetchUserPartsHouses(userId));
-    // }, [dispatch]);
-
-  //   userPartsHouses = useSelector(state => state.partsHouses);
-  // }
 
   return (
     <>
@@ -54,6 +43,9 @@ function App() {
           </Route>
           <Route exact path="/users/:userId/parts-house/:partsHouseId/appliances">
             <ApplianceList />
+          </Route>
+          <Route exact path="/users/:userId/parts-house/:partsHouseId/electronics">
+            <ElectronicList />
           </Route>
         </Switch>
       )}
