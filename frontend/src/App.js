@@ -11,6 +11,7 @@ import LeftNavBar from "./components/UserMainPage/LeftNavBar"
 import ApplianceList from "./components/RecordLists/ApplianceList"
 import ElectronicList from "./components/RecordLists/ElectronicList"
 import OtherList from "./components/RecordLists/OtherList"
+import RecordPage from "./components/RecordPage"
 
 
 
@@ -50,6 +51,15 @@ function App() {
           </Route>
           <Route exact path="/users/:userId/parts-house/:partsHouseId/other">
             <OtherList />
+          </Route>
+          <Route exact path="/users/:userId/parts-house/:partsHouseId/appliances/:applianceId">
+            <RecordPage />
+          </Route>
+          <Route exact path="/users/:userId/parts-house/:partsHouseId/electronics/:electronicId">
+            <RecordPage />
+          </Route>
+          <Route exact path="/users/:userId/parts-house/:partsHouseId/other/:otherId">
+            <RecordPage />
           </Route>
         </Switch>
       )}

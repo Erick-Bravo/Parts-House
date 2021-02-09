@@ -24,6 +24,11 @@
     width: 100%;
     /* border: 2px solid black; */
     /* padding: 100px */
+    
+}
+
+#display-box a{
+    text-decoration: none;
 }
 
 #display-box #empty-space {

@@ -56,7 +56,9 @@ const ElectronicList = () => {
                 <img src="https://i.ibb.co/zNWRjHY/Electronic-Icon.png" alt="Electronic-Icon" border="0" width="100px"></img>
                 <div>
                     {electronics.map(electronic => {
-                        return <RecordCard record={electronic} key={electronic.id} />
+                        return <NavLink to={`/users/${userId}/parts-house/${partsHouseId}/electronics/${electronic.id}`} key={electronic.id}>
+                            <RecordCard record={electronic} key={electronic.id} />
+                        </NavLink>
                     })}
                 </div>
             </div>
