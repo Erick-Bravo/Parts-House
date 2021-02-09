@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useParams, NavLink } from "react-router-dom";
 import RecordCard from "../RecordCard"
 import "./index.css";
@@ -53,8 +53,7 @@ const ApplianceList = () => {
             </div>
 
             <div id="display-box">
-                <div id="empty-space">
-                </div>
+                <img src="https://i.ibb.co/1J6XgXY/Appliance-Icon.png" alt="Appliance-Icon" border="0" width="100px"></img>
                 <div>
                     {appliances.map(appliance => {
                         return <RecordCard record={appliance} key={appliance.id}/>

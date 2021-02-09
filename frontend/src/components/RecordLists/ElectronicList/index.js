@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useParams, NavLink } from "react-router-dom";
 import RecordCard from "../RecordCard"
 import "./index.css";
@@ -53,8 +53,7 @@ const ElectronicList = () => {
             </div>
 
             <div id="display-box">
-                <div id="empty-space">
-                </div>
+                <img src="https://i.ibb.co/zNWRjHY/Electronic-Icon.png" alt="Electronic-Icon" border="0" width="100px"></img>
                 <div>
                     {electronics.map(electronic => {
                         return <RecordCard record={electronic} key={electronic.id} />
