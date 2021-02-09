@@ -10,6 +10,7 @@ import Splash from "./components/Splash"
 import LeftNavBar from "./components/UserMainPage/LeftNavBar"
 import ApplianceList from "./components/RecordLists/ApplianceList"
 import ElectronicList from "./components/RecordLists/ElectronicList"
+import OtherList from "./components/RecordLists/OtherList"
 
 
 
@@ -46,6 +47,9 @@ function App() {
           </Route>
           <Route exact path="/users/:userId/parts-house/:partsHouseId/electronics">
             <ElectronicList />
+          </Route>
+          <Route exact path="/users/:userId/parts-house/:partsHouseId/other">
+            <OtherList />
           </Route>
         </Switch>
       )}
