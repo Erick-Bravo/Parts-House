@@ -1,6 +1,7 @@
 #user-main-page {
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
     position: absolute;
     background-color: #F4EADE;
     height: 100%;
@@ -27,10 +28,28 @@
     background-color:  #2F496E;
     color: #F4EADE;
     margin: 40px;
-    
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     border: none;
     width: 225px;
     height: 40px;
     text-align: left;
+}
+
+#left-nav-bar a {
+    /* font-size: 20px;
+    /* background-color:  #2F496E; */
+    /* background-color:  #012c68;
+    color: #F4EADE;
+    margin: 40px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border: none;
+    text-align: left; */ 
+    text-decoration: none;
+}
+
+#display-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 }

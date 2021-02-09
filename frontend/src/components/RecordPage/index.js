@@ -1,22 +1,16 @@
-import React, { useEffect }from "react";
-import { useDispatch } from "react-redux";
-import { useParams } from "react-router-dom";
-import { fetchUserPartsHouses } from "../../store/partshouse"
-import "./index.css";
+import React, { useEffect } from "react"
+import { useDispatch, useSelector } from "react-redux";
+import "./index.css"
 
+const RecordPage = () => {
 
-
-
-
-
-const EmptyDisplayPage = () => {
-
+    const dispatch = useDispatch()
 
     return (
         <div id="user-main-page">
             
             <div id="display-box">
-                <p>Hello! Having a good day?</p>
+                <p>This is the Record Page</p>
             </div>
 
             <div id="mascot">
@@ -25,6 +19,6 @@ const EmptyDisplayPage = () => {
             
         </div>
     );
-};
+}
 
-export default EmptyDisplayPage;
+export default RecordPage

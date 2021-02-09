@@ -1,0 +1,37 @@
+#record-card-container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    border: 5px solid #2F496E;
+    border-radius: 10px;
+    margin: 30px;
+    height: 150px;
+    width: 700px;
+    /* padding: 10px; */
+    color: #2F496E;
+}
+
+#record-card-container:hover {
+    color:#ED8C72 ;
+}
+
+#record-card-container #left{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#name {
+    font-size: 35px;
+    margin: 10px;
+}
+
+#make {
+    font-size: 20px;
+    margin: 10px;
+}
+
+#record-card-container #right{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 15px;
+    margin-top: 20px;
+    margin-right: 10px;
+}
