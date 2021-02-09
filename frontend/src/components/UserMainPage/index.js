@@ -11,16 +11,7 @@ import "./index.css";
 
 const EmptyDisplayPage = () => {
 
-    const dispatch = useDispatch();
 
-    const { userId } = useParams();
-    
-    useEffect(() => {
-        dispatch(fetchUserPartsHouses(userId));
-    }, [dispatch]);
-
-    
-    
     return (
         <div id="user-main-page">
             

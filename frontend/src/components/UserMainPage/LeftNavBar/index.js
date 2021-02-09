@@ -1,21 +1,29 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom"
 import { logout } from "../../../store/session";
+import { fetchUserPartsHouses } from "../../../store/partshouse"
 
 
 
 
-const LeftNavBar = ({ userPartsHouses }) => {
+const LeftNavBar = () => {
+
+    const userId = useSelector(state => state.session.user.id)
+    const userPartsHouses = useSelector(state => state.partsHouses);
 
     const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(fetchUserPartsHouses(userId));
+    }, [dispatch]);
+
 
     const logoutHandler = (e) => {
         e.preventDefault();
         dispatch(logout());
     };
 
-    const userId = useSelector(state => state.session.user.id)
 
     return (
         <div id="left-nav-bar">

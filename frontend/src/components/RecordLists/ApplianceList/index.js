@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, NavLink } from "react-router-dom";
 import { fetchUserPartsHouses } from "../../../store/partshouse"
@@ -21,7 +21,7 @@ const RecordCard = ({ record }) => {
 
 
 
-const ApplianceList = ({userPartsHouses}) => {
+const ApplianceList = () => {
 
     const dispatch = useDispatch();
 
@@ -29,12 +29,32 @@ const ApplianceList = ({userPartsHouses}) => {
     const numuserId = parseInt(userId)
     const numpartsHouseId = parseInt(partsHouseId)
 
-    
-    const partsHouses = userPartsHouses
 
-    console.log(partsHouses)
+    const partsHouses = useSelector(state => state.partsHouses)
 
-    // const selectedPartsHouse = partsHouses.filter(ph => ph.id === numpartsHouseId)
+    const [ appliances, setAppliances ] = useState([])
+    // const [ electronics, setElectronics ] = useState([])
+    // const [ other, setOther ] = useState([])
+
+    useEffect(() => {
+        if (partsHouses.length === 0) {
+            return
+        }
+        const selectedPartsHouse = partsHouses.find(ph => ph.id === numpartsHouseId)
+        if(selectedPartsHouse) {
+
+            const records = selectedPartsHouse.Records
+            const applianceTypes = records.filter(rec => rec.type === "Appliances")
+            setAppliances(applianceTypes)
+        }
+
+    }, [partsHouses, partsHouseId]);
+
+
+
+
+
+
 
     // console.log(selectedPartsHouse)
 
@@ -48,11 +68,9 @@ const ApplianceList = ({userPartsHouses}) => {
     //     console.log(loaded)
     // }
 
-    // const records = selectedPartsHouse[0].Records
 
     // console.log(records)
 
-    // const applianceType = records.filter(rec => rec.type === "Appliances")
 
     // console.log(applianceType)
 
@@ -72,7 +90,9 @@ const ApplianceList = ({userPartsHouses}) => {
             </div>
 
             <div id="display-box">
-        
+                {appliances.map(appliance => {
+                    return <RecordCard record={appliance}/>
+                })}
             </div>
 
             <div id="mascot">

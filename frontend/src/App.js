@@ -24,23 +24,20 @@ function App() {
 
   // const userId = sessionUser.id
 
-  const userPartsHouses = useSelector(state => state.partsHouses);
+ 
   
-  if(!sessionUser) return <Redirect to={"/"} />;
-
   // let userPartsHouses
 
-  // if (sessionUser) {
-  //   useEffect(() => {
-  //     dispatch(fetchUserPartsHouses(userId));
-  //   }, [dispatch]);
+    // useEffect(() => {
+    //   dispatch(fetchUserPartsHouses(userId));
+    // }, [dispatch]);
 
   //   userPartsHouses = useSelector(state => state.partsHouses);
   // }
 
   return (
     <>
-      {sessionUser && <LeftNavBar userPartsHouses={userPartsHouses} />}
+      {sessionUser && <LeftNavBar  />}
       {isLoaded && (
         <Switch>
           <Route path="/login" >
@@ -56,8 +53,7 @@ function App() {
             <EmptyDisplayPage />
           </Route>
           <Route exact path="/users/:userId/parts-house/:partsHouseId/appliances">
-            <ApplianceList userPartsHouses={userPartsHouses} />
-         
+            <ApplianceList />
           </Route>
         </Switch>
       )}
