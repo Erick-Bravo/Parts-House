@@ -20,15 +20,13 @@ const initialState = [];
 const reducer = (state = initialState, action) => {
 
     let newState;
-
     switch (action.type) {
 
         case GET_USER_RECORD:
             newState = action.userRecord
             return newState
-
         default:
-            return state
+            return state;
     };
 };
 

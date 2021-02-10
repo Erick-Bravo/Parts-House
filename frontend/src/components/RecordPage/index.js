@@ -1,15 +1,18 @@
-import React from "react"
+import React, { useEffect } from "react"
+import { useSelector, useDispatch } from "react-redux"
+import { useParams } from "react-router-dom"
+import { fetchUserRecord } from "../../store/records"
 
 import "./index.css"
 
 const RecordPage = () => {
 
-    // const dispatch = useDispatch()
-    // const [ recordId ] = useParams()
+    const dispatch = useDispatch()
+    const { recordId } = useParams()
 
-    // useEffect(() => {
-    //     dispatch(fetchUserRecord(recordId))
-    // }, [dispatch, recordId])
+    useEffect(() => {
+        dispatch(fetchUserRecord(recordId))
+    }, [dispatch, recordId])
 
     // const record = useSelector(state => state)
 
