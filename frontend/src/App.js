@@ -27,8 +27,10 @@ function App() {
 
 
   return (
-    <>
-      {sessionUser && <LeftNavBar  />}
+    <div id="website-container">
+      <div>
+        {sessionUser && <LeftNavBar  />}
+      </div>
       {isLoaded && (
         <Switch>
           <Route path="/login" >
@@ -63,7 +65,7 @@ function App() {
           </Route>
         </Switch>
       )}
-    </>
+    </div>
   );
 }
 

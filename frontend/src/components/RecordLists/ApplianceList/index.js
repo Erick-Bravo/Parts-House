@@ -32,7 +32,7 @@ const ApplianceList = () => {
             setAppliances(applianceTypes)
         }
 
-    }, [partsHouses, partsHouseId]);
+    }, [partsHouses, partsHouseId, numpartsHouseId]);
 
 
 

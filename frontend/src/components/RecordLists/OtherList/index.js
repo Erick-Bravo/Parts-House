@@ -11,7 +11,7 @@ import "../index.css";
 const OtherList = () => {
 
     const { userId, partsHouseId } = useParams();
-    const numuserId = parseInt(userId)
+
     const numpartsHouseId = parseInt(partsHouseId)
 
 
@@ -33,7 +33,7 @@ const OtherList = () => {
             setOthers(otherTypes)
         }
 
-    }, [partsHouses, partsHouseId]);
+    }, [partsHouses, partsHouseId, numpartsHouseId]);
 
 
 
