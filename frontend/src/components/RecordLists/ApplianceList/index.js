@@ -32,7 +32,7 @@ const ApplianceList = () => {
             setAppliances(applianceTypes)
         }
 
-    }, [partsHouses, partsHouseId]);
+    }, [partsHouses, partsHouseId, numpartsHouseId]);
 
 
 
@@ -55,7 +55,7 @@ const ApplianceList = () => {
                 <img src="https://i.ibb.co/1J6XgXY/Appliance-Icon.png" alt="Appliance-Icon" border="0" width="100px"></img>
                 <div>
                     {appliances.map(appliance => {
-                        return <NavLink to={`/users/${userId}/parts-house/${partsHouseId}/appliances/${appliance.id}`} key={appliance.id} >
+                        return <NavLink to={`/records/${appliance.id}`} key={appliance.id} >
                             <RecordCard record={appliance} />
                         </NavLink>
                     })}

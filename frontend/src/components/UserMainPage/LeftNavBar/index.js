@@ -16,7 +16,7 @@ const LeftNavBar = () => {
 
     useEffect(() => {
         dispatch(fetchUserPartsHouses(userId));
-    }, [dispatch]);
+    }, [dispatch, userId]);
 
 
     const logoutHandler = (e) => {

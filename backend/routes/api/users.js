@@ -64,14 +64,16 @@ router.get("/:userId/partshouses", asyncHandler(async(req, res) => {
 }));
 
 
-// Get All Records w/ Parts associated
-router.get("/:userId/records/:recordId/parts", asyncHandler(async(req, res) => {
+// Get Record w/ Parts associated
+router.get("/:userId/records/:recordId", asyncHandler(async(req, res) => {
   const { recordId } = req.params;
 
-  const parts = await Part.findAll({
-    where: { recordId: recordId },
+  const records = await Record.findOne({
+    where: { id: recordId },
+    include: Part,
+    
   })
-  res.json({ parts })
+  res.json({ records })
 }))
 
 

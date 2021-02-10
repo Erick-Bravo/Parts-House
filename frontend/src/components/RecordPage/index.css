@@ -1,0 +1,21 @@
+#record-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    /* color: #2F496E; */
+}
+
+#record-container #record-name {
+    font-size: 55px;
+    margin-top: 40px;
+}
+
+#record-container #record-make {
+    font-size: 30px;
+}
+
+#record-container p {
+    font-size: 20px;
+}

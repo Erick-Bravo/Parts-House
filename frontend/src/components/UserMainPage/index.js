@@ -1,7 +1,5 @@
-import React, { useEffect }from "react";
-import { useDispatch } from "react-redux";
-import { useParams } from "react-router-dom";
-import { fetchUserPartsHouses } from "../../store/partshouse"
+import React from "react";
+
 import "./index.css";
 
 

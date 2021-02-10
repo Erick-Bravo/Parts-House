@@ -52,13 +52,7 @@ function App() {
           <Route exact path="/users/:userId/parts-house/:partsHouseId/other">
             <OtherList />
           </Route>
-          <Route exact path="/users/:userId/parts-house/:partsHouseId/appliances/:applianceId">
-            <RecordPage />
-          </Route>
-          <Route exact path="/users/:userId/parts-house/:partsHouseId/electronics/:electronicId">
-            <RecordPage />
-          </Route>
-          <Route exact path="/users/:userId/parts-house/:partsHouseId/other/:otherId">
+          <Route exact path="/records/:recordId">
             <RecordPage />
           </Route>
         </Switch>
