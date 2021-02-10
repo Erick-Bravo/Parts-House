@@ -9,12 +9,15 @@ const RecordPage = () => {
 
     const dispatch = useDispatch()
     const { recordId } = useParams()
+    const numRecordId = parseInt(recordId)
+
+
 
     useEffect(() => {
-        dispatch(fetchUserRecord(recordId))
-    }, [dispatch, recordId])
+        dispatch(fetchUserRecord(numRecordId))
+    }, [dispatch, numRecordId])
 
-    // const record = useSelector(state => state)
+    const record = useSelector(state => state)
 
     // console.log(record)
 

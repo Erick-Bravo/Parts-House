@@ -8,7 +8,7 @@ router.get("/:recordId", asyncHandler(async(req, res) => {
     const { recordId } = req.params;
 
     const records = await Record.findOne({
-        where: { id: recordId },
+        where: { id: parseInt(recordId) },
         include: Part,
     })
 
