@@ -9,16 +9,29 @@ import "./index.css"
 
 const Part = ({part}) => {
 
+    const [ buyHidden, setBuyHidden ] = useState(true)
+    const [ addHidden, setAddHidden ] = useState(true)
+
+
+    useEffect(() => {
+        if(part.buyUrl === "url here") {
+            setAddHidden(false)
+        } else {
+            setBuyHidden(false)
+        }
+    })
+
     return (
-        <div id="parts-container">
-            <h2>Parts</h2>
+        <div id="record-card-container">
             <div id="left">
                 <div id="name">{part.name}</div>
                 <div id="make">{part.make}</div>
             </div>
             <div id="right">
-                <div>Model --- {part.model}</div>
-                <div>Serial --- {part.serial}</div>
+                <p>Model --- {part.model}</p>
+                <p>Serial --- {part.serial}</p>
+                <button hidden={addHidden}>Add Buy Url</button>
+                <button hidden={buyHidden}>Buy</button>
             </div>
         </div>
     )
@@ -59,9 +72,10 @@ const RecordPage = () => {
                     <h2>Info</h2>
                     <p>Model - {record.model}</p>
                     <p>Serial - {record.serial}</p>
-                    <p>Cost - ${record.cost}</p>
+                    <p>Initial Purchase Cost - ${record.cost}</p>
                     
                 </div>
+                <h2>Parts</h2>
                     {parts.map(part => {
                         return <Part part={part} key={part.id}/>
                     })}

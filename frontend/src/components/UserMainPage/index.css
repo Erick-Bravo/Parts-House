@@ -53,3 +53,8 @@
     justify-content: center;
     width: 100%;
 }
+
+#display-box h2{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
+}
