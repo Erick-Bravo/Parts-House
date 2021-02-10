@@ -11,7 +11,6 @@ import "../index.css";
 const ElectronicList = () => {
 
     const { userId, partsHouseId } = useParams();
-    const numuserId = parseInt(userId)
     const numpartsHouseId = parseInt(partsHouseId)
 
 
@@ -33,7 +32,7 @@ const ElectronicList = () => {
             setElectronics(electronicTypes)
         }
 
-    }, [partsHouses, partsHouseId]);
+    }, [partsHouses, partsHouseId, numpartsHouseId]);
 
 
 

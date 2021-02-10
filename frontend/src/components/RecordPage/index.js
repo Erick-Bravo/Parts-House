@@ -19,7 +19,7 @@ const Part = ({part}) => {
         } else {
             setBuyHidden(false)
         }
-    })
+    }, [part.buyUrl])
 
     return (
         <div id="record-card-container">
