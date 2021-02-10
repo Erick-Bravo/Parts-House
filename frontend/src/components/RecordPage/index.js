@@ -1,10 +1,19 @@
-import React, { useEffect } from "react"
-import { useDispatch, useSelector } from "react-redux";
+import React from "react"
+
 import "./index.css"
 
 const RecordPage = () => {
 
-    const dispatch = useDispatch()
+    // const dispatch = useDispatch()
+    // const [ recordId ] = useParams()
+
+    // useEffect(() => {
+    //     dispatch(fetchUserRecord(recordId))
+    // }, [dispatch, recordId])
+
+    // const record = useSelector(state => state)
+
+    // console.log(record)
 
     return (
         <div id="user-main-page">
