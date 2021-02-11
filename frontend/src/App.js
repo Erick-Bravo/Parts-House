@@ -13,6 +13,8 @@ import ElectronicList from "./components/RecordLists/ElectronicList"
 import OtherList from "./components/RecordLists/OtherList"
 import RecordPage from "./components/RecordPage"
 
+import "./index.css"
+
 
 
 function App() {
@@ -27,37 +29,42 @@ function App() {
 
 
   return (
-    <>
-      {sessionUser && <LeftNavBar  />}
-      {isLoaded && (
-        <Switch>
-          <Route path="/login" >
-            <LoginFormPage />
-          </Route>
-          <Route path="/signup">
-            <SignupFormPage />
-          </Route>
-          <Route exact path="/">
-            <Splash />
-          </Route>
-          <Route exact path="/users/:userId">
-            <EmptyDisplayPage />
-          </Route>
-          <Route exact path="/users/:userId/parts-house/:partsHouseId/appliances">
-            <ApplianceList />
-          </Route>
-          <Route exact path="/users/:userId/parts-house/:partsHouseId/electronics">
-            <ElectronicList />
-          </Route>
-          <Route exact path="/users/:userId/parts-house/:partsHouseId/other">
-            <OtherList />
-          </Route>
-          <Route exact path="/records/:recordId">
-            <RecordPage />
-          </Route>
-        </Switch>
-      )}
-    </>
+    <div className="website">
+      <div className="nav-bar">
+        {sessionUser && <LeftNavBar />}
+      </div>
+      <div>
+        {isLoaded &&
+          (
+            <Switch>
+              <Route path="/login" >
+                <LoginFormPage />
+              </Route>
+              <Route path="/signup">
+                <SignupFormPage />
+              </Route>
+              <Route exact path="/">
+                <Splash />
+              </Route>
+              <Route exact path="/users/:userId">
+                <EmptyDisplayPage />
+              </Route>
+              <Route exact path="/users/:userId/parts-house/:partsHouseId/appliances">
+                <ApplianceList />
+              </Route>
+              <Route exact path="/users/:userId/parts-house/:partsHouseId/electronics">
+                <ElectronicList />
+              </Route>
+              <Route exact path="/users/:userId/parts-house/:partsHouseId/other">
+                <OtherList />
+              </Route>
+              <Route exact path="/records/:recordId">
+                <RecordPage />
+              </Route>
+            </Switch>
+          )}
+      </div>
+    </div>
   );
 }
 

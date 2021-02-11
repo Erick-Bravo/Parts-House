@@ -64,6 +64,7 @@ router.get("/:userId/partshouses", asyncHandler(async(req, res) => {
 }));
 
 
+
 // Get Record w/ Parts associated
 router.get("/:userId/records/:recordId", asyncHandler(async(req, res) => {
   const { recordId } = req.params;

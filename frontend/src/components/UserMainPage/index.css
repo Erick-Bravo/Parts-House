@@ -5,7 +5,7 @@
     position: absolute;
     background-color: #F4EADE;
     height: 100%;
-    width: 100%;
+    width: 85%;
 }
 
 #user-main-page img {
@@ -14,8 +14,10 @@
 
 #left-nav-bar {
     display: flex;
+    /* justify-content: space-between; */
     justify-content: space-between;
     flex-direction: column;
+    
     height: 100%;
     width: 400px;
     background-color: #2F496E;
@@ -36,15 +38,33 @@
 }
 
 #left-nav-bar a {
-    /* font-size: 20px;
-    /* background-color:  #2F496E; */
-    /* background-color:  #012c68;
-    color: #F4EADE;
-    margin: 40px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    border: none;
-    text-align: left; */ 
     text-decoration: none;
+}
+
+#top-section-navbar p {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+#add-partshouse-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 300px;
+    height: 100%;
+   
+    margin-left: 40px;
+}
+
+#add-partshouse-form input {
+
+    height: 30px;
+    width: 275px;
+    margin: 5px;
+    font-size: 20px;
 }
 
 #display-box {

@@ -2,11 +2,13 @@ const router = require('express').Router();
 const sessionRouter = require('./session.js');
 const usersRouter = require('./users.js');
 const recordsRouter = require("./records.js")
+const pHRouter = require("./partshouses")
 
 // GET /api/set-token-cookie
 const asyncHandler = require('express-async-handler');
 const { setTokenCookie } = require('../../utils/auth.js');
 const { User } = require('../../db/models');
+
 router.get(
   '/set-token-cookie',
   asyncHandler(async (req, res) => {
@@ -47,6 +49,7 @@ router.get("/ohya", (req, res) => {
 
 router.use('/session', sessionRouter);
 router.use('/users', usersRouter);
-router.use("/records", recordsRouter)
+router.use("/records", recordsRouter);
+router.use("/parts-houses", pHRouter);
 
 module.exports = router;
