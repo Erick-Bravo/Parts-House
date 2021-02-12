@@ -1,1 +1,33 @@
 /* TODO Add site wide styles */
+/* #website {
+    display: flex;
+    flex-direction: row;
+} */
+
+/* .grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+      ". .";
+  } */
+
+  /* html { height:100%; } */
+  body {
+      height: 100vh;
+      overflow: hidden;
+  }
+  
+  .website {
+      display: flex;
+      flex-direction: row;
+      
+  }
+
+  /* .nav-bar {
+
+    min-height: 100vh;
+    border: 2px solid black;
+  } */
+
