@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink, Redirect, useHistory } from "react-router-dom";
 import { logout } from "../../../store/session";
 import { fetchUserPartsHouses } from "../../../store/partshouse";
-import { fetch } from "../../../store/csrf"
+import { addPartsHouse } from "../../../store/partshouse"
+// import { fetch } from "../../../store/csrf"
 
 
 
@@ -30,29 +31,22 @@ const LeftNavBar = () => {
         history.push(`/`)
     };
 
-    const addPartsHouseHandler = (e) => {
-        e.preventDefault();
+    const addPartsHouseHandler = () => {
+        
         setHidden(false);
     };
 
-    const submitHandler = async(e) => {
+    const submitHandler = async (e) => {
         e.preventDefault();
 
-            await fetch("/api/parts-houses/create", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ name, userId })
-        })
+        dispatch(addPartsHouse(name, userId))
 
         setHidden(true);
         setName("");
-
-        
     };
 
-
+    // onSubmit={submitHandler}
+    
     return (
         <div id="left-nav-bar">
             <div className="top-section-navbar">
@@ -65,8 +59,8 @@ const LeftNavBar = () => {
                 })}
                 <form id="add-partshouse-form" onSubmit={submitHandler}>
                     <input type="text" name="name" placeholder="input name"
-                        onChange={(e) => setName(e.target.value)} value={name} hidden={hidden}/>
-                    <input type="submit" hidden={hidden}/>
+                        onChange={(e) => setName(e.target.value)} value={name} hidden={hidden} />
+                    <input type="submit" hidden={hidden} />
                 </form>
             </div>
             <div className="bottom-section-navbar">

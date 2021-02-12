@@ -1,0 +1,8 @@
+#name-section {
+    display: flex;
+    align-items: center;
+    justify-content:space-around;
+    flex-direction: column;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 25px;
+}

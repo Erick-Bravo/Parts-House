@@ -30,9 +30,7 @@ function App() {
 
   return (
     <div className="website">
-      <div className="nav-bar">
         {sessionUser && <LeftNavBar />}
-      </div>
       <div>
         {isLoaded &&
           (
@@ -64,7 +62,7 @@ function App() {
             </Switch>
           )}
       </div>
-    </div>
+   </div>
   );
 }
 

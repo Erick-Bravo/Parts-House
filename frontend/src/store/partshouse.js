@@ -1,6 +1,8 @@
-// import { fetch } from "./csrf" 
+import { fetch } from "./csrf" 
 
-const GET_USER_PARTSHOUSES = "partshouse";
+const GET_USER_PARTSHOUSES = "get/partshouse";
+const ADD_PARTSHOUSE = "add/partshouse"
+const DELETE_PARTSHOUSE = "delete/partshouse";
 
 
 const setUserPartsHouses = (userPartsHouses) => ({
@@ -11,16 +13,49 @@ const setUserPartsHouses = (userPartsHouses) => ({
 export const fetchUserPartsHouses = (userId) => {
     return async(dispatch) => {
         const response = await fetch(`/api/users/${userId}/partshouses`);
-        const data = await response.json();
+        // const data = await response.json();
+        
         dispatch(
-            setUserPartsHouses(data.partshouses)
+            setUserPartsHouses(response.data.partshouses)
         );
     };
 };
 
-const initialState = [];
+const addPartsHouseAC = (payload) => ({
+    type: ADD_PARTSHOUSE,
+    payload
+})
 
-const reducer = (state = initialState, action) => {
+export const addPartsHouse = (name, userId) => {
+    return async(dispatch) => {
+
+        const response = await fetch("/api/parts-houses/create", {
+            method: "POST",
+            body: JSON.stringify({ name, userId })
+        });
+        dispatch(addPartsHouseAC(response.data.ph))
+    };
+};
+
+const deletePartsHouseAC = (payload) => ({
+    type: DELETE_PARTSHOUSE,
+    payload
+});
+
+export const deletePartsHouse = (partsHouseId) => {
+    return async (dispatch) => {
+        let response = await fetch(`/api/parts-houses/${partsHouseId}/delete`, {
+
+            method: "DELETE",
+            body: JSON.stringify({partsHouseId}),
+        })
+        // const data = await response.json()
+        dispatch(deletePartsHouseAC(response.data.ph));
+    };
+};
+
+
+const reducer = (state = [], action) => {
 
     let newState;
 
@@ -28,6 +63,17 @@ const reducer = (state = initialState, action) => {
         
         case GET_USER_PARTSHOUSES:
             newState = action.userPartsHouses
+            return newState
+
+        case ADD_PARTSHOUSE:
+            newState = [...state, action.payload]
+            return newState
+
+        case DELETE_PARTSHOUSE:
+            newState = state.filter((ph) => {
+                const ret = ph.id !== Number(action.payload.id)
+                return ret
+            })
             return newState
 
         default:
