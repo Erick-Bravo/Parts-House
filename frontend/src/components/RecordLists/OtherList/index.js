@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { useParams, NavLink } from "react-router-dom";
 import RecordCard from "../RecordCard"
 import "../index.css";
+import NameSection from "../zNameSection";
 
 
 
@@ -15,6 +16,7 @@ const OtherList = () => {
 
 
     const partsHouses = useSelector(state => state.partsHouses)
+    const [ph, setPh] = useState([])
 
     // const [appliances, setAppliances] = useState([])
     const [ others, setOthers ] = useState([])
@@ -29,6 +31,7 @@ const OtherList = () => {
 
             const records = selectedPartsHouse.Records
             const otherTypes = records.filter(rec => rec.type === "Other")
+            setPh(selectedPartsHouse)
             setOthers(otherTypes)
         }
 
@@ -38,6 +41,7 @@ const OtherList = () => {
 
     return (
         <div id="user-main-page">
+            <NameSection ph={ph}/>
 
             <div id="record-navbar">
                 <NavLink to={`/users/${userId}/parts-house/${partsHouseId}/appliances`} >
@@ -55,7 +59,7 @@ const OtherList = () => {
                 <div id="empty-space"></div>
                 <div>
                     {others.map(other => {
-                        return <NavLink to={`/users/${userId}/parts-house/${partsHouseId}/other/${other.id}`} key={other.id}>
+                        return <NavLink to={`/records/${other.id}/`} key={other.id}>
                             <RecordCard record={other} key={other.id} />
                         </NavLink>
                     })}

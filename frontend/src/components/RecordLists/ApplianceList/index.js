@@ -20,9 +20,6 @@ const ApplianceList = () => {
     const [appliances, setAppliances] = useState([])
     const [ph, setPh] = useState([])
 
-    // const [ electronics, setElectronics ] = useState([])
-    // const [ other, setOther ] = useState([])
-
     useEffect(() => {
         if (partsHouses.length === 0) {
             return
