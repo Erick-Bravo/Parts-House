@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { useParams, NavLink } from "react-router-dom";
 import RecordCard from "../RecordCard"
 import "../index.css";
+import NameSection from "../zNameSection";
 
 
 
@@ -16,9 +17,8 @@ const ElectronicList = () => {
 
     const partsHouses = useSelector(state => state.partsHouses)
 
-    // const [appliances, setAppliances] = useState([])
     const [ electronics, setElectronics ] = useState([])
-    // const [ other, setOther ] = useState([])
+    const [ph, setPh] = useState([])
 
     useEffect(() => {
         if (partsHouses.length === 0) {
@@ -29,6 +29,7 @@ const ElectronicList = () => {
 
             const records = selectedPartsHouse.Records
             const electronicTypes = records.filter(rec => rec.type === "Electronics")
+            setPh(selectedPartsHouse)
             setElectronics(electronicTypes)
         }
 
@@ -38,6 +39,7 @@ const ElectronicList = () => {
 
     return (
         <div id="user-main-page">
+            <NameSection ph={ph} />
 
             <div id="record-navbar">
                 <NavLink to={`/users/${userId}/parts-house/${partsHouseId}/appliances`} >
