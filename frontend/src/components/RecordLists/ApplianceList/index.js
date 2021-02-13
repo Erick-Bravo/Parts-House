@@ -12,7 +12,7 @@ import "../index.css";
 
 const ApplianceList = () => {
 
-    const { userId, partsHouseId } = useParams();
+    const { partsHouseId } = useParams();
     const numpartsHouseId = parseInt(partsHouseId)
 
     const partsHouses = useSelector(state => state.partsHouses)
@@ -42,13 +42,13 @@ const ApplianceList = () => {
             <NameSection ph={ph}/>
 
             <div id="record-navbar">
-                <NavLink to={`/users/${userId}/parts-house/${partsHouseId}/appliances`} >
+                <NavLink to={`/parts-house/${partsHouseId}/appliances`} >
                     Appliances
                 </NavLink>
-                <NavLink to={`/users/${userId}/parts-house/${partsHouseId}/electronics`}>
+                <NavLink to={`/parts-house/${partsHouseId}/electronics`}>
                     Electronics
                 </NavLink>
-                <NavLink to={`/users/${userId}/parts-house/${partsHouseId}/other`}>
+                <NavLink to={`/parts-house/${partsHouseId}/other`}>
                     Other
                 </NavLink>
             </div>

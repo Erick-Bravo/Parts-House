@@ -6,10 +6,6 @@ import LoginFormModal from "../LoginFormModal"
 import "./index.css"
 
 
-
-
-
-
 const Splash = () => {
     const dispatch = useDispatch();
     const sessionUser = useSelector((state) => state.session.user);

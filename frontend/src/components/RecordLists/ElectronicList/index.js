@@ -9,9 +9,9 @@ import NameSection from "../zNameSection";
 
 
 
-const ElectronicList = () => {
+const ElectronicList = ({ userId }) => {
 
-    const { userId, partsHouseId } = useParams();
+    const { partsHouseId } = useParams();
     const numpartsHouseId = parseInt(partsHouseId)
 
 
@@ -42,13 +42,13 @@ const ElectronicList = () => {
             <NameSection ph={ph} />
 
             <div id="record-navbar">
-                <NavLink to={`/users/${userId}/parts-house/${partsHouseId}/appliances`} >
+                <NavLink to={`/parts-house/${partsHouseId}/appliances`} >
                     Appliances
                 </NavLink>
-                <NavLink to={`/users/${userId}/parts-house/${partsHouseId}/electronics`}>
+                <NavLink to={`/parts-house/${partsHouseId}/electronics`}>
                     Electronics
                 </NavLink>
-                <NavLink to={`/users/${userId}/parts-house/${partsHouseId}/other`}>
+                <NavLink to={`/parts-house/${partsHouseId}/other`}>
                     Other
                 </NavLink>
             </div>

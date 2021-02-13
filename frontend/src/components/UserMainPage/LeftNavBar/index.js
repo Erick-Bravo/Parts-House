@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink, Redirect, useHistory } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { logout } from "../../../store/session";
 import { fetchUserPartsHouses } from "../../../store/partshouse";
 import { addPartsHouse } from "../../../store/partshouse"
@@ -15,12 +15,9 @@ const LeftNavBar = () => {
     const userPartsHouses = useSelector(state => state.partsHouses);
 
     const dispatch = useDispatch();
-    const history = useHistory();
 
     const [hidden, setHidden] = useState(true);
     const [name, setName] = useState("");
-
-
 
     useEffect(() => {
         dispatch(fetchUserPartsHouses(userId));
@@ -53,7 +50,7 @@ const LeftNavBar = () => {
                 <button onClick={addPartsHouseHandler}>add parts house +</button>
                 {!userPartsHouses && <p>{`<Parts Houses Empty>`}</p>}
                 {userPartsHouses && userPartsHouses.map(partsHouse => {
-                    return <NavLink to={`/users/${userId}/parts-house/${partsHouse.id}/appliances`} key={partsHouse.id}>
+                    return <NavLink to={`/parts-house/${partsHouse.id}/appliances`} key={partsHouse.id}>
                         <button>{`${partsHouse.name}`}</button>
                     </NavLink>
                 })}

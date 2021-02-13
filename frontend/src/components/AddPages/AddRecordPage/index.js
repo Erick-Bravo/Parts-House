@@ -1,10 +1,27 @@
-import React from "react"
+import React, { useState } from "react"
+import { useSelector, useDispatch } from 'react-redux';
+import { useHistory } from "react-router-dom"
 
 
 
 
 
 const AddRecordPage = () => {
+
+    const history = useHistory()
+    const dispatch = useDispatch()
+
+    const [ type, setType ] = useState("")
+    const [ name, setName ] = useState("")
+    const [ descript, setDescript ] = useState("")
+    const [ cost, setCost ] = useState(0)
+    const [ make, setMake ] = useState("")
+    const [ model, setModel ] = useState("")
+    const [ serial, setSerial ] = useState("")
+    const [ addInfo, setAddInfo ] = useState("")
+
+
+
     return (
         <div id="user-main-page">
             

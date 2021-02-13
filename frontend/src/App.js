@@ -28,7 +28,6 @@ function App() {
 
   const sessionUser = useSelector((state) => state.session.user);
 
-
   return (
     <div className="website">
         {sessionUser && <LeftNavBar />}
@@ -49,13 +48,13 @@ function App() {
               <Route exact path="/users/:userId">
                 <EmptyDisplayPage />
               </Route>
-              <Route exact path="/users/:userId/parts-house/:partsHouseId/appliances">
+              <Route exact path="/parts-house/:partsHouseId/appliances">
                 <ApplianceList />
               </Route>
-              <Route exact path="/users/:userId/parts-house/:partsHouseId/electronics">
+              <Route exact path="/parts-house/:partsHouseId/electronics">
                 <ElectronicList />
               </Route>
-              <Route exact path="/users/:userId/parts-house/:partsHouseId/other">
+              <Route exact path="/parts-house/:partsHouseId/other">
                 <OtherList />
               </Route>
               <Route exact path="/records/:recordId(\\d+)">
