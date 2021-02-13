@@ -3,7 +3,7 @@ import "./index.css"
 
 
 const RecordCard = ({ record }) => {
-    // console.log(record)
+    
     return (
         <div id="record-card-container">
             <div id="left">
@@ -13,6 +13,7 @@ const RecordCard = ({ record }) => {
             <div id="right">
                 <div>Model --- {record.model}</div>
                 <div>Serial --- {record.serial}</div>
+                <button>delete</button>
             </div>
         </div>
     );

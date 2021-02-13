@@ -20,19 +20,19 @@ const LeftNavBar = () => {
     const [hidden, setHidden] = useState(true);
     const [name, setName] = useState("");
 
+
+
     useEffect(() => {
         dispatch(fetchUserPartsHouses(userId));
     }, [dispatch, userId, hidden, name]);
-
-
+    
+    
     const logoutHandler = (e) => {
         e.preventDefault();
         dispatch(logout());
-        history.push(`/`)
     };
 
     const addPartsHouseHandler = () => {
-        
         setHidden(false);
     };
 
@@ -45,7 +45,7 @@ const LeftNavBar = () => {
         setName("");
     };
 
-    // onSubmit={submitHandler}
+
     
     return (
         <div id="left-nav-bar">
@@ -65,7 +65,6 @@ const LeftNavBar = () => {
             </div>
             <div className="bottom-section-navbar">
                 <button onClick={logoutHandler}>Logout</button>
-                <div className="empty-space-leftNav"></div>
             </div>
         </div>
     );

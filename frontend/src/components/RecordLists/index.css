@@ -34,3 +34,9 @@
 #display-box #empty-space {
     height: 50px;
 }
+
+#add-record {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

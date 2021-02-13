@@ -14,13 +14,10 @@ const OtherList = () => {
     const { userId, partsHouseId } = useParams();
     const numpartsHouseId = parseInt(partsHouseId)
 
-
     const partsHouses = useSelector(state => state.partsHouses)
-    const [ph, setPh] = useState([])
 
-    // const [appliances, setAppliances] = useState([])
     const [ others, setOthers ] = useState([])
-    // const [ other, setOther ] = useState([])
+    const [ph, setPh] = useState([])
 
     useEffect(() => {
         if (partsHouses.length === 0) {
@@ -53,6 +50,10 @@ const OtherList = () => {
                 <NavLink to={`/users/${userId}/parts-house/${partsHouseId}/other`}>
                     Other
                 </NavLink>
+            </div>
+
+            <div id="add-record">
+                <button>Add Other</button>
             </div>
 
             <div id="display-box">

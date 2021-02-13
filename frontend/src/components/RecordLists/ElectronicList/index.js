@@ -53,6 +53,10 @@ const ElectronicList = () => {
                 </NavLink>
             </div>
 
+            <div id="add-record">
+                <button>Add Electronic</button>
+            </div>
+
             <div id="display-box">
                 <img src="https://i.ibb.co/zNWRjHY/Electronic-Icon.png" alt="Electronic-Icon" border="0" width="100px"></img>
                 <div>

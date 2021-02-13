@@ -1,5 +1,6 @@
 import React from "react"
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import * as sessionActions from "../../store/session";
 import { NavLink, Redirect } from "react-router-dom"
 import LoginFormModal from "../LoginFormModal"
 import "./index.css"
@@ -10,14 +11,21 @@ import "./index.css"
 
 
 const Splash = () => {
+    const dispatch = useDispatch();
     const sessionUser = useSelector((state) => state.session.user);
 
-    
-    
     if (sessionUser) {
         const userId = sessionUser.id
         return <Redirect to={`/users/${userId}`} />
     };
+
+    const credential = "user@demo.com"
+    const password = "password"
+
+    const demoHandle = (e) => {
+        e.preventDefault();
+        return dispatch(sessionActions.login({ credential, password }))
+      };
 
     return (
         <> 
@@ -29,7 +37,7 @@ const Splash = () => {
                 <div id="splash-button-container">
                     <LoginFormModal />
                     <NavLink to="/signup">Sign Up</NavLink>
-                    <button>Demo</button>
+                    <button onClick={demoHandle}>Demo</button>
                     <button>About</button>
                 </div>
                 

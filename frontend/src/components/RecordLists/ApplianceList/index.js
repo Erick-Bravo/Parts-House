@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { useParams, NavLink } from "react-router-dom";
 import RecordCard from "../RecordCard"
 import NameSection from "../zNameSection" 
+import AddRecord from "../zAddRecord"
 import "../index.css";
 
 
@@ -13,7 +14,6 @@ const ApplianceList = () => {
 
     const { userId, partsHouseId } = useParams();
     const numpartsHouseId = parseInt(partsHouseId)
-
 
     const partsHouses = useSelector(state => state.partsHouses)
 
@@ -52,6 +52,8 @@ const ApplianceList = () => {
                     Other
                 </NavLink>
             </div>
+
+            <AddRecord />
 
             <div id="display-box">
                 <img src="https://i.ibb.co/1J6XgXY/Appliance-Icon.png" alt="Appliance-Icon" border="0" width="100px"></img>
