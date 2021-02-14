@@ -1,6 +1,7 @@
 #user-main-page {
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+    justify-content: center;
     flex-direction: column;
     position: absolute;
     background-color: #F4EADE;
@@ -78,3 +79,45 @@
     
 }
 
+#new-record-form {
+    display: flex;
+    
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 1200px;
+    width: 450px;
+    /* border: .2px solid #2F496E; */
+    
+}
+
+#new-record-form h2{
+    font-size: 40px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 60px;
+}
+
+#new-record-form input{
+    font-size: 20px;
+    width: 400px;
+    height: 40px;  
+}
+
+#new-record-form textarea{
+    font-size: 20px;
+    width: 400px;
+    height: 80px;  
+    text-decoration: none;
+    resize: none;
+}
+
+#new-record-form select{
+    font-size: 20px;
+    width: 200px;
+    height: 30px; 
+}
+
+#new-record-form label{
+    font-size: 30px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
