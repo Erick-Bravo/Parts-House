@@ -27,7 +27,7 @@ router.post("/create", asyncHandler(async(req, res) => {
         additionalInfo,
         description,
         partsHouseId, 
-    } = req.body
+    } = req.body.formData
 
     const record = await Record.create({
         type,

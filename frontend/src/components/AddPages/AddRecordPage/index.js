@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory, useParams } from "react-router-dom";
+import { addRecord } from "../../../store/records"
 import "./index.css";
 
 
@@ -48,7 +49,7 @@ const AddRecordPage = () => {
         e.preventDefault();
 
 
-        const formInfo = {
+        const formData = {
             type,
             name,
             description: descript,
@@ -59,11 +60,11 @@ const AddRecordPage = () => {
             buyUrl,
             additionalInfo: addInfo,
             partsHouseId: numPartsHouseId
-
-            
-
-
         };
+
+
+        dispatch(addRecord(formData))
+
 
         setType("");
         setName("");
@@ -148,7 +149,7 @@ const AddRecordPage = () => {
                         onChange={e => setDescript(e.target.value)} />
                 </label>
 
-                <button disabled={!errors.length} type="submit">Add</button>
+                <button type="submit">Add</button>
 
 
             </form>
