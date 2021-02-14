@@ -75,20 +75,17 @@
 }
 
 #display-box h2{
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;  
 }
 
 #new-record-form {
     display: flex;
-    
     align-items: center;
     justify-content: center;
     flex-direction: column;
     height: 1200px;
     width: 450px;
     /* border: .2px solid #2F496E; */
-    
 }
 
 #new-record-form h2{
@@ -115,6 +112,16 @@
     font-size: 20px;
     width: 200px;
     height: 30px; 
+}
+
+#new-record-form button{
+    font-size: 20px;
+    width: 200px;
+    height: 40px; 
+    margin: 25px;
+    border: none;
+    background-color: #2F496E;
+    color: #F4EADE;
 }
 
 #new-record-form label{

@@ -53,7 +53,7 @@ const ApplianceList = () => {
                 </NavLink>
             </div>
 
-            <AddRecord />
+            <AddRecord partsHouseId={partsHouseId}/>
 
             <div id="display-box">
                 <img src="https://i.ibb.co/1J6XgXY/Appliance-Icon.png" alt="Appliance-Icon" border="0" width="100px"></img>

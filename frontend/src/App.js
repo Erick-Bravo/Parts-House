@@ -60,7 +60,7 @@ function App() {
               <Route exact path="/records/:recordId(\\d+)">
                 <RecordPage />
               </Route>
-              <Route exact path="/records/add-record-page">
+              <Route exact path="/parts-house/:partsHouseId/records/add-record-page">
                 <AddRecordPage />
               </Route>
             </Switch>
