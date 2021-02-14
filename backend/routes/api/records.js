@@ -15,7 +15,35 @@ router.get("/:recordId", asyncHandler(async(req, res) => {
     res.json({ records })
 }))
 
+router.post("/create", asyncHandler(async(req, res) => {
+    
+    const { 
+        type,
+        name,
+        make,
+        cost,
+        model,
+        serial,
+        additionalInfo,
+        description,
+        partsHouseId, 
+    } = req.body
 
+    const record = await Record.create({
+        type,
+        name,
+        make,
+        cost,
+        model,
+        serial,
+        additionalInfo,
+        description,
+        partsHouseId, 
+    })
+
+    return res.json({ record })
+
+}))
 
 
 module.exports = router

@@ -19,7 +19,7 @@ router.delete("/:partsHouseId/delete", asyncHandler(async(req, res) => {
     const ph = await PartsHouse.findByPk(partsHouseId);
     await ph.destroy();
 
-    res.json({ph})
+    res.json({ ph })
 
 }));
 
