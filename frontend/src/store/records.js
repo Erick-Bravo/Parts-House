@@ -1,13 +1,13 @@
 import { fetch } from "./csrf" 
 
-const GET_USER_RECORD = "get/Records"
-const ADD_RECORD = "create/Record"
+const GET_USER_RECORD = "get/Records";
+const ADD_RECORD = "create/Record";
+const DELETE_RECORD = "delete/Record";
 
 const setUserRecord = (userRecord) => ({
     type: GET_USER_RECORD,
     userRecord
 });
-
 
 export const fetchUserRecord = (recordId) => {
     return async (dispatch) => {
@@ -18,7 +18,6 @@ export const fetchUserRecord = (recordId) => {
         );
     };
 };
-
 
 const addRecordAC = (payload) => ({
     type: ADD_RECORD,
@@ -36,6 +35,21 @@ export const addRecord = (formData) => {
     };
 };
 
+const deleteRecordAC = (payload) => ({
+    type: DELETE_RECORD,
+    payload
+});
+
+export const deleteRecord = (recordId) => {
+    return async (dispatch) => {
+        const response = await fetch(`/api/records/${recordId}/delete`, {
+            method: "DELETE",
+            body: JSON.stringify({ recordId }),
+        })
+        dispatch(deleteRecordAC(response.data.record))
+    };
+};
+
 
 const reducer = (state = [], action) => {
 
@@ -48,6 +62,13 @@ const reducer = (state = [], action) => {
 
         case ADD_RECORD:
             newState = [...state, action.payload]
+            return newState
+
+        case DELETE_RECORD:
+            newState = state.filter(record => {
+                const ret = record.id !== Number(action.payload.id)
+                return ret
+            });
             return newState
 
         default:

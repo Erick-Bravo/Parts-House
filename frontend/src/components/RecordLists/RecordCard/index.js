@@ -1,8 +1,11 @@
 import React from "react";
-import "./index.css"
+
+import "./index.css";
 
 
 const RecordCard = ({ record }) => {
+
+
     
     return (
         <div id="record-card-container">
@@ -12,8 +15,7 @@ const RecordCard = ({ record }) => {
             </div>
             <div id="right">
                 <div>Model --- {record.model}</div>
-                <div>Serial --- {record.serial}</div>
-                <button>delete</button>
+                <div>Serial --- {record.serial}</div>  
             </div>
         </div>
     );

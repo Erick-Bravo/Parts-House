@@ -12,6 +12,7 @@ import { addPartsHouse } from "../../../store/partshouse"
 const LeftNavBar = () => {
 
     const userId = useSelector(state => state.session.user.id);
+
     const userPartsHouses = useSelector(state => state.partsHouses);
 
     const dispatch = useDispatch();
@@ -41,7 +42,6 @@ const LeftNavBar = () => {
         setHidden(true);
         setName("");
     };
-
 
     
     return (

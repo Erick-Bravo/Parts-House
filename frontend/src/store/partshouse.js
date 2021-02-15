@@ -73,7 +73,7 @@ const reducer = (state = [], action) => {
             newState = state.filter((ph) => {
                 const ret = ph.id !== Number(action.payload.id)
                 return ret
-            })
+            });
             return newState
 
         default:

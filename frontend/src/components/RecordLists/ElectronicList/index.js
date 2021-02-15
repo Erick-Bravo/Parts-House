@@ -28,7 +28,7 @@ const ElectronicList = ({ userId }) => {
         if (selectedPartsHouse) {
 
             const records = selectedPartsHouse.Records
-            const electronicTypes = records.filter(rec => rec.type === "Electronics")
+            const electronicTypes = records.filter(rec => rec.type === "Electronic")
             setPh(selectedPartsHouse)
             setElectronics(electronicTypes)
         }

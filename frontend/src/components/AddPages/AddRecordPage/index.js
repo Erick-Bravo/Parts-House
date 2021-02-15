@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { useSelector, useDispatch } from 'react-redux';
-import { useHistory, useParams } from "react-router-dom";
+import { useDispatch } from 'react-redux';
+import { useParams } from "react-router-dom";
 import { addRecord } from "../../../store/records"
 import "./index.css";
 
@@ -9,7 +9,7 @@ import "./index.css";
 
 const AddRecordPage = () => {
 
-    const history = useHistory();
+  
     const dispatch = useDispatch();
     const { partsHouseId } = useParams();
     const numPartsHouseId = parseInt(partsHouseId);
@@ -23,9 +23,11 @@ const AddRecordPage = () => {
     const [buyUrl, setBuyUrl] = useState("");
     const [addInfo, setAddInfo] = useState("");
     const [descript, setDescript] = useState("");
-    const [errors, setErrors] = useState([])
+    const [errors, setErrors] = useState([]);
+
 
     const options = [
+        "SELECT",
         "Appliance",
         "Electronic",
         "Other"
@@ -34,21 +36,23 @@ const AddRecordPage = () => {
     useEffect(() => {
         const errors = [];
         if(!name.length) {
-            errors.push("Name is required")
-        }
+            errors.push("Name is required");
+        };
         if(!make.length) {
-            errors.push("Make is required")
-        }
+            errors.push("Make is required");
+        };
         if(cost < 0) {
-            errors.push("Initial Cost cannot be less than 0")
-        }
+            errors.push("Initial Cost cannot be less than 0");
+        };
+        if( type === "" || type === "SELECT") {
+            errors.push("Choose a type");
+        };
         setErrors(errors)
-    }, [name, make, cost])
+    }, [name, make, cost, type])
+
 
     const onSubmit = async e => {
         e.preventDefault();
-
-
         const formData = {
             type,
             name,
@@ -62,9 +66,7 @@ const AddRecordPage = () => {
             partsHouseId: numPartsHouseId
         };
 
-
         dispatch(addRecord(formData))
-
 
         setType("");
         setName("");
@@ -124,7 +126,6 @@ const AddRecordPage = () => {
                         onChange={e => setCost(e.target.value)} />
                 </label>
 
-
                 <label>
                     Model #
                 <input type="text" name="model" value={model}
@@ -151,10 +152,7 @@ const AddRecordPage = () => {
 
                 <button type="submit">Add</button>
 
-
             </form>
-
-
         </div>
     );
 };

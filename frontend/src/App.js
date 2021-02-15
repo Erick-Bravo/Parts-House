@@ -13,6 +13,7 @@ import ElectronicList from "./components/RecordLists/ElectronicList"
 import OtherList from "./components/RecordLists/OtherList"
 import RecordPage from "./components/RecordPage"
 import AddRecordPage from "./components/AddPages/AddRecordPage"
+import PartPage from "./components/PartPage"
 
 import "./index.css"
 
@@ -57,11 +58,14 @@ function App() {
               <Route exact path="/parts-house/:partsHouseId/other">
                 <OtherList />
               </Route>
-              <Route exact path="/records/:recordId(\\d+)">
+              <Route exact path="/records/:recordId">
                 <RecordPage />
               </Route>
               <Route exact path="/parts-house/:partsHouseId/records/add-record-page">
                 <AddRecordPage />
+              </Route>
+              <Route exact path="/records/:recordId/parts/:partId">
+                <PartPage />
               </Route>
             </Switch>
           )}

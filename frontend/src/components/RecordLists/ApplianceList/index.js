@@ -28,7 +28,7 @@ const ApplianceList = () => {
         if (selectedPartsHouse) {
 
             const records = selectedPartsHouse.Records
-            const applianceTypes = records.filter(rec => rec.type === "Appliances")
+            const applianceTypes = records.filter(rec => rec.type === "Appliance")
             setPh(selectedPartsHouse)
             setAppliances(applianceTypes)
         }

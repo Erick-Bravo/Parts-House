@@ -1,8 +1,8 @@
-import React from "react"
-import { useDispatch, useSelector } from "react-redux"
-import { Redirect, useHistory } from "react-router-dom"
-import { deletePartsHouse } from "../../../store/partshouse"
-import "./index.css"
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Redirect, useHistory } from "react-router-dom";
+import { deletePartsHouse } from "../../../store/partshouse";
+import "./index.css";
 
 
 
@@ -17,7 +17,7 @@ const NameSection = ({ph}) => {
     const deleteHandler = () => {
         dispatch(deletePartsHouse(ph.id))
         history.push(`/users/${userId}`)
-    }
+    };
 
     return (
         <div id="name-section">
@@ -25,7 +25,7 @@ const NameSection = ({ph}) => {
             <p>Delete this parts house</p>
             <button onClick={deleteHandler}>delete</button>
         </div>
-    )
-}
+    );
+};
 
 export default NameSection //imported - ApplianceList / ElectronicList / OtherList
