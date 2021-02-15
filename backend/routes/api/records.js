@@ -43,7 +43,18 @@ router.post("/create", asyncHandler(async(req, res) => {
 
     return res.json({ record })
 
-}))
+}));
+
+router.delete("/:recordId/delete", asyncHandler(async(req, res) => {
+
+    const { recordId } = req.body;
+
+    const record = await Record.findByPk(recordId);
+    await record.destroy();
+
+    res.json({ record })
+
+}));
 
 
 module.exports = router
