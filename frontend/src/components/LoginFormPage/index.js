@@ -13,9 +13,6 @@ function LoginFormPage() {
 
   const userId = sessionUser.id
 
-  console.log(userId)
-  console.log("Heeeyyy")
-
   if (sessionUser) return <Redirect to={`/users/${userId}`} />;
 
   const handleSubmit = (e) => {

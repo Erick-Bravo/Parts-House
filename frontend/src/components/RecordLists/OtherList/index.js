@@ -9,18 +9,15 @@ import NameSection from "../zNameSection";
 
 
 
-const OtherList = () => {
+const OtherList = ({ userId }) => {
 
-    const { userId, partsHouseId } = useParams();
+    const { partsHouseId } = useParams();
     const numpartsHouseId = parseInt(partsHouseId)
 
-
     const partsHouses = useSelector(state => state.partsHouses)
-    const [ph, setPh] = useState([])
 
-    // const [appliances, setAppliances] = useState([])
     const [ others, setOthers ] = useState([])
-    // const [ other, setOther ] = useState([])
+    const [ph, setPh] = useState([])
 
     useEffect(() => {
         if (partsHouses.length === 0) {
@@ -44,15 +41,19 @@ const OtherList = () => {
             <NameSection ph={ph}/>
 
             <div id="record-navbar">
-                <NavLink to={`/users/${userId}/parts-house/${partsHouseId}/appliances`} >
+                <NavLink to={`/parts-house/${partsHouseId}/appliances`} >
                     Appliances
                 </NavLink>
-                <NavLink to={`/users/${userId}/parts-house/${partsHouseId}/electronics`}>
+                <NavLink to={`/parts-house/${partsHouseId}/electronics`}>
                     Electronics
                 </NavLink>
-                <NavLink to={`/users/${userId}/parts-house/${partsHouseId}/other`}>
+                <NavLink to={`/parts-house/${partsHouseId}/other`}>
                     Other
                 </NavLink>
+            </div>
+
+            <div id="add-record">
+                <button>Add Other</button>
             </div>
 
             <div id="display-box">

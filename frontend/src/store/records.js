@@ -1,4 +1,8 @@
-const GET_USER_RECORD = "record/with parts"
+import { fetch } from "./csrf" 
+
+const GET_USER_RECORD = "get/Records";
+const ADD_RECORD = "create/Record";
+const DELETE_RECORD = "delete/Record";
 
 const setUserRecord = (userRecord) => ({
     type: GET_USER_RECORD,
@@ -6,18 +10,48 @@ const setUserRecord = (userRecord) => ({
 });
 
 export const fetchUserRecord = (recordId) => {
-    return async(dispatch) => {
+    return async (dispatch) => {
         const response = await fetch(`/api/records/${recordId}`);
-        const data = await response.json();
+        // const data = await response.json();
         dispatch(
-            setUserRecord(data.records)
+            setUserRecord(response.data.records)
         );
     };
 };
 
-const initialState = [];
+const addRecordAC = (payload) => ({
+    type: ADD_RECORD,
+    payload
+});
 
-const reducer = (state = initialState, action) => {
+export const addRecord = (formData) => {
+    return async (dispatch) => {
+        const response = await fetch(`/api/records/create`, {
+            method: "POST",
+            body: JSON.stringify({formData})
+        });
+      
+        dispatch(addRecordAC(response.data.record));
+    };
+};
+
+const deleteRecordAC = (payload) => ({
+    type: DELETE_RECORD,
+    payload
+});
+
+export const deleteRecord = (recordId) => {
+    return async (dispatch) => {
+        const response = await fetch(`/api/records/${recordId}/delete`, {
+            method: "DELETE",
+            body: JSON.stringify({ recordId }),
+        })
+        dispatch(deleteRecordAC(response.data.record))
+    };
+};
+
+
+const reducer = (state = [], action) => {
 
     let newState;
     switch (action.type) {
@@ -25,6 +59,18 @@ const reducer = (state = initialState, action) => {
         case GET_USER_RECORD:
             newState = action.userRecord
             return newState
+
+        case ADD_RECORD:
+            newState = [...state, action.payload]
+            return newState
+
+        case DELETE_RECORD:
+            newState = state.filter((record) => {
+                const ret = record.id !== Number(action.userRecord.id)
+                return ret
+            });
+            return newState
+
         default:
             return state;
     };

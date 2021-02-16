@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Route, Switch } from "react-router-dom";
+import { Redirect, Route, Switch } from "react-router-dom";
 import SignupFormPage from "./components/SignupFormPage";
 import LoginFormPage from "./components/LoginFormPage"
 // import LoginFormPage from "./components/LoginFormPage";
@@ -12,6 +12,8 @@ import ApplianceList from "./components/RecordLists/ApplianceList"
 import ElectronicList from "./components/RecordLists/ElectronicList"
 import OtherList from "./components/RecordLists/OtherList"
 import RecordPage from "./components/RecordPage"
+import AddRecordPage from "./components/AddPages/AddRecordPage"
+import PartPage from "./components/PartPage"
 
 import "./index.css"
 
@@ -27,10 +29,10 @@ function App() {
 
   const sessionUser = useSelector((state) => state.session.user);
 
-
   return (
     <div className="website">
         {sessionUser && <LeftNavBar />}
+        {!sessionUser && <Redirect to="/" />}
       <div>
         {isLoaded &&
           (
@@ -47,17 +49,23 @@ function App() {
               <Route exact path="/users/:userId">
                 <EmptyDisplayPage />
               </Route>
-              <Route exact path="/users/:userId/parts-house/:partsHouseId/appliances">
+              <Route exact path="/parts-house/:partsHouseId/appliances">
                 <ApplianceList />
               </Route>
-              <Route exact path="/users/:userId/parts-house/:partsHouseId/electronics">
+              <Route exact path="/parts-house/:partsHouseId/electronics">
                 <ElectronicList />
               </Route>
-              <Route exact path="/users/:userId/parts-house/:partsHouseId/other">
+              <Route exact path="/parts-house/:partsHouseId/other">
                 <OtherList />
               </Route>
               <Route exact path="/records/:recordId">
                 <RecordPage />
+              </Route>
+              <Route exact path="/parts-house/:partsHouseId/records/add-record-page">
+                <AddRecordPage />
+              </Route>
+              <Route exact path="/parts/:partId">
+                <PartPage />
               </Route>
             </Switch>
           )}

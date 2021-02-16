@@ -40,38 +40,38 @@ module.exports = {
 
 
       {
-        type: "Appliances", name: "Refrigerator", cost: "600",
+        type: "Appliance", name: "Refrigerator", cost: "600",
         make: "ACME Refrigerators", model: "DJG95746FHBKR", serial: "884856974756H",
         additionalInfo: "", partsHouseId: userDemoFamilyHouse,
       },
       {
-        type: "Appliances", name: "Dryer", cost: "400",
+        type: "Appliance", name: "Dryer", cost: "400",
         make: "ACME Dryers", model: "DJG95746FHBKR", serial: "884856974756H",
         additionalInfo: "", partsHouseId: userDemoFamilyHouse,
       },
       {
-        type: "Appliances", name: "Air Conditioning", cost: "3000",
+        type: "Appliance", name: "Air Conditioning", cost: "3000",
         make: "ACME Air Conditioning", model: "DJG95746FHBKR", serial: "884856974756H",
         additionalInfo: "", partsHouseId: userDemoFamilyHouse,
       },
       {
-        type: "Electronics", name: "PC Build", cost: "1500",
+        type: "Electronic", name: "PC Build", cost: "1500",
         make: "ACME PC Parts", model: "DJG95746FHBKR", serial: "884856974756H",
         additionalInfo: "", partsHouseId: userDemoFamilyHouse,
       },
       {
-        type: "Electronics", name: "TV Remote", cost: "20",
+        type: "Electronic", name: "TV Remote", cost: "20",
         make: "ACME TV's", model: "DJG95746FHBKR", serial: "884856974756H",
         additionalInfo: "", partsHouseId: userDemoFamilyHouse,
       },
 
       {
-        type: "Appliances", name: "Coffee Maker", cost: "150",
+        type: "Appliance", name: "Coffee Maker", cost: "150",
         make: "ACME Coffee", model: "DJG95746FHBKR", serial: "884856974756H",
         additionalInfo: "", partsHouseId: userDemoOffice,
       },
       {
-        type: "Electronics", name: "Printer", cost: "400",
+        type: "Electronic", name: "Printer", cost: "400",
         make: "ACME Printers", model: "DJG95746FHBKR", serial: "884856974756H",
         additionalInfo: "", partsHouseId: userDemoOffice,
       },

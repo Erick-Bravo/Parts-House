@@ -3,6 +3,7 @@ const sessionRouter = require('./session.js');
 const usersRouter = require('./users.js');
 const recordsRouter = require("./records.js")
 const pHRouter = require("./partshouses")
+const partsRouter = require("./parts")
 
 // GET /api/set-token-cookie
 const asyncHandler = require('express-async-handler');
@@ -45,11 +46,12 @@ router.post('/test', function (req, res) {
 router.get("/ohya", (req, res) => {
   const hi = "oh hi"
   return res.json({hi: hi})
-})
+});
 
 router.use('/session', sessionRouter);
 router.use('/users', usersRouter);
 router.use("/records", recordsRouter);
 router.use("/parts-houses", pHRouter);
+router.use("/parts", partsRouter);
 
 module.exports = router;

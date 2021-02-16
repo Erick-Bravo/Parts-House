@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink, Redirect, useHistory } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { logout } from "../../../store/session";
 import { fetchUserPartsHouses } from "../../../store/partshouse";
 import { addPartsHouse } from "../../../store/partshouse"
@@ -12,10 +12,10 @@ import { addPartsHouse } from "../../../store/partshouse"
 const LeftNavBar = () => {
 
     const userId = useSelector(state => state.session.user.id);
+
     const userPartsHouses = useSelector(state => state.partsHouses);
 
     const dispatch = useDispatch();
-    const history = useHistory();
 
     const [hidden, setHidden] = useState(true);
     const [name, setName] = useState("");
@@ -23,16 +23,14 @@ const LeftNavBar = () => {
     useEffect(() => {
         dispatch(fetchUserPartsHouses(userId));
     }, [dispatch, userId, hidden, name]);
-
-
+    
+    
     const logoutHandler = (e) => {
         e.preventDefault();
         dispatch(logout());
-        history.push(`/`)
     };
 
     const addPartsHouseHandler = () => {
-        
         setHidden(false);
     };
 
@@ -45,7 +43,6 @@ const LeftNavBar = () => {
         setName("");
     };
 
-    // onSubmit={submitHandler}
     
     return (
         <div id="left-nav-bar">
@@ -53,7 +50,7 @@ const LeftNavBar = () => {
                 <button onClick={addPartsHouseHandler}>add parts house +</button>
                 {!userPartsHouses && <p>{`<Parts Houses Empty>`}</p>}
                 {userPartsHouses && userPartsHouses.map(partsHouse => {
-                    return <NavLink to={`/users/${userId}/parts-house/${partsHouse.id}/appliances`} key={partsHouse.id}>
+                    return <NavLink to={`/parts-house/${partsHouse.id}/appliances`} key={partsHouse.id}>
                         <button>{`${partsHouse.name}`}</button>
                     </NavLink>
                 })}
@@ -65,7 +62,6 @@ const LeftNavBar = () => {
             </div>
             <div className="bottom-section-navbar">
                 <button onClick={logoutHandler}>Logout</button>
-                <div className="empty-space-leftNav"></div>
             </div>
         </div>
     );

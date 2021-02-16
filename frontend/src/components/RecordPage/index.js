@@ -1,25 +1,26 @@
-import React, { useEffect, useState } from "react"
-import { useSelector, useDispatch } from "react-redux"
-import { useParams } from "react-router-dom"
-import { fetchUserRecord } from "../../store/records"
+import React, { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { NavLink, useParams } from "react-router-dom";
+import { fetchUserRecord } from "../../store/records";
+import { deleteRecord } from "../../store/records"
 
-import "./index.css"
+import "./index.css";
 
 
 
-const Part = ({part}) => {
+const Part = ({ part }) => {
 
-    const [ buyHidden, setBuyHidden ] = useState(true)
-    const [ addHidden, setAddHidden ] = useState(true)
+    const [buyHidden, setBuyHidden] = useState(true);
+    const [addHidden, setAddHidden] = useState(true);
 
 
     useEffect(() => {
-        if(part.buyUrl === "url here") {
-            setAddHidden(false)
+        if (part.buyUrl === "url here") {
+            setAddHidden(false);
         } else {
-            setBuyHidden(false)
-        }
-    }, [part.buyUrl])
+            setBuyHidden(false);
+        };
+    }, [part.buyUrl]);
 
     return (
         <div id="record-card-container">
@@ -34,24 +35,26 @@ const Part = ({part}) => {
                 <button hidden={buyHidden}>Buy</button>
             </div>
         </div>
-    )
-}
+    );
+};
+
 
 
 
 const RecordPage = () => {
 
-    const dispatch = useDispatch()
-    const { recordId } = useParams()
-    const numRecordId = parseInt(recordId)
+    const dispatch = useDispatch();
+    const { recordId } = useParams();
+    const numRecordId = parseInt(recordId);
 
-    const [ parts, setParts ] = useState([])
+    const [parts, setParts] = useState([]);
+
 
     useEffect(() => {
-        dispatch(fetchUserRecord(numRecordId))
-    }, [dispatch, numRecordId])
+        dispatch(fetchUserRecord(numRecordId));
+    }, [dispatch, numRecordId]);
 
-    const record = useSelector(state => state.record)
+    const record = useSelector(state => state.record);
 
     useEffect(() => {
         if (record.length === 0) {
@@ -59,11 +62,28 @@ const RecordPage = () => {
         }
         const p = record.Parts
         setParts(p)
-    }, [record, recordId]);
+    }, [record, recordId, parts]);
 
+    const deleteHandler = (e) => {
+        e.preventDefault();
+        dispatch(deleteRecord(recordId))
+        console.log("CLICKED!!!!    ")
+    };
+
+    {
+        parts.map(part => {
+            return <NavLink to={`/records/${recordId}/parts/${part.id}`} key={part.id}>
+                <Part part={part} />
+            </NavLink>
+        })
+    }
 
     return (
         <div id="user-main-page">
+
+            <div>
+                <h1>Record</h1>
+            </div>
 
             <div id="display-box">
                 <div id="record-container">
@@ -73,13 +93,22 @@ const RecordPage = () => {
                     <p>Model - {record.model}</p>
                     <p>Serial - {record.serial}</p>
                     <p>Initial Purchase Cost - ${record.cost}</p>
-                    
+
                 </div>
-                <h2>Parts</h2>
+                <div id="delete-record">
+                    <p>Delete this Record</p>
+                    <button onClick={deleteHandler}>delete</button>
+                </div>
+                <div>
+                    <h2>Parts</h2>
                     {parts.map(part => {
-                        return <Part part={part} key={part.id}/>
+                        return <NavLink to={`/parts/${part.id}`} key={part.id}>
+                            <Part part={part} />
+                        </NavLink>
                     })}
+                </div>
             </div>
+
 
             <div id="mascot">
                 <img src="https://i.ibb.co/Sx3THPm/vector-creator-1500-1by1.png" alt="vector-creator-1500-1by1" border="0" height="100px" />

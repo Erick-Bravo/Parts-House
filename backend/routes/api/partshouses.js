@@ -1,6 +1,5 @@
 const express = require("express");
 const asyncHandler = require("express-async-handler");
-const csrf = require("csurf")
 const { PartsHouse } = require("../../db/models");
 
 const router = express.Router();
@@ -19,7 +18,7 @@ router.delete("/:partsHouseId/delete", asyncHandler(async(req, res) => {
     const ph = await PartsHouse.findByPk(partsHouseId);
     await ph.destroy();
 
-    res.json({ph})
+    res.json({ ph })
 
 }));
 

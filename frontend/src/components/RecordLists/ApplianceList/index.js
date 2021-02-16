@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { useParams, NavLink } from "react-router-dom";
 import RecordCard from "../RecordCard"
 import NameSection from "../zNameSection" 
+import AddRecord from "../zAddRecord"
 import "../index.css";
 
 
@@ -11,29 +12,28 @@ import "../index.css";
 
 const ApplianceList = () => {
 
-    const { userId, partsHouseId } = useParams();
+    const { partsHouseId } = useParams();
     const numpartsHouseId = parseInt(partsHouseId)
-
 
     const partsHouses = useSelector(state => state.partsHouses)
 
     const [appliances, setAppliances] = useState([])
     const [ph, setPh] = useState([])
 
+    const selectedPartsHouse = partsHouses.find(ph => ph.id === numpartsHouseId)
     useEffect(() => {
         if (partsHouses.length === 0) {
             return
         }
-        const selectedPartsHouse = partsHouses.find(ph => ph.id === numpartsHouseId)
         if (selectedPartsHouse) {
 
             const records = selectedPartsHouse.Records
-            const applianceTypes = records.filter(rec => rec.type === "Appliances")
+            const applianceTypes = records.filter(rec => rec.type === "Appliance")
             setPh(selectedPartsHouse)
             setAppliances(applianceTypes)
         }
 
-    }, [partsHouses, partsHouseId, numpartsHouseId]);
+    }, [partsHouses, partsHouseId, numpartsHouseId, selectedPartsHouse]);
 
 
 
@@ -42,16 +42,18 @@ const ApplianceList = () => {
             <NameSection ph={ph}/>
 
             <div id="record-navbar">
-                <NavLink to={`/users/${userId}/parts-house/${partsHouseId}/appliances`} >
+                <NavLink to={`/parts-house/${partsHouseId}/appliances`} >
                     Appliances
                 </NavLink>
-                <NavLink to={`/users/${userId}/parts-house/${partsHouseId}/electronics`}>
+                <NavLink to={`/parts-house/${partsHouseId}/electronics`}>
                     Electronics
                 </NavLink>
-                <NavLink to={`/users/${userId}/parts-house/${partsHouseId}/other`}>
+                <NavLink to={`/parts-house/${partsHouseId}/other`}>
                     Other
                 </NavLink>
             </div>
+
+            <AddRecord partsHouseId={partsHouseId}/>
 
             <div id="display-box">
                 <img src="https://i.ibb.co/1J6XgXY/Appliance-Icon.png" alt="Appliance-Icon" border="0" width="100px"></img>

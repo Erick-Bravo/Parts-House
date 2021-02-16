@@ -20,3 +20,14 @@
 #record-container p {
     font-size: 20px;
 }
+
+#delete-record {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+}
+#delete-record p {
+
+    margin: 20px;
+}
