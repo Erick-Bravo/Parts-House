@@ -102,7 +102,7 @@ const RecordPage = () => {
                 <div>
                     <h2>Parts</h2>
                     {parts.map(part => {
-                        return <NavLink to={`/records/${recordId}/parts/${part.id}`} key={part.id}>
+                        return <NavLink to={`/parts/${part.id}`} key={part.id}>
                             <Part part={part} />
                         </NavLink>
                     })}

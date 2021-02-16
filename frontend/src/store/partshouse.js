@@ -5,9 +5,9 @@ const ADD_PARTSHOUSE = "add/partshouse"
 const DELETE_PARTSHOUSE = "delete/partshouse";
 
 
-const setUserPartsHouses = (userPartsHouses) => ({
+const setUserPartsHouses = (payload) => ({
     type: GET_USER_PARTSHOUSES,
-    userPartsHouses
+    payload
 });
 
 export const fetchUserPartsHouses = (userId) => {
@@ -62,7 +62,7 @@ const reducer = (state = [], action) => {
     switch (action.type) {
         
         case GET_USER_PARTSHOUSES:
-            newState = action.userPartsHouses
+            newState = action.payload
             return newState
 
         case ADD_PARTSHOUSE:

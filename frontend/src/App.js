@@ -64,7 +64,7 @@ function App() {
               <Route exact path="/parts-house/:partsHouseId/records/add-record-page">
                 <AddRecordPage />
               </Route>
-              <Route exact path="/records/:recordId/parts/:partId">
+              <Route exact path="/parts/:partId">
                 <PartPage />
               </Route>
             </Switch>

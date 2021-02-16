@@ -12,7 +12,7 @@ router.get("/:recordId", asyncHandler(async(req, res) => {
         include: Part,
     })
 
-    res.json({ records })
+    return res.json({ records })
 }))
 
 router.post("/create", asyncHandler(async(req, res) => {
