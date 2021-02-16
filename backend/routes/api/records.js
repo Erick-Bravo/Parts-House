@@ -52,7 +52,7 @@ router.delete("/:recordId/delete", asyncHandler(async(req, res) => {
     const record = await Record.findByPk(recordId);
     await record.destroy();
 
-    res.json({ record })
+return res.json({ record })
 
 }));
 

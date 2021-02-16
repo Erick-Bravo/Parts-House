@@ -55,8 +55,8 @@
     align-items: center;
     flex-direction: column;
     width: 300px;
-    height: 100%;
     margin-left: 40px;
+    
 }
 
 #add-partshouse-form input {

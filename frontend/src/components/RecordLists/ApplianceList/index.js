@@ -20,11 +20,11 @@ const ApplianceList = () => {
     const [appliances, setAppliances] = useState([])
     const [ph, setPh] = useState([])
 
+    const selectedPartsHouse = partsHouses.find(ph => ph.id === numpartsHouseId)
     useEffect(() => {
         if (partsHouses.length === 0) {
             return
         }
-        const selectedPartsHouse = partsHouses.find(ph => ph.id === numpartsHouseId)
         if (selectedPartsHouse) {
 
             const records = selectedPartsHouse.Records
@@ -33,7 +33,7 @@ const ApplianceList = () => {
             setAppliances(applianceTypes)
         }
 
-    }, [partsHouses, partsHouseId, numpartsHouseId]);
+    }, [partsHouses, partsHouseId, numpartsHouseId, selectedPartsHouse]);
 
 
 

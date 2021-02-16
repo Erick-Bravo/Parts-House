@@ -49,6 +49,7 @@ const RecordPage = () => {
 
     const [parts, setParts] = useState([]);
 
+
     useEffect(() => {
         dispatch(fetchUserRecord(numRecordId));
     }, [dispatch, numRecordId]);
@@ -61,13 +62,21 @@ const RecordPage = () => {
         }
         const p = record.Parts
         setParts(p)
-    }, [record, recordId]);
+    }, [record, recordId, parts]);
 
     const deleteHandler = (e) => {
         e.preventDefault();
         dispatch(deleteRecord(recordId))
         console.log("CLICKED!!!!    ")
     };
+
+    {
+        parts.map(part => {
+            return <NavLink to={`/records/${recordId}/parts/${part.id}`} key={part.id}>
+                <Part part={part} />
+            </NavLink>
+        })
+    }
 
     return (
         <div id="user-main-page">
@@ -93,7 +102,7 @@ const RecordPage = () => {
                 <div>
                     <h2>Parts</h2>
                     {parts.map(part => {
-                        return <NavLink to={`/records/${recordId}/parts/${part.id}`}  key={part.id}>
+                        return <NavLink to={`/records/${recordId}/parts/${part.id}`} key={part.id}>
                             <Part part={part} />
                         </NavLink>
                     })}

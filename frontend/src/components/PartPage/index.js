@@ -1,24 +1,48 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
 
+const Part = ({part}) => {
+    return (
+        <div>
+            <p>THIS IS HITTING</p>
+            <h1>{part.name}</h1>
+        </div>
+    );
+};
 
 
 
 const PartPage = () => {
 
     const { partsId } = useParams();
+    const numpartsId = parseInt(partsId)
 
-    const part = useSelector(state => state.record.Parts);
-    console.log(part);
+    const parts = useSelector(state => state.record.Parts);
+    const selectedPart = parts.filter(part => part.id === numpartsId)
+
+    const [part, setPart] = useState([]);
+    console.log(selectedPart)
+
+    // useEffect(() => {
+
+    //     console.log(selectedPart)
+    //     if (selectedPart) {
+
+    //         setPart(selectedPart)
+    //     }
+    // }, [part, parts, partsId, numpartsId]);
+
+
+    
 
 
     return (
         <div id="user-main-page">
             
             <div id="display-box">
-                <p>this is the Part page</p>
+                {selectedPart && <Part part={selectedPart}/>}
             </div>
 
             <div id="mascot">

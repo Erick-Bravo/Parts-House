@@ -31,7 +31,7 @@ export const addRecord = (formData) => {
             body: JSON.stringify({formData})
         });
       
-        dispatch(addRecordAC(response.data.payload));
+        dispatch(addRecordAC(response.data.record));
     };
 };
 
@@ -65,8 +65,8 @@ const reducer = (state = [], action) => {
             return newState
 
         case DELETE_RECORD:
-            newState = state.filter(record => {
-                const ret = record.id !== Number(action.payload.id)
+            newState = state.filter((record) => {
+                const ret = record.id !== Number(action.userRecord.id)
                 return ret
             });
             return newState

@@ -11,13 +11,15 @@ import "./index.css";
 const NameSection = ({ph}) => {
 
     const dispatch = useDispatch();
-    const history = useHistory()
-    const userId = useSelector(state => state.session.user.id)
+    const history = useHistory();
+    const userId = useSelector(state => state.session.user.id);
     
     const deleteHandler = () => {
         dispatch(deletePartsHouse(ph.id))
         history.push(`/users/${userId}`)
     };
+
+    // <button onClick={deleteHandler}>delete</button>
 
     return (
         <div id="name-section">
