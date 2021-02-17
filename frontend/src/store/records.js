@@ -4,9 +4,9 @@ const GET_USER_RECORD = "get/Records";
 const ADD_RECORD = "create/Record";
 const DELETE_RECORD = "delete/Record";
 
-const setUserRecord = (userRecord) => ({
+const setUserRecord = (payload) => ({
     type: GET_USER_RECORD,
-    userRecord
+    payload
 });
 
 export const fetchUserRecord = (recordId) => {
@@ -57,7 +57,7 @@ const reducer = (state = [], action) => {
     switch (action.type) {
 
         case GET_USER_RECORD:
-            newState = action.userRecord
+            newState = [...state, action.payload]
             return newState
 
         case ADD_RECORD:
@@ -66,7 +66,7 @@ const reducer = (state = [], action) => {
 
         case DELETE_RECORD:
             newState = state.filter((record) => {
-                const ret = record.id !== Number(action.userRecord.id)
+                const ret = record.id !== Number(action.payload.id)
                 return ret
             });
             return newState

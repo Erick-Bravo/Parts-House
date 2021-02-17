@@ -2,17 +2,17 @@ import { fetch } from "./csrf"
 
 const GET_PARTS = "get/Parts"
 
-const setParts = (payload) => ({
+const setPart = (payload) => ({
     type: GET_PARTS,
     payload
 });
 
-export const fetchParts = (partId) => {
+export const fetchPart = (partId) => {
     return async (dispatch) => {
         const response = await fetch(`/api/parts/${partId}`)
 
         dispatch(
-            setParts(response.data.part)
+            setPart(response.data.part)
         );
     };
 };

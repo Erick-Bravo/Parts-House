@@ -3,11 +3,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
 
-const Part = ({part}) => {
+const Part = () => {
     return (
         <div>
             <p>THIS IS HITTING</p>
-            <h1>{part.name}</h1>
+            <h1></h1>
         </div>
     );
 };
@@ -16,25 +16,15 @@ const Part = ({part}) => {
 
 const PartPage = () => {
 
-    const { partsId } = useParams();
-    const numpartsId = parseInt(partsId)
+    const disptch = useDispatch();
 
-    const parts = useSelector(state => state.record.Parts);
-    const selectedPart = parts.filter(part => part.id === numpartsId)
-
-    const [part, setPart] = useState([]);
-    console.log(selectedPart)
-
-    // useEffect(() => {
-
-    //     console.log(selectedPart)
-    //     if (selectedPart) {
-
-    //         setPart(selectedPart)
-    //     }
-    // }, [part, parts, partsId, numpartsId]);
+    const { partId } = useParams();
+    const numpartId = parseInt(partId);
 
 
+    useEffect(() => {
+        
+    })
     
 
 
@@ -42,7 +32,7 @@ const PartPage = () => {
         <div id="user-main-page">
             
             <div id="display-box">
-                {selectedPart && <Part part={selectedPart}/>}
+                
             </div>
 
             <div id="mascot">
