@@ -17,6 +17,8 @@ export const fetchParts = (partId) => {
     };
 };
 
+
+
 const reducer = (state = [], action) => {
     let newState;
 

@@ -43,6 +43,10 @@ const LeftNavBar = () => {
         setName("");
     };
 
+    const trueHidden = () => {
+        setHidden(true)
+    };
+
     
     return (
         <div id="left-nav-bar">
@@ -51,7 +55,7 @@ const LeftNavBar = () => {
                 {!userPartsHouses && <p>{`<Parts Houses Empty>`}</p>}
                 {userPartsHouses && userPartsHouses.map(partsHouse => {
                     return <NavLink to={`/parts-house/${partsHouse.id}/appliances`} key={partsHouse.id}>
-                        <button>{`${partsHouse.name}`}</button>
+                        <button onClick={trueHidden}>{`${partsHouse.name}`}</button>
                     </NavLink>
                 })}
                 <form id="add-partshouse-form" onSubmit={submitHandler}>
