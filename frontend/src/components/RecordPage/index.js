@@ -54,7 +54,10 @@ const RecordPage = () => {
     // const [parts, setParts] = useState([]);
 
     const records = useSelector(state => state.record);
-    const record = records.filter(rec => rec.id === numRecordId);
+    console.log(records)
+    const array = records.filter(rec => rec.id === numRecordId);
+    const record = array[0]
+    console.log(record)
 
 
     // useEffect(() => {
@@ -64,12 +67,18 @@ const RecordPage = () => {
     //     const p = record.Parts
     //     setParts(p)
     // }, [record, recordId, parts]);
+    useEffect(() => {
+        if (record.length === 0) {
+            return
+        }
+        const p = record
+        // setParts(p)
+    }, [record, recordId]);
 
     const deleteHandler = (e) => {
         e.preventDefault();
         dispatch(deleteRecord(recordId));
         history.go(-1);
-        
     };
 
     // {
@@ -100,6 +109,7 @@ const RecordPage = () => {
             </div>
 
             <div id="display-box">
+                {record && 
                 <div id="record-container">
                     <div id="record-name">{record.name}</div>
                     <div id="record-make">{record.make}</div>
@@ -107,7 +117,8 @@ const RecordPage = () => {
                     <p>Model - {record.model}</p>
                     <p>Serial - {record.serial}</p>
                     <p>Initial Purchase Cost - ${record.cost}</p>
-                </div>
+                </div>}
+
 
                 <div id="delete-record">
                     <p>Delete this Record</p>

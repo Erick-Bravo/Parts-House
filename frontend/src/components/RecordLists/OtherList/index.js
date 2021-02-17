@@ -43,9 +43,6 @@ const OtherList = () => {
     }, [partsHouses, numpartsHouseId, selectedPartsHouse, records]);
 
 
-
-
-
     return (
         <div id="user-main-page">
             <NameSection ph={ph} />

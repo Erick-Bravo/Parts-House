@@ -4,7 +4,6 @@ import { useParams, NavLink } from "react-router-dom";
 import { fetchAllRecords } from "../../../store/records"
 import RecordCard from "../RecordCard"
 import NameSection from "../zNameSection"
-import AddRecord from "../zAddRecord"
 import "../index.css";
 
 
