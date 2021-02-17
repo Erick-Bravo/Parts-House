@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams, NavLink } from "react-router-dom";
-import { setUserRecord } from "../../../store/records"
+import { fetchAllRecords } from "../../../store/records"
 import RecordCard from "../RecordCard"
 import NameSection from "../zNameSection"
 import AddRecord from "../zAddRecord"
@@ -15,17 +15,15 @@ const ApplianceList = () => {
     const dispatch = useDispatch();
     const { partsHouseId } = useParams();
     const numpartsHouseId = parseInt(partsHouseId);
-
+    console.log(numpartsHouseId)
     // for NameSection
     const partsHouses = useSelector(state => state.partsHouses);
     const selectedPartsHouse = partsHouses.find(ph => ph.id === numpartsHouseId);
-    console.log(selectedPartsHouse)
+    // console.log(selectedPartsHouse)
     
     
     // for Records
     const records = useSelector(state => state.record)
-    const phRecords = records.filter(rec => rec.partsHouseId === numpartsHouseId);
-    const applianceTypes = phRecords.filter(rec => rec.type === "Appliance");
     
     // console.log(records)
     
@@ -34,24 +32,21 @@ const ApplianceList = () => {
     
     useEffect(() => {
         dispatch(fetchAllRecords(numpartsHouseId))
-    }, [dispatch])
+    }, [dispatch, numpartsHouseId])
     
     
     useEffect(() => {
         if (partsHouses.length === 0) {
             return
         };
-        if (phRecords.length === 0) {
-            return
-        };
-        if (selectedPartsHouse) {
+        if (records) {
+            const phRecords = records.filter(rec => rec.partsHouseId === numpartsHouseId);
+            const applianceTypes = phRecords.filter(rec => rec.type === "Appliance");
             setPh(selectedPartsHouse)
-        };
-        if (applianceTypes) {
             setAppliances(applianceTypes)
         };
 
-    }, [partsHouses, numpartsHouseId, selectedPartsHouse]);
+    }, [partsHouses, numpartsHouseId, selectedPartsHouse, records]);
 
     // useEffect(() => {
     //     if (partsHouses.length === 0) {
