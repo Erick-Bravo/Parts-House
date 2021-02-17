@@ -61,7 +61,6 @@ router.get("/:userId/partshouses", asyncHandler(async(req, res) => {
 
   const partshouses = await PartsHouse.findAll({
     where: { userId: userId },
-    include: Record,
   })
   res.json({ partshouses })
 }));

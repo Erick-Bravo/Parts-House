@@ -7,12 +7,12 @@ const router = express.Router();
 router.get("/:recordId", asyncHandler(async(req, res) => {
     const { recordId } = req.params;
 
-    const records = await Record.findOne({
+    const record = await Record.findOne({
         where: { id: parseInt(recordId) },
         include: Part,
     })
 
-    return res.json({ records })
+    return res.json({ record })
 }))
 
 router.post("/create", asyncHandler(async(req, res) => {

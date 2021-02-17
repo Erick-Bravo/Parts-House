@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useParams, NavLink } from "react-router-dom";
+import { fetchAllRecords } from "../../../store/records"
 import RecordCard from "../RecordCard"
 import NameSection from "../zNameSection" 
 import AddRecord from "../zAddRecord"
@@ -12,30 +13,48 @@ import "../index.css";
 
 const ApplianceList = () => {
 
+    const dispatch = useDispatch();
     const { partsHouseId } = useParams();
-    const numpartsHouseId = parseInt(partsHouseId)
+    const numpartsHouseId = parseInt(partsHouseId);
 
-    const partsHouses = useSelector(state => state.partsHouses)
+    const partsHouses = useSelector(state => state.partsHouses);
 
-    const [appliances, setAppliances] = useState([])
-    const [ph, setPh] = useState([])
+    const [appliances, setAppliances] = useState([]);
+    const [ph, setPh] = useState([]);
 
-    const selectedPartsHouse = partsHouses.find(ph => ph.id === numpartsHouseId)
+    const selectedPartsHouse = partsHouses.find(ph => ph.id === numpartsHouseId);
+
     useEffect(() => {
+        dispatch(fetchAllRecords(numpartsHouseId))
         if (partsHouses.length === 0) {
             return
-        }
-        if (selectedPartsHouse) {
+        };
 
-            const records = selectedPartsHouse.Records
-            const applianceTypes = records.filter(rec => rec.type === "Appliance")
+        if (selectedPartsHouse) {
+        
+
+            // const records = selectedPartsHouse.Records
+            // const applianceTypes = records.filter(rec => rec.type === "Appliance")
             setPh(selectedPartsHouse)
-            setAppliances(applianceTypes)
+            // setAppliances(applianceTypes)
         }
 
     }, [partsHouses, partsHouseId, numpartsHouseId, selectedPartsHouse]);
 
+    // useEffect(() => {
+    //     if (partsHouses.length === 0) {
+    //         return
+    //     }
 
+    // }, [partsHouses, partsHouseId, numpartsHouseId, selectedPartsHouse]);
+
+
+
+    // {appliances.map(appliance => {
+    //     return <NavLink to={`/records/${appliance.id}`} key={appliance.id} >
+    //         <RecordCard record={appliance} />
+    //     </NavLink>
+    // })}
 
     return (
         <div id="user-main-page">
@@ -58,11 +77,7 @@ const ApplianceList = () => {
             <div id="display-box">
                 <img src="https://i.ibb.co/1J6XgXY/Appliance-Icon.png" alt="Appliance-Icon" border="0" width="100px"></img>
                 <div>
-                    {appliances.map(appliance => {
-                        return <NavLink to={`/records/${appliance.id}`} key={appliance.id} >
-                            <RecordCard record={appliance} />
-                        </NavLink>
-                    })}
+
                 </div>
             </div>
 

@@ -1,8 +1,24 @@
 import { fetch } from "./csrf" 
 
+const GET_ALL_RECORDS = "get/All_Records"
 const GET_USER_RECORD = "get/Records";
 const ADD_RECORD = "create/Record";
 const DELETE_RECORD = "delete/Record";
+
+const fetchAllRecordsAC = (payload) => ({
+    type: GET_ALL_RECORDS,
+    payload
+});
+
+export const fetchAllRecords = (partsHouseId) => {
+    return async (dispatch) => {
+        const response = await fetch(`/api/parts-houses/${partsHouseId}/records`);
+        // const data = await response.json();
+        dispatch(
+            fetchAllRecordsAC(response.data.records)
+        );
+    };
+};
 
 const setUserRecord = (payload) => ({
     type: GET_USER_RECORD,
@@ -14,7 +30,7 @@ export const fetchUserRecord = (recordId) => {
         const response = await fetch(`/api/records/${recordId}`);
         // const data = await response.json();
         dispatch(
-            setUserRecord(response.data.records)
+            setUserRecord(response.data.record)
         );
     };
 };
@@ -55,6 +71,10 @@ const reducer = (state = [], action) => {
 
     let newState;
     switch (action.type) {
+
+        case GET_ALL_RECORDS:
+            newState = action.payload
+            return newState
 
         case GET_USER_RECORD:
             newState =  action.payload
