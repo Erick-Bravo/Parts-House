@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams, NavLink } from "react-router-dom";
-import { fetchAllRecords } from "../../../store/records"
+import { setUserRecord } from "../../../store/records"
 import RecordCard from "../RecordCard"
 import NameSection from "../zNameSection"
 import AddRecord from "../zAddRecord"
@@ -19,31 +19,39 @@ const ApplianceList = () => {
     // for NameSection
     const partsHouses = useSelector(state => state.partsHouses);
     const selectedPartsHouse = partsHouses.find(ph => ph.id === numpartsHouseId);
-
+    console.log(selectedPartsHouse)
+    
+    
     // for Records
     const records = useSelector(state => state.record)
-
+    const phRecords = records.filter(rec => rec.partsHouseId === numpartsHouseId);
+    const applianceTypes = phRecords.filter(rec => rec.type === "Appliance");
+    
     // console.log(records)
-
+    
     const [appliances, setAppliances] = useState([]);
     const [ph, setPh] = useState([]);
-
-
+    
     useEffect(() => {
-
         dispatch(fetchAllRecords(numpartsHouseId))
+    }, [dispatch])
+    
+    
+    useEffect(() => {
         if (partsHouses.length === 0) {
+            return
+        };
+        if (phRecords.length === 0) {
             return
         };
         if (selectedPartsHouse) {
             setPh(selectedPartsHouse)
         };
-        if (records) {
-            const applianceTypes = records.filter(rec => rec.type === "Appliance");
+        if (applianceTypes) {
             setAppliances(applianceTypes)
         };
 
-    }, [partsHouses, numpartsHouseId, selectedPartsHouse, records]);
+    }, [partsHouses, numpartsHouseId, selectedPartsHouse]);
 
     // useEffect(() => {
     //     if (partsHouses.length === 0) {
@@ -51,7 +59,6 @@ const ApplianceList = () => {
     //     }
 
     // }, [partsHouses, partsHouseId, numpartsHouseId, selectedPartsHouse]);
-
 
 
 
