@@ -16,9 +16,7 @@ export const fetchAllRecords = (partsHouseId) => {
     return async (dispatch) => {
         const response = await fetch(`/api/parts-houses/${partsHouseId}/records`);
         // const data = await response.json();
-        dispatch(
-            fetchAllRecordsAC(response.data.records)
-        );
+        dispatch(fetchAllRecordsAC(response.data.records));
     };
 };
 
