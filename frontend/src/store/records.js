@@ -1,15 +1,17 @@
 import { fetch } from "./csrf" 
 
 const GET_ALL_RECORDS = "get/All_Records"
-const GET_USER_RECORD = "get/Records";
 const ADD_RECORD = "create/Record";
 const DELETE_RECORD = "delete/Record";
+
+
 
 const fetchAllRecordsAC = (payload) => ({
     type: GET_ALL_RECORDS,
     payload
 });
 
+// This actually should be named fetchAllPartsHouseRecords or fetchPhRecords
 export const fetchAllRecords = (partsHouseId) => {
     return async (dispatch) => {
         const response = await fetch(`/api/parts-houses/${partsHouseId}/records`);
@@ -20,20 +22,8 @@ export const fetchAllRecords = (partsHouseId) => {
     };
 };
 
-const setUserRecord = (payload) => ({
-    type: GET_USER_RECORD,
-    payload
-});
 
-export const fetchUserRecord = (recordId) => {
-    return async (dispatch) => {
-        const response = await fetch(`/api/records/${recordId}`);
-        // const data = await response.json();
-        dispatch(
-            setUserRecord(response.data.record)
-        );
-    };
-};
+
 
 const addRecordAC = (payload) => ({
     type: ADD_RECORD,
@@ -51,6 +41,10 @@ export const addRecord = (formData) => {
     };
 };
 
+
+
+
+
 const deleteRecordAC = (payload) => ({
     type: DELETE_RECORD,
     payload
@@ -67,6 +61,10 @@ export const deleteRecord = (recordId) => {
 };
 
 
+
+
+
+
 const reducer = (state = [], action) => {
 
     let newState;
@@ -74,10 +72,6 @@ const reducer = (state = [], action) => {
 
         case GET_ALL_RECORDS:
             newState = action.payload
-            return newState
-
-        case GET_USER_RECORD:
-            newState =  action.payload
             return newState
 
         case ADD_RECORD:

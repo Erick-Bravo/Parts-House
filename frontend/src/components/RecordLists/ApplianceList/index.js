@@ -15,26 +15,25 @@ const ApplianceList = () => {
     const dispatch = useDispatch();
     const { partsHouseId } = useParams();
     const numpartsHouseId = parseInt(partsHouseId);
-    console.log(numpartsHouseId)
+
     // for NameSection
     const partsHouses = useSelector(state => state.partsHouses);
     const selectedPartsHouse = partsHouses.find(ph => ph.id === numpartsHouseId);
     // console.log(selectedPartsHouse)
-    
-    
+
     // for Records
     const records = useSelector(state => state.record)
-    
+
     // console.log(records)
-    
+
     const [appliances, setAppliances] = useState([]);
     const [ph, setPh] = useState([]);
-    
+
     useEffect(() => {
         dispatch(fetchAllRecords(numpartsHouseId))
     }, [dispatch, numpartsHouseId])
-    
-    
+
+
     useEffect(() => {
         if (partsHouses.length === 0) {
             return
@@ -47,14 +46,6 @@ const ApplianceList = () => {
         };
 
     }, [partsHouses, numpartsHouseId, selectedPartsHouse, records]);
-
-    // useEffect(() => {
-    //     if (partsHouses.length === 0) {
-    //         return
-    //     }
-
-    // }, [partsHouses, partsHouseId, numpartsHouseId, selectedPartsHouse]);
-
 
 
 
@@ -74,7 +65,11 @@ const ApplianceList = () => {
                 </NavLink>
             </div>
 
-            <AddRecord partsHouseId={partsHouseId} />
+            <div id="add-record">
+                <NavLink to={`/parts-house/${partsHouseId}/records/add-record-page`}>
+                    <button>Add Appliance</button>
+                </NavLink>
+            </div>
 
             <div id="display-box">
                 <img src="https://i.ibb.co/1J6XgXY/Appliance-Icon.png" alt="Appliance-Icon" border="0" width="100px"></img>

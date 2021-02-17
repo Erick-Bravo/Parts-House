@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { NavLink, useParams } from "react-router-dom";
-import { fetchUserRecord } from "../../store/records";
-import { deleteRecord } from "../../store/records"
+
+import { NavLink, useHistory, useParams } from "react-router-dom";
+
+import { deleteRecord } from "../../store/records";
 
 import "./index.css";
 
@@ -10,30 +11,32 @@ import "./index.css";
 
 const Part = ({ part }) => {
 
-    const [buyHidden, setBuyHidden] = useState(true);
-    const [addHidden, setAddHidden] = useState(true);
+    // const [buyHidden, setBuyHidden] = useState(true);
+    // const [addHidden, setAddHidden] = useState(true);
 
 
-    useEffect(() => {
-        if (part.buyUrl === "url here") {
-            setAddHidden(false);
-        } else {
-            setBuyHidden(false);
-        };
-    }, [part.buyUrl]);
+    // useEffect(() => {
+    //     if (part.buyUrl === "url here") {
+    //         setAddHidden(false);
+    //     } else {
+    //         setBuyHidden(false);
+    //     };
+    // }, [part.buyUrl]);
+
+    //     <div id="left">
+    //     <div id="name">{part.name}</div>
+    //     <div id="make">{part.make}</div>
+    // </div>
+    // <div id="right">
+    //     <p>Model --- {part.model}</p>
+    //     <p>Serial --- {part.serial}</p>
+    //     <button hidden={addHidden}>Add Buy Url</button>
+    //     <button hidden={buyHidden}>Buy</button>
+    // </div>
 
     return (
         <div id="record-card-container">
-            <div id="left">
-                <div id="name">{part.name}</div>
-                <div id="make">{part.make}</div>
-            </div>
-            <div id="right">
-                <p>Model --- {part.model}</p>
-                <p>Serial --- {part.serial}</p>
-                <button hidden={addHidden}>Add Buy Url</button>
-                <button hidden={buyHidden}>Buy</button>
-            </div>
+
         </div>
     );
 };
@@ -44,39 +47,50 @@ const Part = ({ part }) => {
 const RecordPage = () => {
 
     const dispatch = useDispatch();
+    const history = useHistory();
     const { recordId } = useParams();
     const numRecordId = parseInt(recordId);
 
-    const [parts, setParts] = useState([]);
+    // const [parts, setParts] = useState([]);
+
+    const records = useSelector(state => state.record);
+    const record = records.filter(rec => rec.id === numRecordId);
 
 
-    useEffect(() => {
-        dispatch(fetchUserRecord(numRecordId));
-    }, [dispatch, numRecordId]);
-
-    const record = useSelector(state => state.record);
-
-    useEffect(() => {
-        if (record.length === 0) {
-            return
-        }
-        const p = record.Parts
-        setParts(p)
-    }, [record, recordId, parts]);
+    // useEffect(() => {
+    //     if (record.length === 0) {
+    //         return
+    //     }
+    //     const p = record.Parts
+    //     setParts(p)
+    // }, [record, recordId, parts]);
 
     const deleteHandler = (e) => {
         e.preventDefault();
-        dispatch(deleteRecord(recordId))
-        console.log("CLICKED!!!!    ")
+        dispatch(deleteRecord(recordId));
+        history.go(-1);
+        
     };
 
-    {
-        parts.map(part => {
-            return <NavLink to={`/records/${recordId}/parts/${part.id}`} key={part.id}>
-                <Part part={part} />
-            </NavLink>
-        })
-    }
+    // {
+    //     parts.map(part => {
+    //         return <NavLink to={`/records/${recordId}/parts/${part.id}`} key={part.id}>
+    //             <Part part={part} />
+    //         </NavLink>
+    //     })
+    // }
+
+
+    // <div id="display-box">
+
+    // <div>
+    //     <h2>Parts</h2>
+    //     {parts.map(part => {
+    //         return <NavLink to={`/parts/${part.id}`} key={part.id}>
+    //             <Part part={part} />
+    //         </NavLink>
+    //     })}
+    // </div>
 
     return (
         <div id="user-main-page">
@@ -93,20 +107,13 @@ const RecordPage = () => {
                     <p>Model - {record.model}</p>
                     <p>Serial - {record.serial}</p>
                     <p>Initial Purchase Cost - ${record.cost}</p>
-
                 </div>
+
                 <div id="delete-record">
                     <p>Delete this Record</p>
                     <button onClick={deleteHandler}>delete</button>
                 </div>
-                <div>
-                    <h2>Parts</h2>
-                    {parts.map(part => {
-                        return <NavLink to={`/parts/${part.id}`} key={part.id}>
-                            <Part part={part} />
-                        </NavLink>
-                    })}
-                </div>
+
             </div>
 
 
@@ -116,6 +123,6 @@ const RecordPage = () => {
 
         </div>
     );
-}
+};
 
-export default RecordPage
+export default RecordPage;

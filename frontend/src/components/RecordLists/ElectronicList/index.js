@@ -11,62 +11,36 @@ import NameSection from "../zNameSection";
 
 const ElectronicList = () => {
 
-    // const dispatch = useDispatch();
     const { partsHouseId } = useParams();
     const numpartsHouseId = parseInt(partsHouseId);
 
     // for NameSection
-    // const partsHouses = useSelector(state => state.partsHouses);
+    const partsHouses = useSelector(state => state.partsHouses);
     const selectedPartsHouse = partsHouses.find(ph => ph.id === numpartsHouseId);
+    // console.log(selectedPartsHouse)
+
 
     // for Records
     const records = useSelector(state => state.record)
 
     // console.log(records)
 
-    // const [electronics, setElectronics ] = useState([]);
-    // const [ph, setPh] = useState([]);
+    const [electronics, setElectronics] = useState([]);
+    const [ph, setPh] = useState([]);
 
-
-    // useEffect(() => {
-
-    //     dispatch(fetchAllRecords(numpartsHouseId))
-    //     if (partsHouses.length === 0) {
-    //         return
-    //     };
-    //     if (selectedPartsHouse) {
-    //         setPh(selectedPartsHouse)
-    //     };
-    //     if (records) {
-    //         const electronicTypes = records.filter(rec => rec.type === "Electronic");
-    //         setElectronics(electronicTypes);
-    //     };
-
-    // }, [partsHouses, numpartsHouseId, selectedPartsHouse, records]);
-
-    // const { partsHouseId } = useParams();
-    // const numpartsHouseId = parseInt(partsHouseId)
-
-
-    const partsHouses = useSelector(state => state.partsHouses)
-
-    const [electronics, setElectronics ] = useState([])
-    const [ph, setPh] = useState([])
 
     useEffect(() => {
         if (partsHouses.length === 0) {
             return
-        }
-        const selectedPartsHouse = partsHouses.find(ph => ph.id === numpartsHouseId)
-        if (selectedPartsHouse) {
-
-            const records = selectedPartsHouse.Records
-            const electronicTypes = records.filter(rec => rec.type === "Electronic")
+        };
+        if (records) {
+            const phRecords = records.filter(rec => rec.partsHouseId === numpartsHouseId);
+            const electronicTypes = phRecords.filter(rec => rec.type === "Electronic");
             setPh(selectedPartsHouse)
             setElectronics(electronicTypes)
-        }
+        };
 
-    }, [partsHouses, partsHouseId, numpartsHouseId]);
+    }, [partsHouses, numpartsHouseId, selectedPartsHouse, records]);
 
 
 
@@ -87,7 +61,9 @@ const ElectronicList = () => {
             </div>
 
             <div id="add-record">
-                <button>Add Electronic</button>
+                <NavLink to={`/parts-house/${partsHouseId}/records/add-record-page`}>
+                    <button>Add Electronic</button>
+                </NavLink>
             </div>
 
             <div id="display-box">

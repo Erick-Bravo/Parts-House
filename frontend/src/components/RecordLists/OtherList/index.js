@@ -9,36 +9,46 @@ import NameSection from "../zNameSection";
 
 
 
-const OtherList = ({ userId }) => {
+const OtherList = () => {
 
     const { partsHouseId } = useParams();
-    const numpartsHouseId = parseInt(partsHouseId)
+    const numpartsHouseId = parseInt(partsHouseId);
 
-    const partsHouses = useSelector(state => state.partsHouses)
+    // for NameSection
+    const partsHouses = useSelector(state => state.partsHouses);
+    const selectedPartsHouse = partsHouses.find(ph => ph.id === numpartsHouseId);
+    // console.log(selectedPartsHouse)
 
-    const [ others, setOthers ] = useState([])
-    const [ph, setPh] = useState([])
+
+    // for Records
+    const records = useSelector(state => state.record)
+
+    // console.log(records)
+
+    const [others, setOthers] = useState([]);
+    const [ph, setPh] = useState([]);
+
 
     useEffect(() => {
         if (partsHouses.length === 0) {
             return
-        }
-        const selectedPartsHouse = partsHouses.find(ph => ph.id === numpartsHouseId)
-        if (selectedPartsHouse) {
-
-            const records = selectedPartsHouse.Records
-            const otherTypes = records.filter(rec => rec.type === "Other")
+        };
+        if (records) {
+            const phRecords = records.filter(rec => rec.partsHouseId === numpartsHouseId);
+            const otherTypes = phRecords.filter(rec => rec.type === "Other");
             setPh(selectedPartsHouse)
             setOthers(otherTypes)
-        }
+        };
 
-    }, [partsHouses, partsHouseId, numpartsHouseId]);
+    }, [partsHouses, numpartsHouseId, selectedPartsHouse, records]);
+
+
 
 
 
     return (
         <div id="user-main-page">
-            <NameSection ph={ph}/>
+            <NameSection ph={ph} />
 
             <div id="record-navbar">
                 <NavLink to={`/parts-house/${partsHouseId}/appliances`} >
@@ -53,7 +63,9 @@ const OtherList = ({ userId }) => {
             </div>
 
             <div id="add-record">
-                <button>Add Other</button>
+                <NavLink to={`/parts-house/${partsHouseId}/records/add-record-page`}>
+                    <button>Add Other</button>
+                </NavLink>
             </div>
 
             <div id="display-box">
