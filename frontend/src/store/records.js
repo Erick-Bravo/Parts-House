@@ -57,7 +57,7 @@ const reducer = (state = [], action) => {
     switch (action.type) {
 
         case GET_USER_RECORD:
-            newState = [...state, action.payload]
+            newState =  action.payload
             return newState
 
         case ADD_RECORD:

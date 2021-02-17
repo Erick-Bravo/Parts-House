@@ -22,9 +22,9 @@ const PartPage = () => {
     const numpartId = parseInt(partId);
 
 
-    useEffect(() => {
-        
-    })
+    // useEffect(() => {
+
+    // })
     
 
 
