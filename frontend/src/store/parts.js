@@ -1,6 +1,19 @@
 import { fetch } from "./csrf"
 
+const GET_ALL_PARTS = "get/All_Parts"
 const GET_PARTS = "get/Parts"
+
+const setAllRecPartsAC = (payload) => ({
+    type: GET_ALL_PARTS,
+    payload
+});
+
+export const fetchAllRecParts = (recordId) => {
+    return async (dispatch) => {
+        const response = await fetch(`api/records/${recordId}/parts`)
+    };
+};
+
 
 const setPart = (payload) => ({
     type: GET_PARTS,

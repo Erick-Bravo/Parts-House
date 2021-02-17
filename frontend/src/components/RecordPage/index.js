@@ -51,14 +51,11 @@ const RecordPage = () => {
     const { recordId } = useParams();
     const numRecordId = parseInt(recordId);
 
-    // const [parts, setParts] = useState([]);
-
     const records = useSelector(state => state.record);
-    console.log(records)
+    
     const array = records.filter(rec => rec.id === numRecordId);
     const record = array[0]
-    console.log(record)
-
+    
 
     // useEffect(() => {
     //     if (record.length === 0) {
@@ -67,6 +64,7 @@ const RecordPage = () => {
     //     const p = record.Parts
     //     setParts(p)
     // }, [record, recordId, parts]);
+
     useEffect(() => {
         if (record.length === 0) {
             return

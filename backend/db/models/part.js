@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: "recordId"
     })
 
-
+    
   };
   return Part;
 };

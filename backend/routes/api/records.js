@@ -56,5 +56,16 @@ return res.json({ record })
 
 }));
 
+// Get PARTS - its here because I needs to use params for the Id
+router.get("/:recordId/parts", asyncHandler(async(req, res) => {
+
+    const { recordId } = req.params;
+
+    const parts = await Part.findAll({
+        where: { recordId: recordId },
+    });
+    return res.json({ parts })
+}));
+
 
 module.exports = router
