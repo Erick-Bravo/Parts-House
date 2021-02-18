@@ -58,12 +58,10 @@ const RecordPage = () => {
     const record = array[0]
 
 
-
     useEffect(() => {
         dispatch(fetchAllRecParts(numRecordId))
     }, [dispatch, numRecordId]);
 
- 
 
     const deleteHandler = (e) => {
         e.preventDefault();
@@ -74,10 +72,6 @@ const RecordPage = () => {
 
     return (
         <div id="user-main-page">
-
-            <div>
-                <h1>Record</h1>
-            </div>
 
             <div id="display-box">
                 {record &&
@@ -92,7 +86,7 @@ const RecordPage = () => {
 
 
                 <div id="delete-record">
-                    <p>Delete this Record</p>
+                    <p>Delete this entire Record</p>
                     <button onClick={deleteHandler}>delete</button>
                 </div>
 
