@@ -12,15 +12,17 @@ router.get("/:partId", asyncHandler(async(req, res) => {
     res.json({ part })
 }));
 
-router.delete(":partId/delete", asyncHandler(async(req, res) => {
+router.delete("/:partId/delete", asyncHandler(async(req, res) => {
 
     const { partId } = req.body;
 
-    const part = await record.findByPk(partId);
+    const part = await Part.findByPk(partId);
     await part.destroy();
 
-    return res.json({ deletedPart: part })
+    return res.json({ part })
 
-}))
+}));
+
+
 
 module.exports = router

@@ -1,6 +1,7 @@
-import { fetch } from "./csrf"
+import { fetch } from "./csrf";
 
-const GET_ALL_PARTS = "get/All_Parts"
+const GET_ALL_PARTS = "get/All_Parts";
+const DELETE_PART = "delete/Part";
 
 const setAllRecPartsAC = (payload) => ({
     type: GET_ALL_PARTS,
@@ -16,6 +17,21 @@ export const fetchAllRecParts = (recordId) => {
 };
 
 
+const deletePartAC = (payload) => ({
+    type: GET_ALL_PARTS,
+    payload
+});
+
+
+export const deletePart = (partId) => {
+    return async (dispatch) => {
+        const response = await fetch(`/api/parts/${partId}/delete`, {
+            method: "DELETE",
+            body: JSON.stringify({ partId }),
+        });
+        dispatch(deletePartAC(response.data.part));
+    };
+};
 
 
 const reducer = (state = [], action) => {
@@ -25,6 +41,13 @@ const reducer = (state = [], action) => {
 
         case GET_ALL_PARTS:
             newState = action.payload
+            return newState
+
+        case DELETE_PART:
+            newState = state.filter((part) => {
+                const ret = part.id !== Number(action.payload.id)
+                return ret
+            });
             return newState
 
         default:

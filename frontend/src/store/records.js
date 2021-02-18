@@ -53,8 +53,8 @@ export const deleteRecord = (recordId) => {
         const response = await fetch(`/api/records/${recordId}/delete`, {
             method: "DELETE",
             body: JSON.stringify({ recordId }),
-        })
-        dispatch(deleteRecordAC(response.data.record))
+        });
+        dispatch(deleteRecordAC(response.data.record));
     };
 };
 

@@ -51,16 +51,27 @@ const RecordPage = () => {
     const { recordId } = useParams();
     const numRecordId = parseInt(recordId);
 
-    const records = useSelector(state => state.record);
-    const parts = useSelector(state => state.parts)
 
+    const records = useSelector(state => state.record);
     const array = records.filter(rec => rec.id === numRecordId);
     const record = array[0]
 
+    // const [parts, setPart] = useState([]);
+    const parts = useSelector(state => state.parts)
 
     useEffect(() => {
-        dispatch(fetchAllRecParts(numRecordId))
+        dispatch(fetchAllRecParts(numRecordId));
     }, [dispatch, numRecordId]);
+
+
+    // useEffect(() => {
+    //     if (p.length === 0) {
+    //         return
+    //     };
+    //     if (p) { 
+    //         setPart(p);
+    //     }
+    // }, [parts]);
 
 
     const deleteHandler = (e) => {
@@ -78,6 +89,10 @@ const RecordPage = () => {
                     <div id="record-container">
                         <div id="record-name">{record.name}</div>
                         <div id="record-make">{record.make}</div>
+                        <div id="delete-record">
+                            <p>Delete this entire Record</p>
+                            <button onClick={deleteHandler}>delete</button>
+                        </div>
                         <h2>Info</h2>
                         <p>Model - {record.model}</p>
                         <p>Serial - {record.serial}</p>
@@ -85,13 +100,15 @@ const RecordPage = () => {
                     </div>}
 
 
-                <div id="delete-record">
-                    <p>Delete this entire Record</p>
-                    <button onClick={deleteHandler}>delete</button>
-                </div>
 
                 <div>
-                    <h2>Parts</h2>
+                    <div>
+                        <h2>Parts</h2>
+                        <div>
+                            <button>Add Part</button>
+                        </div>
+                    </div>
+                    {!parts && <p>loading..</p>}
                     {parts && parts.map(part => {
                         return <NavLink to={`/parts/${part.id}`} key={part.id}>
                             <PartCard part={part} />

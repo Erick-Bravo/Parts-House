@@ -1,18 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
+import { deletePart } from "../../store/parts"
 
 import "./index.css";
 
-
-// const Part = () => {
-//     return (
-//         <div>
-//             <p>THIS IS HITTING</p>
-//             <h1></h1>
-//         </div>
-//     );
-// };
 
 
 
@@ -25,19 +17,26 @@ const PartPage = () => {
     const numpartId = parseInt(partId);
 
     const parts = useSelector(state => state.parts)
-    const part = parts.find(part => part.id === numpartId)
+    const [part, setPart] = useState([]);
 
-
+    
+    
     useEffect(() => {
+
         if (parts.length === 0) {
             return
         };
+        if (parts) {
+            const part = parts.find(part => part.id === numpartId)
+            setPart(part)
+        }
     }, [part])
 
     const deleteHandler = (e) => {
         e.preventDefault();
-        // dispatch(deletePart(numpartId));
-        history.go(-1);
+        dispatch(deletePart(numpartId));
+        history.push("/");
+        // history.go(-1)
     };
 
     return (
