@@ -1,23 +1,27 @@
 import { fetch } from "./csrf" 
 
-const GET_USER_RECORD = "get/Records";
+const GET_ALL_RECORDS = "get/All_Records"
 const ADD_RECORD = "create/Record";
 const DELETE_RECORD = "delete/Record";
 
-const setUserRecord = (userRecord) => ({
-    type: GET_USER_RECORD,
-    userRecord
+
+
+const fetchAllRecordsAC = (payload) => ({
+    type: GET_ALL_RECORDS,
+    payload
 });
 
-export const fetchUserRecord = (recordId) => {
+// This actually should be named fetchAllPartsHouseRecords or fetchPhRecords
+export const fetchAllRecords = (partsHouseId) => {
     return async (dispatch) => {
-        const response = await fetch(`/api/records/${recordId}`);
+        const response = await fetch(`/api/parts-houses/${partsHouseId}/records`);
         // const data = await response.json();
-        dispatch(
-            setUserRecord(response.data.records)
-        );
+        dispatch(fetchAllRecordsAC(response.data.records));
     };
 };
+
+
+
 
 const addRecordAC = (payload) => ({
     type: ADD_RECORD,
@@ -35,6 +39,10 @@ export const addRecord = (formData) => {
     };
 };
 
+
+
+
+
 const deleteRecordAC = (payload) => ({
     type: DELETE_RECORD,
     payload
@@ -45,10 +53,14 @@ export const deleteRecord = (recordId) => {
         const response = await fetch(`/api/records/${recordId}/delete`, {
             method: "DELETE",
             body: JSON.stringify({ recordId }),
-        })
-        dispatch(deleteRecordAC(response.data.record))
+        });
+        dispatch(deleteRecordAC(response.data.record));
     };
 };
+
+
+
+
 
 
 const reducer = (state = [], action) => {
@@ -56,8 +68,8 @@ const reducer = (state = [], action) => {
     let newState;
     switch (action.type) {
 
-        case GET_USER_RECORD:
-            newState = action.userRecord
+        case GET_ALL_RECORDS:
+            newState = action.payload
             return newState
 
         case ADD_RECORD:
@@ -66,7 +78,7 @@ const reducer = (state = [], action) => {
 
         case DELETE_RECORD:
             newState = state.filter((record) => {
-                const ret = record.id !== Number(action.userRecord.id)
+                const ret = record.id !== Number(action.payload.id)
                 return ret
             });
             return newState

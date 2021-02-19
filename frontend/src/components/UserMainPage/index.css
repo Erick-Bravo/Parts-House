@@ -24,6 +24,7 @@
     background-color: #2F496E;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: #F4EADE;
+    position: static;
 }
 
 #left-nav-bar button {

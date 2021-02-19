@@ -1,0 +1,31 @@
+#part-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+};
+
+#part-container #record-name {
+    font-size: 55px;
+    margin-top: 40px;
+}
+
+#part-container #record-make {
+    font-size: 30px;
+    margin: 15px;
+}
+
+#part-container p {
+    font-size: 20px;
+}
+
+#delete-record {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+}
+#delete-record p {
+
+    margin: 20px;
+}

@@ -9,31 +9,38 @@ import NameSection from "../zNameSection";
 
 
 
-const ElectronicList = ({ userId }) => {
+const ElectronicList = () => {
 
     const { partsHouseId } = useParams();
-    const numpartsHouseId = parseInt(partsHouseId)
+    const numpartsHouseId = parseInt(partsHouseId);
+
+    // for NameSection
+    const partsHouses = useSelector(state => state.partsHouses);
+    const selectedPartsHouse = partsHouses.find(ph => ph.id === numpartsHouseId);
+    // console.log(selectedPartsHouse)
 
 
-    const partsHouses = useSelector(state => state.partsHouses)
+    // for Records
+    const records = useSelector(state => state.record)
 
-    const [ electronics, setElectronics ] = useState([])
-    const [ph, setPh] = useState([])
+    // console.log(records)
+
+    const [electronics, setElectronics] = useState([]);
+    const [ph, setPh] = useState([]);
+
 
     useEffect(() => {
         if (partsHouses.length === 0) {
             return
-        }
-        const selectedPartsHouse = partsHouses.find(ph => ph.id === numpartsHouseId)
-        if (selectedPartsHouse) {
-
-            const records = selectedPartsHouse.Records
-            const electronicTypes = records.filter(rec => rec.type === "Electronic")
+        };
+        if (records) {
+            const phRecords = records.filter(rec => rec.partsHouseId === numpartsHouseId);
+            const electronicTypes = phRecords.filter(rec => rec.type === "Electronic");
             setPh(selectedPartsHouse)
             setElectronics(electronicTypes)
-        }
+        };
 
-    }, [partsHouses, partsHouseId, numpartsHouseId]);
+    }, [partsHouses, numpartsHouseId, selectedPartsHouse, records]);
 
 
 
@@ -54,7 +61,9 @@ const ElectronicList = ({ userId }) => {
             </div>
 
             <div id="add-record">
-                <button>Add Electronic</button>
+                <NavLink to={`/parts-house/${partsHouseId}/records/add-record-page`}>
+                    <button>Add Electronic</button>
+                </NavLink>
             </div>
 
             <div id="display-box">

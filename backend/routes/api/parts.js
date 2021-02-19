@@ -4,11 +4,25 @@ const { Part } = require("../../db/models");
 
 const router = express.Router();
 
-router.get("/:partsId", asyncHandler(async(req, res) => {
+router.get("/:partId", asyncHandler(async(req, res) => {
 
-    const { partsId } = req.body
-    const part = await Part.findByPk(partsId);
-    return res.json({ part })
+    const { partId } = req.params;
+
+    const part = await Part.findByPk(partId)
+    res.json({ part })
 }));
+
+router.delete("/:partId/delete", asyncHandler(async(req, res) => {
+
+    const { partId } = req.body;
+
+    const part = await Part.findByPk(partId);
+    await part.destroy();
+
+    return res.json({ part })
+
+}));
+
+
 
 module.exports = router
