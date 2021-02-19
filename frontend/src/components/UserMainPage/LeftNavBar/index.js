@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import { logout } from "../../../store/session";
 import { fetchUserPartsHouses } from "../../../store/partshouse";
 import { addPartsHouse } from "../../../store/partshouse"
@@ -11,11 +11,12 @@ import { addPartsHouse } from "../../../store/partshouse"
 
 const LeftNavBar = () => {
 
-    const userId = useSelector(state => state.session.user.id);
-
-    const userPartsHouses = useSelector(state => state.partsHouses);
-
+    
     const dispatch = useDispatch();
+    const history = useHistory();
+
+    const userId = useSelector(state => state.session.user.id);
+    const userPartsHouses = useSelector(state => state.partsHouses);
 
     const [hidden, setHidden] = useState(true);
     const [name, setName] = useState("");
@@ -28,6 +29,7 @@ const LeftNavBar = () => {
     const logoutHandler = (e) => {
         e.preventDefault();
         dispatch(logout());
+        history.push("/")
     };
 
     const addPartsHouseHandler = () => {
