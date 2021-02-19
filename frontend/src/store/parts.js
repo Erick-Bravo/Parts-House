@@ -18,7 +18,7 @@ export const fetchAllRecParts = (recordId) => {
 
 
 const deletePartAC = (payload) => ({
-    type: GET_ALL_PARTS,
+    type: DELETE_PART,
     payload
 });
 
@@ -29,6 +29,7 @@ export const deletePart = (partId) => {
             method: "DELETE",
             body: JSON.stringify({ partId }),
         });
+        // debugger
         dispatch(deletePartAC(response.data.part));
     };
 };
@@ -48,6 +49,7 @@ const reducer = (state = [], action) => {
                 const ret = part.id !== Number(action.payload.id)
                 return ret
             });
+            // debugger
             return newState
 
         default:

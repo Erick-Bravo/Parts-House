@@ -63,15 +63,14 @@ const RecordPage = () => {
         dispatch(fetchAllRecParts(numRecordId));
     }, [dispatch, numRecordId]);
 
-
     // useEffect(() => {
-    //     if (p.length === 0) {
+    //     if(p.length === 0) {
     //         return
     //     };
-    //     if (p) { 
-    //         setPart(p);
-    //     }
-    // }, [parts]);
+    //     if (p) {
+    //         setPart(p)
+    //     };
+    // }, [parts])
 
 
     const deleteHandler = (e) => {
