@@ -5,6 +5,7 @@
     text-align: center;
     flex-direction: column;
     background-image: linear-gradient(45deg, #4a95bd,  #163a6d);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     position: absolute;
     height: 100%;
     width: 100%;
@@ -12,12 +13,26 @@
 }
 
 #sign-up-container form {
-    width: 200px;
-    height: 200px;
+    width: 500px;
+    height: 375px;
+    
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 30px;
+}
+
+#sign-up-container input {
+    width: 400px;
+    height: 40px;
+    margin: 5px;
+    /* border: 2px solid black; */
+    font-size: 30px;
 }
 
 #sign-up-container button {
     margin: 20px;
+    height: 40px;
+    width: 150px;
+    font-size: 30px;
     border: none;
     background-color:  #2F496E;
     color: #F4EADE;
@@ -26,4 +41,8 @@
 
 #sign-up-container button:hover {
     background-color:  #3a4e69
+}
+
+#img {
+    size: 400px;
 }
