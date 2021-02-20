@@ -14,6 +14,7 @@ const NameSection = ({ph}) => {
     const history = useHistory();
     const userId = useSelector(state => state.session.user.id);
     
+    
     const deleteHandler = () => {
         dispatch(deletePartsHouse(ph.id))
         history.push(`/users/${userId}`)

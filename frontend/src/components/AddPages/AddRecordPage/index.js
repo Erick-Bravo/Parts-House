@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from 'react-redux';
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { addRecord } from "../../../store/records"
 import "./index.css";
 
@@ -11,6 +11,7 @@ const AddRecordPage = () => {
 
   
     const dispatch = useDispatch();
+    const history = useHistory();
     const { partsHouseId } = useParams();
     const numPartsHouseId = parseInt(partsHouseId);
 
@@ -77,6 +78,8 @@ const AddRecordPage = () => {
         setSerial("");
         setBuyUrl("");
         setAddInfo("");
+
+        history.go(-1)
     };
 
 

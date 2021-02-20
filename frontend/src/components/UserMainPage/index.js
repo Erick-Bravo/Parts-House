@@ -12,6 +12,9 @@ const EmptyDisplayPage = () => {
 
     return (
         <div id="user-main-page">
+            <div>
+                
+            </div>
             
             
             <div id="display-box">
