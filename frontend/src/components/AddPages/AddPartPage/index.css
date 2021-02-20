@@ -1,0 +1,10 @@
+#parts-form-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    background-color: #F4EADE;
+    height: 100%;
+    width: 100%;
+    /* border: 2px solid black;  */
+}

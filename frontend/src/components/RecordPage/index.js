@@ -43,7 +43,6 @@ const PartCard = ({ part }) => {
 
 
 
-
 const RecordPage = () => {
 
     const dispatch = useDispatch();
@@ -51,30 +50,20 @@ const RecordPage = () => {
     const { recordId } = useParams();
     const numRecordId = parseInt(recordId);
 
-
     const records = useSelector(state => state.record);
     const array = records.filter(rec => rec.id === numRecordId);
     const record = array[0]
-
-    // const [parts, setPart] = useState([]);
+  
     const parts = useSelector(state => state.parts)
 
     useEffect(() => {
         dispatch(fetchAllRecParts(numRecordId));
     }, [dispatch, numRecordId]);
 
-    // useEffect(() => {
-    //     if(p.length === 0) {
-    //         return
-    //     };
-    //     if (p) {
-    //         setPart(p)
-    //     };
-    // }, [parts])
+
 
 
     const deleteHandler = (e) => {
-        e.preventDefault();
         dispatch(deleteRecord(recordId));
         history.go(-1);
     };
@@ -104,7 +93,9 @@ const RecordPage = () => {
                     <div>
                         <h2>Parts</h2>
                         <div>
-                            <button>Add Part</button>
+                            <NavLink to={`/records/${recordId}/parts/add-part-page`}>
+                                <button>Add Part</button>
+                            </NavLink>
                         </div>
                     </div>
                     {!parts && <p>loading..</p>}

@@ -49,7 +49,6 @@ export const deletePartsHouse = (partsHouseId) => {
             method: "DELETE",
             body: JSON.stringify({partsHouseId}),
         })
-        debugger
         // const data = await response.json()
         dispatch(deletePartsHouseAC(response.data.ph));
     };
