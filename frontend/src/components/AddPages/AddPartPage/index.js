@@ -15,17 +15,13 @@ const PartPage = () => {
     const record = records.find(rec => rec.id === numRecordId)
 
     const history = useHistory();
-    const { partsHouseId } = useParams();
-    const numPartsHouseId = parseInt(partsHouseId);
 
-    
     const [name, setName] = useState("");
     const [make, setMake] = useState("");
     const [cost, setCost] = useState(0);
     const [model, setModel] = useState("");
     const [serial, setSerial] = useState("");
     const [buyUrl, setBuyUrl] = useState("");
-    const [addInfo, setAddInfo] = useState("");
     const [descript, setDescript] = useState("");
     const [errors, setErrors] = useState([]);
 
@@ -53,17 +49,16 @@ const PartPage = () => {
         const formData = {
     
             name,
-            description: descript,
             cost,
             make,
             model,
             serial,
             buyUrl,
-            additionalInfo: addInfo,
-            partsHouseId: numPartsHouseId
+            description: descript,
+            recordId: recordId
         };
 
-        // dispatch(addRecord(formData))
+        // dispatch(addPart(formData))
 
       
         setName("");
