@@ -42,22 +42,21 @@ const PartPage = () => {
     return (
         <div id="user-main-page">
 
-            <div id="display-box">
                 <div id="part-container">
-                    <div id="record-name">{part.name}</div>
-                    <div id="record-make">{part.make}</div>
-                    <h2>Info</h2>
+                    <h1>{part.name}</h1>
+                    <h2>{part.make}</h2>
+                    
                     <p>Model - {part.model}</p>
                     <p>Serial - {part.serial}</p>
                     <p>Initial Purchase Cost - ${part.cost}</p>
+                    <p>Description: {part.description}</p>
+                    <button>Go to purchase website</button>
                 </div>
-
                 <div id="delete-record">
                     <p>Delete this Part and all its info</p>
                     <button onClick={deleteHandler}>delete</button>
                 </div>
 
-            </div>
 
         </div>
     );

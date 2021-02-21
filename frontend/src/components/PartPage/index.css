@@ -1,31 +1,44 @@
-#part-container {
+/* #part-container {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    border: 2px solid black;
+    border-radius: 15px;
 };
+
+#part-container #part-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border: 2px solid black;
+};
+
+#part_container h1 {
+    font-size: 100px;
+}
 
 #part-container #record-name {
     font-size: 55px;
     margin-top: 40px;
-}
+};
 
 #part-container #record-make {
     font-size: 30px;
     margin: 15px;
-}
+};
 
 #part-container p {
     font-size: 20px;
-}
+};
 
 #delete-record {
     display: flex;
     align-items: center;
     justify-content: center;
-   
-}
-#delete-record p {
+};
 
+#delete-record p {
     margin: 20px;
-}
+}; */
