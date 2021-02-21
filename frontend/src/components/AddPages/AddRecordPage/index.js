@@ -21,7 +21,6 @@ const AddRecordPage = () => {
     const [cost, setCost] = useState(0);
     const [model, setModel] = useState("");
     const [serial, setSerial] = useState("");
-    const [addInfo, setAddInfo] = useState("");
     const [descript, setDescript] = useState("");
     const [errors, setErrors] = useState([]);
 
@@ -61,10 +60,10 @@ const AddRecordPage = () => {
             make,
             model,
             serial,
-            additionalInfo: addInfo,
             partsHouseId: numPartsHouseId
         };
 
+        console.log(formData)
         dispatch(addRecord(formData))
 
         setType("");
@@ -74,9 +73,9 @@ const AddRecordPage = () => {
         setMake("");
         setModel("");
         setSerial("");
-        setAddInfo("");
+       
 
-        history.go(-1)
+        // history.go(-1)
     };
 
 

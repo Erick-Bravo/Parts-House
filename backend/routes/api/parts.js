@@ -10,7 +10,27 @@ router.get("/:partId", asyncHandler(async(req, res) => {
 
     const part = await Part.findByPk(partId)
     res.json({ part })
-}));
+}))
+
+// router.post("/create", asyncHandler(async(req, res) => {
+
+//     const {
+//         name,
+//         make,
+//         model,
+//         cost,
+//         serial,
+//         description,
+//         recordId,
+//     } = req.body.formData
+
+//     const part = await Part.create({
+        
+//     })
+
+// }))
+
+
 
 router.post("/create", asyncHandler(async(req, res) => {
 
@@ -22,10 +42,9 @@ router.post("/create", asyncHandler(async(req, res) => {
         serial,
         description,
         recordId, 
-    } = req.body.formData;
+    } = req.body.formData
     
     const part = await Part.create({
-        type,
         name,
         make,
         cost,
@@ -38,6 +57,9 @@ router.post("/create", asyncHandler(async(req, res) => {
     return res.json({ part })
 
 }));
+
+
+
 
 router.delete("/:partId/delete", asyncHandler(async(req, res) => {
 

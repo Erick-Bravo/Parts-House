@@ -42,38 +42,38 @@ module.exports = {
       {
         type: "Appliance", name: "Refrigerator", cost: "600",
         make: "ACME Refrigerators", model: "DJG95746FHBKR", serial: "884856974756H",
-        additionalInfo: "", partsHouseId: userDemoFamilyHouse,
+        partsHouseId: userDemoFamilyHouse,
       },
       {
         type: "Appliance", name: "Dryer", cost: "400",
         make: "ACME Dryers", model: "DJG95746FHBKR", serial: "884856974756H",
-        additionalInfo: "", partsHouseId: userDemoFamilyHouse,
+        partsHouseId: userDemoFamilyHouse,
       },
       {
         type: "Appliance", name: "Air Conditioning", cost: "3000",
         make: "ACME Air Conditioning", model: "DJG95746FHBKR", serial: "884856974756H",
-        additionalInfo: "", partsHouseId: userDemoFamilyHouse,
+        partsHouseId: userDemoFamilyHouse,
       },
       {
         type: "Electronic", name: "PC Build", cost: "1500",
         make: "ACME PC Parts", model: "DJG95746FHBKR", serial: "884856974756H",
-        additionalInfo: "", partsHouseId: userDemoFamilyHouse,
+        partsHouseId: userDemoFamilyHouse,
       },
       {
         type: "Electronic", name: "TV Remote", cost: "20",
         make: "ACME TV's", model: "DJG95746FHBKR", serial: "884856974756H",
-        additionalInfo: "", partsHouseId: userDemoFamilyHouse,
+        partsHouseId: userDemoFamilyHouse,
       },
 
       {
         type: "Appliance", name: "Coffee Maker", cost: "150",
         make: "ACME Coffee", model: "DJG95746FHBKR", serial: "884856974756H",
-        additionalInfo: "", partsHouseId: userDemoOffice,
+        partsHouseId: userDemoOffice,
       },
       {
         type: "Electronic", name: "Printer", cost: "400",
         make: "ACME Printers", model: "DJG95746FHBKR", serial: "884856974756H",
-        additionalInfo: "", partsHouseId: userDemoOffice,
+        partsHouseId: userDemoOffice,
       },
 
     ], { returning: true });

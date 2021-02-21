@@ -24,13 +24,11 @@ const addPartAC = (payload) => ({
 
 export const addPart = (formData) => {
     return async (dispatch) => {
-        debugger
         const response = await fetch(`/api/parts/create`, {
             method: "POST",
-            body: JSON.stringify({ formData })
-        });
-        debugger
-        dispatch(addPartAC(response.data.part));
+            body: JSON.stringify({formData})
+        })
+        dispatch(addPartAC(response.data.part))
     };
 };
 

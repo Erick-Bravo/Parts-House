@@ -30,7 +30,7 @@ const PartPage = () => {
             const part = parts.find(part => part.id === numpartId)
             setPart(part)
         }
-    }, [part])
+    }, [part, numpartId, parts])
 
     const deleteHandler = (e) => {
         e.preventDefault();
