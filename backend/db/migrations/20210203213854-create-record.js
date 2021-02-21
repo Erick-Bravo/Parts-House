@@ -27,8 +27,8 @@ module.exports = {
       serial: {
         type: Sequelize.STRING
       },
-      additionalInfo: {
-        type: Sequelize.STRING(1000)
+      description: {
+        type: Sequelize.STRING
       },
       partsHouseId: {
         type: Sequelize.INTEGER,

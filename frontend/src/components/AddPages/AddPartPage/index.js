@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from "react-router-dom";
+import { addPart } from "../../../store/parts"
 import "./index.css"
 
 
@@ -55,10 +56,12 @@ const PartPage = () => {
             serial,
             buyUrl,
             description: descript,
-            recordId: recordId
+            recordId: numRecordId
         };
 
-        // dispatch(addPart(formData))
+        console.log(formData)
+
+        dispatch(addPart(formData))
 
       
         setName("");
@@ -68,9 +71,8 @@ const PartPage = () => {
         setModel("");
         setSerial("");
         setBuyUrl("");
-        setAddInfo("");
 
-        history.go(-1)
+        // history.go(-1)
     };
 
 

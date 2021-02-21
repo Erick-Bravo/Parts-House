@@ -7,6 +7,7 @@ module.exports = (sequelize, DataTypes) => {
     model: DataTypes.STRING,
     serial: DataTypes.STRING,
     buyUrl: DataTypes.STRING,
+    description: DataTypes.STRING,
     recordId: DataTypes.INTEGER
   }, {});
   Part.associate = function(models) {

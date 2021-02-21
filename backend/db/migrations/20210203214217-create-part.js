@@ -27,6 +27,9 @@ module.exports = {
       buyUrl: {
         type: Sequelize.STRING
       },
+      description: {
+        type: Sequelize.STRING
+      },
       recordId: {
         type: Sequelize.INTEGER,
         allowNull: false,
