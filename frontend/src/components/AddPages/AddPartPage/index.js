@@ -80,7 +80,7 @@ const PartPage = () => {
 
 
     return (
-        <div id="parts-form-container">
+        <div id="user-main-page">
 
             <form id="new-record-form" onSubmit={onSubmit}>
                 <h2>Add New Part</h2>
