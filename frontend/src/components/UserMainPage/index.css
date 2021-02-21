@@ -86,24 +86,35 @@
     flex-direction: column;
     height: 1200px;
     width: 450px;
-    /* border: .2px solid #2F496E; */
+    /* border: .2px solid black; */
 }
 
 #new-record-form h2{
     font-size: 40px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    margin: 60px;
+}
+
+#new-record-form h3{
+    font-size: 30px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#new-record-form .red-error{
+    color: red;
+    font-size: 25px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 #new-record-form input{
     font-size: 20px;
-    width: 400px;
+    width: 445px;
     height: 40px;  
+    margin-top: 10px;
 }
 
 #new-record-form textarea{
     font-size: 20px;
-    width: 400px;
+    width: 445px;
     height: 80px;  
     text-decoration: none;
     resize: none;

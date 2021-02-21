@@ -21,7 +21,6 @@ const AddRecordPage = () => {
     const [cost, setCost] = useState(0);
     const [model, setModel] = useState("");
     const [serial, setSerial] = useState("");
-    const [buyUrl, setBuyUrl] = useState("");
     const [addInfo, setAddInfo] = useState("");
     const [descript, setDescript] = useState("");
     const [errors, setErrors] = useState([]);
@@ -62,7 +61,6 @@ const AddRecordPage = () => {
             make,
             model,
             serial,
-            buyUrl,
             additionalInfo: addInfo,
             partsHouseId: numPartsHouseId
         };
@@ -76,7 +74,6 @@ const AddRecordPage = () => {
         setMake("");
         setModel("");
         setSerial("");
-        setBuyUrl("");
         setAddInfo("");
 
         history.go(-1)
@@ -90,7 +87,7 @@ const AddRecordPage = () => {
             <form id="new-record-form" onSubmit={onSubmit}>
                 <h2>Add New Record</h2>
 
-                <ul>
+                <ul className="red-error">
                     {errors.map(error => (
                         <li key={error}>{error}</li>
                     ))}
@@ -112,14 +109,14 @@ const AddRecordPage = () => {
                 <label>
                     Name:
                 <input type="text" name="name" value={name}
-                        placeholder="example: Refrigerator, TV etc.."
+                        placeholder="ex: Refrigerator, TV, .."
                         onChange={e => setName(e.target.value)} />
                 </label>
 
                 <label>
                     Make:
                 <input type="text" name="make" value={make}
-                        placeholder="example: Whirlpool, Apple, Sony etc...  "
+                        placeholder="ex: LG, Sony...  "
                         onChange={e => setMake(e.target.value)} />
                 </label>
 
@@ -142,13 +139,7 @@ const AddRecordPage = () => {
                 </label>
 
                 <label>
-                    Buy URL:
-                <input type="text" name="buyUrl" value={buyUrl}
-                        onChange={e => setBuyUrl(e.target.value)} />
-                </label>
-
-                <label>
-                    Description:
+                    Short Description:
                 <textarea type="text" name="description" value={descript}
                         onChange={e => setDescript(e.target.value)} />
                 </label>

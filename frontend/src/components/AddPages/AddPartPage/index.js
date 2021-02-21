@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from "react-router-dom";
 import "./index.css"
 
@@ -7,117 +7,102 @@ import "./index.css"
 
 const PartPage = () => {
 
+    const dispatch = useDispatch();
+    const { recordId } = useParams();
+    const numRecordId = parseInt(recordId)
 
-    const dispatch = useDispatch(); 
-const history = useHistory();
-const { partsHouseId } = useParams();
-const numPartsHouseId = parseInt(partsHouseId);
+    const records = useSelector(state => state.record);
+    const record = records.find(rec => rec.id === numRecordId)
 
-const [type, setType] = useState("");
-const [name, setName] = useState("");
-const [make, setMake] = useState("");
-const [cost, setCost] = useState(0);
-const [model, setModel] = useState("");
-const [serial, setSerial] = useState("");
-const [buyUrl, setBuyUrl] = useState("");
-const [addInfo, setAddInfo] = useState("");
-const [descript, setDescript] = useState("");
-const [errors, setErrors] = useState([]);
+    const history = useHistory();
+    const { partsHouseId } = useParams();
+    const numPartsHouseId = parseInt(partsHouseId);
+
+    
+    const [name, setName] = useState("");
+    const [make, setMake] = useState("");
+    const [cost, setCost] = useState(0);
+    const [model, setModel] = useState("");
+    const [serial, setSerial] = useState("");
+    const [buyUrl, setBuyUrl] = useState("");
+    const [addInfo, setAddInfo] = useState("");
+    const [descript, setDescript] = useState("");
+    const [errors, setErrors] = useState([]);
 
 
-const options = [
-    "SELECT",
-    "Appliance",
-    "Electronic",
-    "Other"
-];
 
-useEffect(() => {
-    const errors = [];
-    if(!name.length) {
-        errors.push("Name is required");
+    useEffect(() => {
+        const errors = [];
+        if (!name.length) {
+            errors.push("Name is required");
+        };
+        if (!make.length) {
+            errors.push("Make is required");
+        };
+        if (cost < 0) {
+            errors.push("Initial Cost cannot be less than 0");
+        };
+
+        setErrors(errors)
+    }, [name, make, cost])
+
+
+    const onSubmit = async e => {
+
+        e.preventDefault();
+        const formData = {
+    
+            name,
+            description: descript,
+            cost,
+            make,
+            model,
+            serial,
+            buyUrl,
+            additionalInfo: addInfo,
+            partsHouseId: numPartsHouseId
+        };
+
+        // dispatch(addRecord(formData))
+
+      
+        setName("");
+        setDescript("");
+        setCost(0);
+        setMake("");
+        setModel("");
+        setSerial("");
+        setBuyUrl("");
+        setAddInfo("");
+
+        history.go(-1)
     };
-    if(!make.length) {
-        errors.push("Make is required");
-    };
-    if(cost < 0) {
-        errors.push("Initial Cost cannot be less than 0");
-    };
-    if( type === "" || type === "SELECT") {
-        errors.push("Choose a type");
-    };
-    setErrors(errors)
-}, [name, make, cost, type])
-
-
-const onSubmit = async e => {
-
-    e.preventDefault();
-    const formData = {
-        type,
-        name,
-        description: descript,
-        cost,
-        make,
-        model,
-        serial,
-        buyUrl,
-        additionalInfo: addInfo,
-        partsHouseId: numPartsHouseId
-    };
-
-    // dispatch(addRecord(formData))
-
-    setType("");
-    setName("");
-    setDescript("");
-    setCost(0);
-    setMake("");
-    setModel("");
-    setSerial("");
-    setBuyUrl("");
-    setAddInfo("");
-
-    history.go(-1)
-};
 
 
     return (
-        <div id="parts-form-container">   
-            
+        <div id="parts-form-container">
+
             <form id="new-record-form" onSubmit={onSubmit}>
                 <h2>Add New Part</h2>
+                <h3>for Record: {record.name}</h3>
 
-                <ul>
+                <ul className="red-error">
                     {errors.map(error => (
                         <li key={error}>{error}</li>
                     ))}
                 </ul>
 
                 <label>
-                    Select a Type:
-                    <select value={type}
-                        onChange={e => setType(e.target.value)} >
-
-                        {options.map(type => (
-                            <option key={type} value={type}>
-                                {type}
-                            </option>
-                        ))}
-                    </select>
-                </label>
-
-                <label>
                     Name:
                 <input type="text" name="name" value={name}
-                        placeholder="example: Refrigerator, TV etc.."
+                        placeholder="ex: AA Batteries, 140w Light Bulb Pulley..."
                         onChange={e => setName(e.target.value)} />
                 </label>
 
                 <label>
                     Make:
                 <input type="text" name="make" value={make}
-                        placeholder="example: Whirlpool, Apple, Sony etc...  "
+                        placeholder="ex: Duracell , GE, Toms Hardware...  "
                         onChange={e => setMake(e.target.value)} />
                 </label>
 
@@ -146,8 +131,8 @@ const onSubmit = async e => {
                 </label>
 
                 <label>
-                    Description:
-                <textarea type="text" name="description" value={descript}
+                    Short Description:
+                <textarea id="textarea" type="text" name="description" value={descript}
                         onChange={e => setDescript(e.target.value)} />
                 </label>
 
