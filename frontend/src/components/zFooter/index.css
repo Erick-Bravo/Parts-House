@@ -18,8 +18,6 @@
     border: none;
     margin-left: 40px;
     margin-right: 40px;
+    cursor: pointer;
 }
 
-#footer button:hover {
-    cursor:pointer;
-}
