@@ -1,13 +1,14 @@
 import React from "react"
 import { useSelector, useDispatch } from "react-redux";
 import * as sessionActions from "../../store/session";
-import { NavLink, Redirect } from "react-router-dom"
+import { NavLink, Redirect, useHistory } from "react-router-dom"
 import LoginFormModal from "../LoginFormModal"
 import "./index.css"
 
 
 const Splash = () => {
     const dispatch = useDispatch();
+    const history = useHistory();
     const sessionUser = useSelector((state) => state.session.user);
 
     if (sessionUser) {
@@ -21,7 +22,13 @@ const Splash = () => {
     const demoHandle = (e) => {
         e.preventDefault();
         return dispatch(sessionActions.login({ credential, password }))
-      };
+    };
+
+    const aboutHandle = (e) => {
+        e.preventDefault();
+        history.push("/about")
+    }
+
 
     return (
         <> 
@@ -34,7 +41,7 @@ const Splash = () => {
                     <LoginFormModal />
                     <NavLink to="/signup">Sign Up</NavLink>
                     <button onClick={demoHandle}>Demo</button>
-                    <button>About</button>
+                    <button onClick={aboutHandle}>About</button>
                 </div>
                 
             </div>

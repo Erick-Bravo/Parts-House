@@ -59,3 +59,8 @@
 #splash-page a:hover {
     background-color: #3a4e69;
 }
+
+#splash-page #about {
+    margin-left: 10px;
+    margin-right: 10px;
+}

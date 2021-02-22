@@ -15,6 +15,7 @@ import RecordPage from "./components/RecordPage"
 import AddRecordPage from "./components/AddPages/AddRecordPage"
 import AddPartPage from "./components/AddPages/AddPartPage"
 import PartPage from "./components/PartPage"
+import About from "./components/About"
 
 import "./index.css"
 
@@ -43,6 +44,9 @@ function App() {
               </Route>
               <Route path="/signup">
                 <SignupFormPage />
+              </Route>
+              <Route path="/about ">
+                <About />
               </Route>
               <Route exact path="/">
                 <Splash />
