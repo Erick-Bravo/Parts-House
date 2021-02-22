@@ -45,7 +45,7 @@ function App() {
               <Route path="/signup">
                 <SignupFormPage />
               </Route>
-              <Route path="/about ">
+              <Route path="/about">
                 <About />
               </Route>
               <Route exact path="/">

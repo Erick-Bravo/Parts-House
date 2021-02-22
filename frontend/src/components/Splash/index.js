@@ -1,9 +1,9 @@
-import React from "react"
+import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import * as sessionActions from "../../store/session";
-import { NavLink, Redirect, useHistory } from "react-router-dom"
-import LoginFormModal from "../LoginFormModal"
-import "./index.css"
+import { NavLink, Redirect, useHistory } from "react-router-dom";
+import LoginFormModal from "../LoginFormModal";
+import "./index.css";
 
 
 const Splash = () => {
@@ -16,8 +16,8 @@ const Splash = () => {
         return <Redirect to={`/users/${userId}`} />
     };
 
-    const credential = "user@demo.com"
-    const password = "password"
+    const credential = "user@demo.com";
+    const password = "password";
 
     const demoHandle = (e) => {
         e.preventDefault();
@@ -26,8 +26,8 @@ const Splash = () => {
 
     const aboutHandle = (e) => {
         e.preventDefault();
-        history.push("/about")
-    }
+        history.push("/about");
+    };
 
 
     return (
@@ -49,4 +49,4 @@ const Splash = () => {
     );
 };
 
-export default Splash
+export default Splash;

@@ -28,14 +28,14 @@ function SignupFormPage() {
         .catch(res => {
           if (res.data && res.data.errors) setErrors(res.data.errors);
         });
-    }
+    };
     return setErrors(['Confirm Password field must be the same as the Password field']);
   };
 
 
   const goHome = () => {
-    history.push("/")
-  }
+    history.push("/");
+  };
 
 
   return (
@@ -79,6 +79,6 @@ function SignupFormPage() {
       </form>
     </div>
   );
-}
+};
 
 export default SignupFormPage;
