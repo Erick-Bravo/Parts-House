@@ -32,53 +32,59 @@ function App() {
   const sessionUser = useSelector((state) => state.session.user);
 
   return (
-    <div className="website">
+    <div id="root">
+      <div className="website">
         {sessionUser && <LeftNavBar />}
         {!sessionUser && <Redirect to="/" />}
-      <div>
-        {isLoaded &&
-          (
-            <Switch>
-              <Route path="/login" >
-                <LoginFormPage />
-              </Route>
-              <Route path="/signup">
-                <SignupFormPage />
-              </Route>
-              <Route path="/about">
-                <About />
-              </Route>
-              <Route exact path="/">
-                <Splash />
-              </Route>
-              <Route exact path="/users/:userId">
-                <EmptyDisplayPage />
-              </Route>
-              <Route exact path="/parts-house/:partsHouseId/appliances">
-                <ApplianceList />
-              </Route>
-              <Route exact path="/parts-house/:partsHouseId/electronics">
-                <ElectronicList />
-              </Route>
-              <Route exact path="/parts-house/:partsHouseId/other">
-                <OtherList />
-              </Route>
-              <Route exact path="/records/:recordId">
-                <RecordPage />
-              </Route>
-              <Route exact path="/parts-house/:partsHouseId/records/add-record-page">
-                <AddRecordPage />
-              </Route>
-              <Route exact path="/parts/:partId">
-                <PartPage />
-              </Route>
-              <Route exact path="/records/:recordId/parts/add-part-page">
-                <AddPartPage />
-              </Route>
-            </Switch>
-          )}
+        <div>
+          {isLoaded &&
+            (
+              <Switch>
+                <Route path="/login" >
+                  <LoginFormPage />
+                </Route>
+                <Route path="/signup">
+                  <SignupFormPage />
+                </Route>
+                <Route path="/about">
+                  <About />
+                </Route>
+                <Route exact path="/">
+                  <Splash />
+                </Route>
+                <Route exact path="/users/:userId">
+                  <EmptyDisplayPage />
+                </Route>
+                <Route exact path="/parts-house/:partsHouseId/appliances">
+                  <ApplianceList />
+                </Route>
+                <Route exact path="/parts-house/:partsHouseId/electronics">
+                  <ElectronicList />
+                </Route>
+                <Route exact path="/parts-house/:partsHouseId/other">
+                  <OtherList />
+                </Route>
+                <Route exact path="/records/:recordId">
+                  <RecordPage />
+                </Route>
+                <Route exact path="/parts-house/:partsHouseId/records/add-record-page">
+                  <AddRecordPage />
+                </Route>
+                <Route exact path="/parts/:partId">
+                  <PartPage />
+                </Route>
+                <Route exact path="/records/:recordId/parts/add-part-page">
+                  <AddPartPage />
+                </Route>
+                <Route path="*">
+                    <h2>404 NOT FOUND</h2>
+                </Route>
+              </Switch>
+            )}
+        </div>
       </div>
-   </div>
+
+    </div>
   );
 }
 

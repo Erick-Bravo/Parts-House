@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import * as sessionActions from "../../store/session";
 import { NavLink, Redirect, useHistory } from "react-router-dom";
 import LoginFormModal from "../LoginFormModal";
+import Footer from "../zFooter"
 import "./index.css";
 
 
@@ -45,6 +46,8 @@ const Splash = () => {
                 </div>
                 
             </div>
+
+            <Footer />
         </>
     );
 };

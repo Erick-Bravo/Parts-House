@@ -18,15 +18,20 @@
       height: 100vh;
       overflow: hidden;
   }
+
+  #root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
   
   .website {
       display: flex;
       flex-direction: row;
-      
   }
 
-  /* .nav-bar {
 
+  /* .nav-bar {
     min-height: 100vh;
     border: 2px solid black;
   } */

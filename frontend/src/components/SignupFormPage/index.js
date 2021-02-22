@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect, useHistory } from "react-router-dom";
 import * as sessionActions from "../../store/session";
+import Footer from "../zFooter";
 import './SignupForm.css';
 
 
 function SignupFormPage() {
   const dispatch = useDispatch();
   const history = useHistory()
-  
+
   const sessionUser = useSelector((state) => state.session.user);
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
@@ -39,13 +40,14 @@ function SignupFormPage() {
 
 
   return (
-    <div id="sign-up-container">
-      <img src="https://i.ibb.co/Sx3THPm/vector-creator-1500-1by1.png" alt="vector-creator-1500-1by1" border="0" height="200px"/>
-      <h1>Sign Up</h1>
-      <form onSubmit={handleSubmit}>
-        <ul>
-          {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-        </ul>
+    <>
+      <div id="sign-up-container">
+        <img src="https://i.ibb.co/Sx3THPm/vector-creator-1500-1by1.png" alt="vector-creator-1500-1by1" border="0" height="200px" />
+        <h1>Sign Up</h1>
+        <form onSubmit={handleSubmit}>
+          <ul>
+            {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+          </ul>
           <input
             type="text"
             value={email}
@@ -74,10 +76,13 @@ function SignupFormPage() {
             placeholder="confirm password"
             required
           />
-        <button type="submit">Sign Up</button>
-        <buttton onClick={goHome}>Back</buttton>
-      </form>
-    </div>
+          <button type="submit">Sign Up</button>
+          <buttton onClick={goHome}>Back</buttton>
+        </form>
+      </div>
+
+      <Footer />
+    </>
   );
 };
 
