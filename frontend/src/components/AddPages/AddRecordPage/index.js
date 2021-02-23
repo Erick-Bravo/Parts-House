@@ -63,7 +63,6 @@ const AddRecordPage = () => {
             partsHouseId: numPartsHouseId
         };
 
-        console.log(formData)
         dispatch(addRecord(formData))
 
         setType("");
@@ -75,7 +74,7 @@ const AddRecordPage = () => {
         setSerial("");
        
 
-        // history.go(-1)
+        history.go(-1)
     };
 
 

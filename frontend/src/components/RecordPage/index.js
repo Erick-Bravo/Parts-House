@@ -16,7 +16,7 @@ const PartCard = ({ part }) => {
 
 
     useEffect(() => {
-        if (part.buyUrl === "url here") {
+        if (part.buyUrl === "") {
             setAddHidden(false);
         } else {
             setBuyHidden(false);
@@ -32,8 +32,8 @@ const PartCard = ({ part }) => {
                 <div id="make">{part.make}</div>
             </div>
             <div id="right">
-                <p>Model --- {part.model}</p>
-                <p>Serial --- {part.serial}</p>
+                {part.model && <p>Model --- {part.model}</p>}
+                {part.serial && <p>Serial --- {part.serial}</p>}
                 <button hidden={addHidden}>Add Buy Url</button>
                 <button hidden={buyHidden}>Buy</button>
             </div>
@@ -77,14 +77,16 @@ const RecordPage = () => {
                     <div id="record-container">
                         <div id="record-name">{record.name}</div>
                         <div id="record-make">{record.make}</div>
+                        {record.imgUrl && <img alt="none" src={record.imgUrl}/>}
                         <div id="delete-record">
                             <p>Delete this entire Record</p>
                             <button onClick={deleteHandler}>delete</button>
                         </div>
                         <h2>Info</h2>
-                        <p>Model - {record.model}</p>
-                        <p>Serial - {record.serial}</p>
-                        <p>Initial Purchase Cost - ${record.cost}</p>
+                        {record.model && <p>Model - {record.model}</p>}
+                        {record.serial && <p>Serial - {record.serial}</p>}
+                        {record.cost && <p>Initial Purchase Cost - ${record.cost}</p>}
+                        
                     </div>}
 
 
