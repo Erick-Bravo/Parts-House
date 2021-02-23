@@ -120,7 +120,7 @@ module.exports = {
         recordId: houseElecTVRemote, buyUrl: "",
       },
       {
-        name: "Coffee Grounds", cost: "16", imgIrl: "https://i.ebayimg.com/images/g/~bIAAOSwSpNf9LGO/s-l1600.jpg",
+        name: "Coffee Grounds", cost: "16", imgUrl: "https://i.ebayimg.com/images/g/~bIAAOSwSpNf9LGO/s-l1600.jpg",
         make: "The Coffee Company", model: "", serial: "",
         recordId: officeAppCoffeeMaker,   buyUrl: "https://www.ebay.com/itm/Starbucks-House-Blend-Coffee-Medium-Roast-Ground-18-Packs-2-5oz-BEST-BY-3-2021/154278492627?_trkparms=aid%3D1110012%26algo%3DSPLICE.SOIPOST%26ao%3D1%26asc%3D230925%26meid%3Dd8fb12e78d094d5890d55ed936fd9e6c%26pid%3D101196%26rk%3D3%26rkt%3D12%26mehot%3Dpf%26sd%3D154309951483%26itm%3D154278492627%26pmt%3D1%26noa%3D0%26pg%3D2047675%26algv%3DPromotedSellersOtherItemsV2WithMLRv3%26brand%3DStarbucks&_trksid=p2047675.c101196.m2219",
       },
