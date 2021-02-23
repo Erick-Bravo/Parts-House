@@ -1,6 +1,6 @@
 import { fetch } from "./csrf" 
 
-const GET_ALL_RECORDS = "get/All_Records"
+const GET_ALL_RECORDS = "get/All_Records";
 const ADD_RECORD = "create/Record";
 const DELETE_RECORD = "delete/Record";
 

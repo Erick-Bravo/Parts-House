@@ -14,6 +14,7 @@ import OtherList from "./components/RecordLists/OtherList"
 import RecordPage from "./components/RecordPage"
 import AddRecordPage from "./components/AddPages/AddRecordPage"
 import AddPartPage from "./components/AddPages/AddPartPage"
+import UpdateRecordPage from "./components/UpdatePages/UpdateRecord"
 import PartPage from "./components/PartPage"
 import About from "./components/About"
 
@@ -72,6 +73,9 @@ function App() {
                 </Route>
                 <Route exact path="/parts/:partId">
                   <PartPage />
+                </Route>
+                <Route exact path="/records/:recordId/update-record-page">
+                  <UpdateRecordPage />
                 </Route>
                 <Route exact path="/records/:recordId/parts/add-part-page">
                   <AddPartPage />

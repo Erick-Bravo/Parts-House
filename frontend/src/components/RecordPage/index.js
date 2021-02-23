@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import { NavLink, useHistory, useParams } from "react-router-dom";
+import { NavLink, Redirect, useHistory, useParams } from "react-router-dom";
 import { fetchAllRecParts } from "../../store/parts";
-import { deleteRecord } from "../../store/records";
+// import { deleteRecord } from "../../store/records";
 
 import "./index.css";
-
-
 
 const PartCard = ({ part }) => {
 
@@ -53,7 +51,7 @@ const RecordPage = () => {
     const records = useSelector(state => state.record);
     const array = records.filter(rec => rec.id === numRecordId);
     const record = array[0]
-  
+
     const parts = useSelector(state => state.parts)
 
     useEffect(() => {
@@ -61,11 +59,14 @@ const RecordPage = () => {
     }, [dispatch, numRecordId]);
 
 
+    // const deleteHandler = (e) => {
+    //     dispatch(deleteRecord(recordId));
+    //     history.go(-1);
+    // };
 
 
-    const deleteHandler = (e) => {
-        dispatch(deleteRecord(recordId));
-        history.go(-1);
+    const updatePageRedirect = (e) => {
+        history.push(`/records/${numRecordId}/update-record-page`)
     };
 
 
@@ -75,20 +76,28 @@ const RecordPage = () => {
             <div id="display-box">
                 {record &&
                     <div id="record-container">
-                        <div id="record-name">{record.name}</div>
-                        <div id="record-make">{record.make}</div>
-                        {record.imgUrl && <img alt="none" src={record.imgUrl}/>}
-                        <div id="delete-record">
-                            <p>Delete this entire Record</p>
-                            <button onClick={deleteHandler}>delete</button>
-                        </div>
-                        <h2>Info</h2>
-                        {record.model && <p>Model - {record.model}</p>}
-                        {record.serial && <p>Serial - {record.serial}</p>}
-                        {record.cost && <p>Initial Purchase Cost - ${record.cost}</p>}
-                        
-                    </div>}
 
+                        <div id="top-section">
+                            <div id="left">
+                                <div id="record-name">{record.name}</div>
+                                <div id="record-make">{record.make}</div>
+                                {record.imgUrl && <img alt="none" src={record.imgUrl} />}
+                            </div>
+
+                            <div id="right">
+                                <h2>Info</h2>
+                                {record.model && <p>Model - {record.model}</p>}
+                                {record.serial && <p>Serial - {record.serial}</p>}
+                                {record.cost && <p>Initial Purchase Cost - ${record.cost}</p>}
+                            </div>
+                        </div>
+
+                        <div id="delete-record">
+                            <p>Update or delete this record</p>
+                            <button onClick={updatePageRedirect}>Update</button>
+                        </div>
+
+                    </div>}
 
 
                 <div>
