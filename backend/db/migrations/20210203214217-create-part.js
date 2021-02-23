@@ -24,6 +24,9 @@ module.exports = {
       serial: {
         type: Sequelize.STRING
       },
+      imgUrl: {
+        type: Sequelize.STRING
+      },
       buyUrl: {
         type: Sequelize.STRING
       },

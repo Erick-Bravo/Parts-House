@@ -59,9 +59,6 @@ const PartPage = () => {
             recordId: numRecordId
         };
 
-        console.log(formData)
-        console.log(formData.buyUrl.length)
-
         dispatch(addPart(formData))
 
       
@@ -73,7 +70,7 @@ const PartPage = () => {
         setSerial("");
         setBuyUrl("");
 
-        // history.go(-1)
+        history.go(-1)
     };
 
 

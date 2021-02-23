@@ -12,25 +12,6 @@ router.get("/:partId", asyncHandler(async(req, res) => {
     res.json({ part })
 }))
 
-// router.post("/create", asyncHandler(async(req, res) => {
-
-//     const {
-//         name,
-//         make,
-//         model,
-//         cost,
-//         serial,
-//         description,
-//         recordId,
-//     } = req.body.formData
-
-//     const part = await Part.create({
-        
-//     })
-
-// }))
-
-
 
 router.post("/create", asyncHandler(async(req, res) => {
 

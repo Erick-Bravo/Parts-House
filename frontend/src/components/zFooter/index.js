@@ -2,6 +2,9 @@ import React from "react";
 import "./index.css"
 
 
+
+
+
 const Footer = () => {
 
 
@@ -18,9 +21,6 @@ const Footer = () => {
     };
 
     
-
-
-
 
     return (
         <div id="footer">
