@@ -8,17 +8,24 @@ const UpdateRecordPage = () => {
 
     const dispatch = useDispatch();
     const history = useHistory();
-    const { partsHouseId } = useParams();
-    const numPartsHouseId = parseInt(partsHouseId);
+    const { recordId } = useParams();
+    
+    const numRecordId = parseInt(recordId);
 
-    const [type, setType] = useState("");
-    const [name, setName] = useState("");
-    const [make, setMake] = useState("");
-    const [cost, setCost] = useState(0);
-    const [model, setModel] = useState("");
-    const [serial, setSerial] = useState("");
-    const [descript, setDescript] = useState("");
+    const records = useSelector(state => state.record);
+    const record = records.find(rec => rec.id === numRecordId);
+
+
+    const [type, setType] = useState(record.type);
+    const [name, setName] = useState(record.name);
+    const [make, setMake] = useState(record.make);
+    const [cost, setCost] = useState(record.cost);
+    const [model, setModel] = useState(record.model);
+    const [serial, setSerial] = useState(record.serial);
+    const [purchaseUrl, setPurchaseUrl] = useState(record.purchaseUrl);
+    const [descript, setDescript] = useState(record.description);
     const [errors, setErrors] = useState([]);
+    const [hidden, setHidden] = useState(true)
 
 
     const options = [
@@ -51,26 +58,29 @@ const UpdateRecordPage = () => {
         const formData = {
             type,
             name,
-            description: descript,
             cost,
             make,
             model,
             serial,
-            partsHouseId: numPartsHouseId
+            purchaseUrl,
+            description: descript,
+            // partsHouseId: numPartsHouseId
         };
 
-        // dispatch(addRecord(formData))
-
-        setType("");
-        setName("");
-        setDescript("");
-        setCost(0);
-        setMake("");
-        setModel("");
-        setSerial("");
-       
+        // dispatch(addRecord(formData)
+        // dispatch(updateRecord(formData))
 
         history.go(-1)
+    };
+
+    const hiddenFalse = (e) => {
+        e.preventDefault();
+        setHidden(false);
+    };
+
+    const hiddenTrue = (e) => {
+        e.preventDefault();
+        setHidden(true);
     };
 
     return (
@@ -78,7 +88,7 @@ const UpdateRecordPage = () => {
         <div id="user-main-page">
             <div></div>
             <form id="new-record-form" onSubmit={onSubmit}>
-                <h2>Add New Record</h2>
+                <h2>Update {record.name}</h2>
 
                 <ul className="red-error">
                     {errors.map(error => (
@@ -98,6 +108,9 @@ const UpdateRecordPage = () => {
                         ))}
                     </select>
                 </label>
+                
+                {!hidden && <button onClick={hiddenTrue}>Show Simple Form</button>}
+                {hidden && <button onClick={hiddenFalse}>Show More Fields</button>}
 
                 <label>
                     Name:
@@ -119,21 +132,27 @@ const UpdateRecordPage = () => {
                         onChange={e => setCost(e.target.value)} />
                 </label>
 
-                <label>
+                <label hidden={hidden}>
                     Model #
-                <input type="text" name="model" value={model}
+                <input type="text" name="model" value={model} hidden={hidden}
                         onChange={e => setModel(e.target.value)} />
                 </label>
 
-                <label>
+                <label hidden={hidden}>
                     Serial #
-                <input type="text" name="serial" value={serial}
+                <input type="text" name="serial" value={serial} hidden={hidden}
                         onChange={e => setSerial(e.target.value)} />
                 </label>
 
-                <label>
+                <label hidden={hidden}>
+                    Purchase URL Link:
+                <input type="text" name="purchaseUrl" value={purchaseUrl} hidden={hidden}
+                        onChange={e => setPurchaseUrl(e.target.value)} />
+                </label>
+
+                <label hidden={hidden}>
                     Short Description:
-                <textarea type="text" name="description" value={descript}
+                <textarea type="text" name="description" value={descript} hidden={hidden}
                         onChange={e => setDescript(e.target.value)} />
                 </label>
 

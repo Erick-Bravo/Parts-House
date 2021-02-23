@@ -120,7 +120,7 @@ const PartPage = () => {
                 </label>
 
                 <label>
-                    Buy URL:
+                    Buy URL Link:
                 <input type="text" name="buyUrl" value={buyUrl}
                         onChange={e => setBuyUrl(e.target.value)} />
                 </label>

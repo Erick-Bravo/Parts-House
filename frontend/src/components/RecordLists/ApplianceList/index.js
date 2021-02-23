@@ -17,6 +17,7 @@ const ApplianceList = () => {
 
     // for NameSection
     const partsHouses = useSelector(state => state.partsHouses);
+
     const selectedPartsHouse = partsHouses.find(ph => ph.id === numpartsHouseId);
     // console.log(selectedPartsHouse)
 
