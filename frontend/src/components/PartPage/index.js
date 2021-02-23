@@ -51,11 +51,12 @@ const PartPage = () => {
                 <div id="part-container">
                     <h1>{part.name}</h1>
                     <h2>{part.make}</h2>
+                    {part.imgUrl && <img alt="none" src={part.imgUrl}/>}
+                    {part.model && <p>Model - {part.model}</p>}
+                    {part.serial && <p>Serial - {part.serial}</p>}
+                    {part.cost && <p>Initial Purchase Cost - ${part.cost}</p>}
+                    {part.description && <p>Description: {part.description}</p>}
                     
-                    <p>Model - {part.model}</p>
-                    <p>Serial - {part.serial}</p>
-                    <p>Initial Purchase Cost - ${part.cost}</p>
-                    <p>Description: {part.description}</p>
                     {!part.buyUrl && <button>Add Buy Url</button>}
                     {part.buyUrl && <button onClick={goToBuyUrl}>Go to purchase website</button>}
                 </div>
@@ -63,7 +64,6 @@ const PartPage = () => {
                     <p>Delete this Part and all its info</p>
                     <button onClick={deleteHandler}>delete</button>
                 </div>
-
 
         </div>
     );

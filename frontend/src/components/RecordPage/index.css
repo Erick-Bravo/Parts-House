@@ -54,6 +54,11 @@
 #part-container p {
     font-size: 30px;
 }
+
+#part-container img {
+    height: 200px;
+}
+
 #part-container button {
     font-size: 30px;
     border: none;
