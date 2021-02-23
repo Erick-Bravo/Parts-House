@@ -15,8 +15,8 @@
 
   /* html { height:100%; } */
   body {
-      height: 100vh;
-      overflow: hidden;
+    min-height: 100vh;
+      /* overflow: scroll; */
   }
 
   #root {
