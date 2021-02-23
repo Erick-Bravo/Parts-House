@@ -32,6 +32,12 @@ const PartPage = () => {
         }
     }, [part, numpartId, parts])
 
+    console.log(part.buyUrl)
+
+    const goToBuyUrl = () => {
+        window.location.href = part.buyUrl;
+    };
+
     const deleteHandler = (e) => {
         e.preventDefault();
         dispatch(deletePart(numpartId));
@@ -50,7 +56,8 @@ const PartPage = () => {
                     <p>Serial - {part.serial}</p>
                     <p>Initial Purchase Cost - ${part.cost}</p>
                     <p>Description: {part.description}</p>
-                    <button>Go to purchase website</button>
+                    {!part.buyUrl && <button>Add Buy Url</button>}
+                    {part.buyUrl && <button onClick={goToBuyUrl}>Go to purchase website</button>}
                 </div>
                 <div id="delete-record">
                     <p>Delete this Part and all its info</p>

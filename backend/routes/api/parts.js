@@ -41,6 +41,7 @@ router.post("/create", asyncHandler(async(req, res) => {
         model,
         serial,
         description,
+        buyUrl,
         recordId, 
     } = req.body.formData
     
@@ -51,6 +52,7 @@ router.post("/create", asyncHandler(async(req, res) => {
         model,
         serial,
         description,
+        buyUrl,
         recordId, 
     });
 
