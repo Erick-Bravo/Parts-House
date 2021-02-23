@@ -28,7 +28,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       buyUrl: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(500)
       },
       description: {
         type: Sequelize.STRING
