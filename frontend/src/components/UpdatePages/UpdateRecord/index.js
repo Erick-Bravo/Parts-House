@@ -9,7 +9,7 @@ const UpdateRecordPage = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     const { recordId } = useParams();
-    
+
     const numRecordId = parseInt(recordId);
 
     const records = useSelector(state => state.record);
@@ -25,7 +25,7 @@ const UpdateRecordPage = () => {
     const [purchaseUrl, setPurchaseUrl] = useState(record.purchaseUrl);
     const [descript, setDescript] = useState(record.description);
     const [errors, setErrors] = useState([]);
-    const [hidden, setHidden] = useState(true)
+    const [hidden, setHidden] = useState(true);
 
 
     const options = [
@@ -37,16 +37,16 @@ const UpdateRecordPage = () => {
 
     useEffect(() => {
         const errors = [];
-        if(!name.length) {
+        if (!name.length) {
             errors.push("Name is required");
         };
-        if(!make.length) {
+        if (!make.length) {
             errors.push("Make is required");
         };
-        if(cost < 0) {
+        if (cost < 0) {
             errors.push("Initial Cost cannot be less than 0");
         };
-        if( type === "" || type === "SELECT") {
+        if (type === "" || type === "SELECT") {
             errors.push("Choose a type");
         };
         setErrors(errors)
@@ -96,6 +96,9 @@ const UpdateRecordPage = () => {
                     ))}
                 </ul>
 
+                {!hidden && <button onClick={hiddenTrue}>Show Simple Form</button>}
+                {hidden && <button onClick={hiddenFalse}>Show More Fields</button>}
+
                 <label>
                     Select a Type:
                     <select value={type}
@@ -108,9 +111,7 @@ const UpdateRecordPage = () => {
                         ))}
                     </select>
                 </label>
-                
-                {!hidden && <button onClick={hiddenTrue}>Show Simple Form</button>}
-                {hidden && <button onClick={hiddenFalse}>Show More Fields</button>}
+
 
                 <label>
                     Name:
@@ -161,7 +162,7 @@ const UpdateRecordPage = () => {
             </form>
 
         </div>
-        
+
     );
 };
 

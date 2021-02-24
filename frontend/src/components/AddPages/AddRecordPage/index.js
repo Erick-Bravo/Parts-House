@@ -23,7 +23,7 @@ const AddRecordPage = () => {
     const [serial, setSerial] = useState("");
     const [descript, setDescript] = useState("");
     const [errors, setErrors] = useState([]);
-
+    const [hidden, setHidden] = useState(true);
 
     const options = [
         "SELECT",
@@ -77,6 +77,16 @@ const AddRecordPage = () => {
         history.go(-1)
     };
 
+    const hiddenFalse = (e) => {
+        e.preventDefault();
+        setHidden(false);
+    };
+
+    const hiddenTrue = (e) => {
+        e.preventDefault();
+        setHidden(true);
+    };
+
 
     return (
 
@@ -90,6 +100,9 @@ const AddRecordPage = () => {
                         <li key={error}>{error}</li>
                     ))}
                 </ul>
+
+                {!hidden && <button onClick={hiddenTrue}>Show Simple Form</button>}
+                {hidden && <button onClick={hiddenFalse}>Show More Fields</button>}
 
                 <label>
                     Select a Type:
@@ -124,21 +137,21 @@ const AddRecordPage = () => {
                         onChange={e => setCost(e.target.value)} />
                 </label>
 
-                <label>
+                <label hidden={hidden}>
                     Model #
-                <input type="text" name="model" value={model}
+                <input type="text" name="model" value={model} hidden={hidden}
                         onChange={e => setModel(e.target.value)} />
                 </label>
 
-                <label>
+                <label hidden={hidden}>
                     Serial #
-                <input type="text" name="serial" value={serial}
+                <input type="text" name="serial" value={serial} hidden={hidden}
                         onChange={e => setSerial(e.target.value)} />
                 </label>
 
-                <label>
+                <label hidden={hidden}>
                     Short Description:
-                <textarea type="text" name="description" value={descript}
+                <textarea type="text" name="description" value={descript} hidden={hidden}
                         onChange={e => setDescript(e.target.value)} />
                 </label>
 

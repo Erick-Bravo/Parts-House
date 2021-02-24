@@ -25,6 +25,7 @@ const PartPage = () => {
     const [buyUrl, setBuyUrl] = useState("");
     const [descript, setDescript] = useState("");
     const [errors, setErrors] = useState([]);
+    const [hidden, setHidden] = useState(true);
 
 
 
@@ -73,6 +74,16 @@ const PartPage = () => {
         history.go(-1)
     };
 
+    const hiddenFalse = (e) => {
+        e.preventDefault();
+        setHidden(false);
+    };
+
+    const hiddenTrue = (e) => {
+        e.preventDefault();
+        setHidden(true);
+    };
+
 
     return (
         <div id="user-main-page">
@@ -86,6 +97,9 @@ const PartPage = () => {
                         <li key={error}>{error}</li>
                     ))}
                 </ul>
+
+                {!hidden && <button onClick={hiddenTrue}>Show Simple Form</button>}
+                {hidden && <button onClick={hiddenFalse}>Show More Fields</button>}
 
                 <label>
                     Name:
@@ -107,27 +121,27 @@ const PartPage = () => {
                         onChange={e => setCost(e.target.value)} />
                 </label>
 
-                <label>
+                <label hidden={hidden}>
                     Model #
-                <input type="text" name="model" value={model}
+                <input type="text" name="model" value={model} hidden={hidden}
                         onChange={e => setModel(e.target.value)} />
                 </label>
 
-                <label>
+                <label hidden={hidden}>
                     Serial #
-                <input type="text" name="serial" value={serial}
+                <input type="text" name="serial" value={serial} hidden={hidden}
                         onChange={e => setSerial(e.target.value)} />
                 </label>
 
-                <label>
+                <label hidden={hidden}>
                     Buy URL Link:
-                <input type="text" name="buyUrl" value={buyUrl}
+                <input type="text" name="buyUrl" value={buyUrl} hidden={hidden}
                         onChange={e => setBuyUrl(e.target.value)} />
                 </label>
 
-                <label>
+                <label hidden={hidden}>
                     Short Description:
-                <textarea id="textarea" type="text" name="description" value={descript}
+                <textarea id="textarea" type="text" name="description" value={descript} hidden={hidden}
                         onChange={e => setDescript(e.target.value)} />
                 </label>
 
