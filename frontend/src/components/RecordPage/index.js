@@ -65,6 +65,7 @@ const RecordPage = () => {
     // };
 
 
+
     const updatePageRedirect = (e) => {
         history.push(`/records/${numRecordId}/update-record-page`)
     };

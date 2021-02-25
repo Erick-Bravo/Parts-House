@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
+import BackButton from "../../Utilities/BackButton";
 import "./index.css"
 
 const UpdateRecordPage = () => {
@@ -157,7 +158,12 @@ const UpdateRecordPage = () => {
                         onChange={e => setDescript(e.target.value)} />
                 </label>
 
-                <button type="submit">Add</button>
+                <div id="button-section">
+                    <button type="submit">Add</button>
+                    <BackButton />
+                </div>
+
+
 
             </form>
 

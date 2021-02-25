@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
-import { deletePart } from "../../store/parts"
+import { deletePart } from "../../store/parts";
+import BackButton from "../Utilities/BackButton";
 
 import "./index.css";
 
@@ -35,7 +36,9 @@ const PartPage = () => {
     console.log(part.buyUrl)
 
     const goToBuyUrl = () => {
-        window.location.href = part.buyUrl;
+        // window.location.href = part.buyUrl;
+        const newWindow = window.open(part.buyUrl, '_blank', 'noopener,noreferrer')
+        if (newWindow) newWindow.opener = null
     };
 
     const deleteHandler = (e) => {
