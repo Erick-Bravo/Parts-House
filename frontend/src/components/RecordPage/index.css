@@ -85,6 +85,7 @@
     background-color: #ED8C72;
     color: white;
     border: 2px solid black;
+    margin: 10px;
 }
 
 #part-container button:hover {

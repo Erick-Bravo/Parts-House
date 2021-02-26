@@ -62,6 +62,7 @@ const PartPage = () => {
                     
                     {!part.buyUrl && <button>Add Buy Url</button>}
                     {part.buyUrl && <button onClick={goToBuyUrl}>Go to purchase website</button>}
+                    <BackButton />
                 </div>
                 <div id="delete-record">
                     <p>Delete this Part and all its info</p>
