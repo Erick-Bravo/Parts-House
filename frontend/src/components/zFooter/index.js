@@ -1,4 +1,5 @@
 import React from "react";
+
 import "./index.css"
 
 
@@ -26,7 +27,7 @@ const Footer = () => {
         <div id="footer">
 
             <button onClick={linkedIn}>
-                <img alt="none" src="https://www.iconsdb.com/icons/preview/white/linkedin-3-xxl.png" height="70px" />
+            <img src="https://i.ibb.co/BGjKkyC/linkedin-icon-18-128.png" alt="linkedin-icon-18-128" border="0" height="75px"/>
             </button>
 
             <button onClick={gitHub}>

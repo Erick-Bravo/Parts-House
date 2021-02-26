@@ -37,6 +37,8 @@
     border-radius: 10px;
     margin: 10px;
     cursor: pointer;
+    /* font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
+    font-family: sans-serif;
 }
 
 #splash-page button:hover {
