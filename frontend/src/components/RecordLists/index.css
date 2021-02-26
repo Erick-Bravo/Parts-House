@@ -40,3 +40,15 @@
     align-items: center;
     justify-content: center;
 }
+
+.small-buttons {
+    border: none;
+    background-color: #2F496E;
+    color: #F4EADE;
+    border-radius: 5px;
+}
+
+
+.small-buttons {
+    cursor: pointer;
+}

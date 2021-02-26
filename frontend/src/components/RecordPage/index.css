@@ -34,6 +34,29 @@
     margin: 15px;
 }
 
+#record-container .record-update {
+    border: none;
+    background-color: #2F496E;
+    color: #F4EADE;
+    border-radius: 5px;
+}
+
+#record-container .record-page-buttons:hover {
+    cursor: pointer;
+}
+
+.record-add-parts {
+    border: none;
+    background-color: #2F496E;
+    color: #F4EADE;
+    border-radius: 5px;
+}
+
+.record-add-parts:hover {
+    cursor: pointer;
+}
+
+
 #record-container p {
     font-size: 20px;
 }

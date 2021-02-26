@@ -94,7 +94,7 @@ const RecordPage = () => {
 
                         <div id="delete-record">
                             <p>Update or delete this record</p>
-                            <button onClick={updatePageRedirect}>Update</button>
+                            <button className="record-update" onClick={updatePageRedirect}>Update</button>
                         </div>
 
                     </div>}
@@ -105,7 +105,7 @@ const RecordPage = () => {
                         <h2>Parts</h2>
                         <div>
                             <NavLink to={`/records/${recordId}/parts/add-part-page`}>
-                                <button>Add Part</button>
+                                <button className="record-add-parts">Add Part</button>
                             </NavLink>
                         </div>
                     </div>

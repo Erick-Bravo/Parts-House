@@ -67,7 +67,7 @@ const ApplianceList = () => {
 
             <div id="add-record">
                 <NavLink to={`/parts-house/${partsHouseId}/records/add-record-page`}>
-                    <button>Add Appliance</button>
+                    <button className="small-buttons">Add Appliance</button>
                 </NavLink>
             </div>
 

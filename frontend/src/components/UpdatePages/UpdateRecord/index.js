@@ -163,8 +163,6 @@ const UpdateRecordPage = () => {
                     <BackButton />
                 </div>
 
-
-
             </form>
 
         </div>
