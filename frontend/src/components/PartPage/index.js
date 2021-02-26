@@ -59,6 +59,8 @@ const PartPage = () => {
                     {part.serial && <p>Serial - {part.serial}</p>}
                     {part.cost && <p>Initial Purchase Cost - ${part.cost}</p>}
                     {part.description && <p>Description: {part.description}</p>}
+                    <p>Last Purchase or Installation Date:</p>
+                    <p>Feb 10th, 2021</p>
                     
                     {!part.buyUrl && <button>Add Buy Url</button>}
                     {part.buyUrl && <button onClick={goToBuyUrl}>Go to purchase website</button>}

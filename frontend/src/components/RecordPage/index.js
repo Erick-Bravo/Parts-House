@@ -89,6 +89,7 @@ const RecordPage = () => {
                                 {record.model && <p>Model - {record.model}</p>}
                                 {record.serial && <p>Serial - {record.serial}</p>}
                                 {record.cost && <p>Initial Purchase Cost - ${record.cost}</p>}
+                                <p>Date of Purchase: Dec 21st, 2017</p>
                             </div>
                         </div>
 
