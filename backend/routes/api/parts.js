@@ -24,6 +24,7 @@ router.post("/create", asyncHandler(async(req, res) => {
         description,
         buyUrl,
         recordId, 
+        imgUrl,
     } = req.body.formData
     
     const part = await Part.create({
@@ -35,6 +36,7 @@ router.post("/create", asyncHandler(async(req, res) => {
         description,
         buyUrl,
         recordId, 
+        imgUrl,
     });
 
     return res.json({ part })

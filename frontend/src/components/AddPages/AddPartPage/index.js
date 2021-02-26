@@ -25,6 +25,7 @@ const PartPage = () => {
     const [buyUrl, setBuyUrl] = useState("");
     const [descript, setDescript] = useState("");
     const [errors, setErrors] = useState([]);
+    const [imgUrl, setImgUrl] = useState("")
     const [hidden, setHidden] = useState(true);
 
 
@@ -56,6 +57,7 @@ const PartPage = () => {
             model,
             serial,
             buyUrl,
+            imgUrl,
             description: descript,
             recordId: numRecordId
         };
@@ -69,6 +71,7 @@ const PartPage = () => {
         setMake("");
         setModel("");
         setSerial("");
+        setImgUrl("")
         setBuyUrl("");
 
         history.go(-1)
@@ -137,6 +140,12 @@ const PartPage = () => {
                     Buy URL Link:
                 <input type="text" name="buyUrl" value={buyUrl} hidden={hidden}
                         onChange={e => setBuyUrl(e.target.value)} />
+                </label>
+
+                <label hidden={hidden}>
+                    Image URL:
+                <input type="text" name="imgUrl" value={imgUrl} hidden={hidden}
+                        onChange={e => setImgUrl(e.target.value)} />
                 </label>
 
                 <label hidden={hidden}>
