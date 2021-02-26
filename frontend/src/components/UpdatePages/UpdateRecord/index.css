@@ -12,3 +12,31 @@
     flex-direction: row;
     margin-top: 20px;
 }
+
+#delete-record-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 200px;
+    width: 350px;
+    border: 10px solid rgb(245, 75, 75);
+    border-radius: 10px;
+    margin-bottom: 200px;
+
+}
+#delete-record-section p{
+color:  rgb(245, 75, 75);
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+font-size: 30px;
+}
+
+#delete-record-section button{
+    border: none;
+    background-color: rgb(253, 102, 102);
+    color: blanchedalmond;
+}
+
+#delete-record-section button:hover{
+    cursor: pointer;
+}

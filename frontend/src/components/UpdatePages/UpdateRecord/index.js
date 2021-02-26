@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import BackButton from "../../Utilities/BackButton";
+import { deleteRecord } from "../../../store/records";
 import "./index.css"
 
 const UpdateRecordPage = () => {
@@ -84,12 +85,19 @@ const UpdateRecordPage = () => {
         setHidden(true);
     };
 
+    const deleteHandler = (e) => {
+        dispatch(deleteRecord(recordId));
+        history.go(-2);
+    };
+
     return (
 
         <div id="user-main-page">
-            <div></div>
+            
             <form id="new-record-form" onSubmit={onSubmit}>
                 <h2>Update {record.name}</h2>
+
+
 
                 <ul className="red-error">
                     {errors.map(error => (
@@ -164,6 +172,11 @@ const UpdateRecordPage = () => {
                 </div>
 
             </form>
+
+            <div id="delete-record-section">
+                <p>!Delete this Record!</p>
+                <button onClick={deleteHandler}>Delete</button>
+            </div>
 
         </div>
 
