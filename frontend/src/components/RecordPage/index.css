@@ -66,9 +66,11 @@
 #part-container h1 {
     font-size: 50px;
 }
+
 #part-container h2 {
     font-size: 40px;
 }
+
 #part-container p {
     font-size: 30px;
 }
@@ -82,7 +84,9 @@
     border: none;
     background-color: #ED8C72;
     color: white;
+    border: 2px solid black;
 }
+
 #part-container button:hover {
     color:#2F496E;
 }

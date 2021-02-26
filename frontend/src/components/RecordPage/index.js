@@ -33,7 +33,6 @@ const PartCard = ({ part }) => {
                 {part.model && <p>Model --- {part.model}</p>}
                 {part.serial && <p>Serial --- {part.serial}</p>}
                 <button hidden={addHidden}>Add Buy Url</button>
-                <button hidden={buyHidden}>Buy</button>
             </div>
         </div>
     );
@@ -122,7 +121,7 @@ const RecordPage = () => {
 
 
             <div id="mascot">
-                <img src="https://i.ibb.co/Sx3THPm/vector-creator-1500-1by1.png" alt="vector-creator-1500-1by1" border="0" height="100px" />
+     
             </div>
 
         </div>
