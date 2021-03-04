@@ -30,6 +30,9 @@ module.exports = {
       imgUrl: {
         type: Sequelize.STRING
       },
+      purchaseDate: {
+        type: Sequelize.DATE
+      },
       purchaseUrl: {
         type: Sequelize.STRING(500)
       },
