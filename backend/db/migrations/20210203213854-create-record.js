@@ -33,7 +33,7 @@ module.exports = {
       purchaseUrl: {
         type: Sequelize.STRING(500)
       },
-      description: {
+      additionalInfo: {
         type: Sequelize.STRING
       },
       partsHouseId: {

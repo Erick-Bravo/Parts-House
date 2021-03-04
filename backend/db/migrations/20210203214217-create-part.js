@@ -40,6 +40,12 @@ module.exports = {
           model: "Records"
         }
       },
+      logId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: "Logs"
+        }
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

@@ -16,6 +16,9 @@ module.exports = (sequelize, DataTypes) => {
     Part.hasMany(models.Notification, {
       foreignKey: 'partId'
     });
+    Part.hasMany(models.Log, {
+      foreignKey: 'logId'
+    });
 
     Part.belongsTo(models.Record, {
       foreignKey: "recordId"
