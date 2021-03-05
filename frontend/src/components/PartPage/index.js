@@ -70,8 +70,8 @@ const PartPage = () => {
                     </div>
                 </div>
 
-                {!part.buyUrl && <button>Add Buy Url</button>}
-                {part.buyUrl && <button onClick={goToBuyUrl}>Go to purchase website</button>}
+                {!part.buyUrl && <button className="button">Add Buy Url</button>}
+                {part.buyUrl && <button className="button" onClick={goToBuyUrl}>Go to purchase website</button>}
                 <BackButton />
 
             </div>

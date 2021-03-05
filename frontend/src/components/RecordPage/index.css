@@ -94,11 +94,9 @@
     align-items: center;
     justify-content: center;
     flex-direction: row;
-    
     border-radius: 15px;
-
-    
 }  
+
 #part-container .left {
     display: flex;
     align-items: center;
@@ -106,7 +104,7 @@
     flex-direction: column;
     border: 5px solid #2F496E; 
     border-radius: 15px;
-    margin: 30px;
+    margin: 40px;
     padding: 15px
 }  
 
@@ -119,12 +117,15 @@
     border-radius: 15px;
     height: 300px;
     width: 300px;
-    margin: 30px;
+    margin: 40px;
 }  
 
 #part-container .right p {
     font-size: 25px;
     margin: 10px;
+}
+#part-container .right button {
+    margin-top: 35px;
 }
 
 #part-container h1 {
@@ -139,7 +140,7 @@
     height: 200px;
 }
 
-#part-container button {
+#part-container .button {
     font-size: 30px;
     border: none;
     background-color: #ED8C72;
@@ -147,7 +148,11 @@
     border: 2px solid black;
     margin: 10px;
 }
+#part-container .small-buttons {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
 
-#part-container button:hover {
+#part-container .button:hover {
     color:#2F496E;
 }

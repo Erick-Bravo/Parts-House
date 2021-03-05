@@ -11,7 +11,7 @@ const BackButton = () => {
 
     return (
         <>
-            <button onClick={goBack}>Back</button>
+            <button className="small-buttons"onClick={goBack}>Back</button>
         </>
     );
 };

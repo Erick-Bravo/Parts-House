@@ -18,7 +18,7 @@ const Footer = () => {
     };
 
     const angelList = () => {
-        window.location.href = 'https://www.linkedin.com/in/erick-bravo-448234203/';
+        window.location.href = 'https://angel.co/u/erick-bravo';
     };
 
     
