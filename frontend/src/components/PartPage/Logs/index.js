@@ -3,7 +3,7 @@ import React from "react";
 const Logs = () => {
     return (
         <>
-            <p>last log</p>
+            <h3>Last Log</h3>
             <p>Feb 17th 2021</p>
             <p>Note: lorem ipsum</p>
         </>

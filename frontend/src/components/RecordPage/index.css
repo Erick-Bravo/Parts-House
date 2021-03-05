@@ -56,7 +56,6 @@
     cursor: pointer;
 }
 
-
 #record-container p {
     font-size: 20px;
 }
@@ -73,6 +72,13 @@
 #delete-record p {
     margin: 20px;
 }
+
+
+
+
+
+
+
 
 
 #part-container {
@@ -98,8 +104,10 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    border: 2px solid rgb(0, 0, 0); 
+    border: 5px solid #2F496E; 
     border-radius: 15px;
+    margin: 30px;
+    padding: 15px
 }  
 
 #part-container .right {
@@ -107,9 +115,17 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    border: 2px solid rgb(0, 0, 0); 
+    border: 5px solid #2F496E; 
     border-radius: 15px;
+    height: 300px;
+    width: 300px;
+    margin: 30px;
 }  
+
+#part-container .right p {
+    font-size: 25px;
+    margin: 10px;
+}
 
 #part-container h1 {
     font-size: 50px;
@@ -117,10 +133,6 @@
 
 #part-container h2 {
     font-size: 40px;
-}
-
-#part-container p {
-    font-size: 30px;
 }
 
 #part-container img {
