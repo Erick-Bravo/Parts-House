@@ -17,7 +17,7 @@ function LoginForm() {
         if (res.data && res.data.errors) setErrors(res.data.errors);
       }
     );
-  };
+  }; 
 
   return (
     <div id="login-form-container">
