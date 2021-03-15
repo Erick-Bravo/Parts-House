@@ -6,9 +6,9 @@ const Logs = () => {
     
     const history = useHistory()
 
-    const handleNewLog = () => {
+    // const handleNewLog = () => {
         
-    }
+    // }
 
     return (
         <>
@@ -16,7 +16,7 @@ const Logs = () => {
             <p>Feb 17th 2021</p>
             <p>Note: lorem ipsum</p>
             <button className="small-buttons">See all logs</button>
-            <button className="small-buttons" onClick={handleNewLog}>Add new log</button>
+            <button className="small-buttons" >Add new log</button>
         </>
     );
 };
