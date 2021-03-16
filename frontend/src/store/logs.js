@@ -20,9 +20,9 @@ const addLogAC = (payload) => ({
     payload
 });
 
-export const addLog = (formData) => {
+export const addLog = (formData, partId) => {
     return async (dispatch) => {
-        const response = await fetch(`/api/parts/${partsId}/logs/create`, {
+        const response = await fetch(`/api/parts/${partId}/logs/create`, {
             method: "POST",
                 body: JSON.stringify({ formData })
         })

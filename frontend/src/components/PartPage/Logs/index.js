@@ -1,22 +1,23 @@
 import React from "react";
-import { useHistory } from "react-router-dom"
+import LogsFormModal from "../LogsFormModal"
+import { useHistory } from "react-router-dom";
 
 
 const Logs = () => {
     
-    const history = useHistory()
+    const history = useHistory();
 
-    // const handleNewLog = () => {
+    const handleNewLog = () => {
         
-    // }
+    };
 
     return (
         <>
-            <h3>Last Log</h3>
+            <h2>Last Log</h2>
             <p>Feb 17th 2021</p>
             <p>Note: lorem ipsum</p>
-            <button className="small-buttons">See all logs</button>
-            <button className="small-buttons" >Add new log</button>
+            <LogsFormModal />
+            <button className="small-buttons" onClick={handleNewLog}>Add new log</button>
         </>
     );
 };

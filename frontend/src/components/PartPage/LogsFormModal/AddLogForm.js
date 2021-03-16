@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import { addLog } from "../../../store/logs"
 import Calendar from "../../Calendar";
 import "./logsForm.css";
 
@@ -22,7 +23,7 @@ const AddLogForm = () => {
     };
 
     setErrors([]);
-    return dispatch(addLog(forData)).catch(
+    return dispatch(addLog(formData)).catch(
       (res) => {
         if (res.data && res.data.errors) setErrors(res.data.errors);
       }
