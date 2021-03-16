@@ -7,9 +7,7 @@ const Logs = () => {
     
     const history = useHistory();
 
-    const handleNewLog = () => {
-        
-    };
+
 
     return (
         <>
@@ -17,7 +15,6 @@ const Logs = () => {
             <p>Feb 17th 2021</p>
             <p>Note: lorem ipsum</p>
             <LogsFormModal />
-            <button className="small-buttons" onClick={handleNewLog}>Add new log</button>
         </>
     );
 };
