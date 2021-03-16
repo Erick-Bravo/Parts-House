@@ -31,7 +31,7 @@ const AddLogForm = () => {
   };
 
   return (
-    <div id="login-form-container">
+    <div id="newlog-form-container">
       <h2>New Log</h2>
       <form onSubmit={handleLogsData}>
         <ul>
