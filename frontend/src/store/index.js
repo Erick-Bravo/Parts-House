@@ -4,12 +4,14 @@ import session from './session';
 import partsHouses from "./partshouse"
 import record from "./records"
 import parts from "./parts"
+import logs from "./logs"
 
 const rootReducer = combineReducers({
   session,
   partsHouses,
   record,
-  parts
+  parts,
+  logs
 });
 
 let enhancer;

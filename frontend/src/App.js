@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect, Route, Switch } from "react-router-dom";
 import SignupFormPage from "./components/SignupFormPage";
-import LoginFormPage from "./components/LoginFormPage"
+// import LoginFormPage from "./components/LoginFormPage"
 // import LoginFormPage from "./components/LoginFormPage";
 import * as sessionActions from "./store/session";
 import EmptyDisplayPage from "./components/UserMainPage"
@@ -41,9 +41,6 @@ function App() {
           {isLoaded &&
             (
               <Switch>
-                <Route path="/login" >
-                  <LoginFormPage />
-                </Route>
                 <Route path="/signup">
                   <SignupFormPage />
                 </Route>
