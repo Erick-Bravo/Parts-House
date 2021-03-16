@@ -1,6 +1,6 @@
 const express = require("express");
 const asyncHandler = require("express-async-handler");
-const { Part } = require("../../db/models");
+const { Part, Log } = require("../../db/models");
 
 const router = express.Router();
 
@@ -45,7 +45,6 @@ router.post("/create", asyncHandler(async(req, res) => {
 
 
 
-
 router.delete("/:partId/delete", asyncHandler(async(req, res) => {
 
     const { partId } = req.body;
@@ -54,6 +53,27 @@ router.delete("/:partId/delete", asyncHandler(async(req, res) => {
     await part.destroy();
 
     return res.json({ part })
+
+}));
+
+
+
+router.post("/:partId/logs/create", asyncHandler(async(req, res) => {
+
+    const { partId } = req.body;
+
+    const { 
+        note,
+        date
+    } = req.body.formData
+
+    const log = await Log.create({
+        note,
+        date,
+        partId: parseInt(partId)
+    });
+
+    return res.json({ log })
 
 }));
 

@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: 'partId'
     });
     Part.hasMany(models.Log, {
-      foreignKey: 'logId'
+      foreignKey: 'partId'
     });
 
     Part.belongsTo(models.Record, {
