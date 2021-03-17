@@ -1,0 +1,35 @@
+#newlog-form-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #F4EADE;
+    width: 450px;
+    height: 300px;
+    padding: 25px;
+    text-align: center;
+}
+
+#newlog-form-container input {
+    width: 400px;
+    height: 40px;
+    margin: 10px;
+    font-size: 25px;
+}
+
+#newlog-form-container .form-button {
+    background-color: #2F496E;
+    color: #F4EADE;
+    font-size: 25px;
+    border: none;
+    width: 200px;
+    height: 40px;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+#newlog-form-container h2 {
+    margin: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 45px;
+}

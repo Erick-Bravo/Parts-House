@@ -60,7 +60,7 @@ router.delete("/:partId/delete", asyncHandler(async(req, res) => {
 
 router.post("/:partId/logs/create", asyncHandler(async(req, res) => {
 
-    const { partId } = req.body;
+    const { partId } = req.params;
 
     const { 
         note,
