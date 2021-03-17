@@ -1,12 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import LogsFormModal from "../LogsFormModal"
-import { useHistory } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchAllLogs } from "../../../store/logs";
 
 
 const Logs = () => {
     
-    const history = useHistory();
+    const dispatch = useDispatch();
+    const { partId } = useParams();
+    const numPartId = parseInt(partId);
 
+    useEffect(() => {
+        dispatch(fetchAllLogs(numPartId))
+    }, [dispatch])
+
+    const logs = useSelector(state => state.logs)
+    console.log(logs)
 
 
     return (

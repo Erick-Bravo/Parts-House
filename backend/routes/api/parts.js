@@ -25,7 +25,7 @@ router.post("/create", asyncHandler(async(req, res) => {
         buyUrl,
         recordId, 
         imgUrl,
-    } = req.body.formData
+    } = req.body.formData;
     
     const part = await Part.create({
         name,
@@ -39,7 +39,7 @@ router.post("/create", asyncHandler(async(req, res) => {
         imgUrl,
     });
 
-    return res.json({ part })
+    return res.json({ part });
 
 }));
 
@@ -52,7 +52,23 @@ router.delete("/:partId/delete", asyncHandler(async(req, res) => {
     const part = await Part.findByPk(partId);
     await part.destroy();
 
-    return res.json({ part })
+    return res.json({ part });
+
+}));
+
+
+
+//Logs
+
+router.get("/:partId/logs", asyncHandler(async(req, res) => {
+
+    const { partId } = req.params;
+    
+    const logs = await Log.findAll({
+        where: { partId: parseInt(partId) },
+    });
+
+    return res.json({ logs });
 
 }));
 
@@ -65,7 +81,7 @@ router.post("/:partId/logs/create", asyncHandler(async(req, res) => {
     const { 
         note,
         date
-    } = req.body.formData
+    } = req.body.formData;
 
     const log = await Log.create({
         note,
@@ -73,8 +89,7 @@ router.post("/:partId/logs/create", asyncHandler(async(req, res) => {
         partId: parseInt(partId)
     });
 
-    return res.json({ log })
-
+    return res.json({ log });
 }));
 
 
