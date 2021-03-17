@@ -23,6 +23,7 @@
     flex-direction: column;
     /* border: 2px solid green; */
     justify-content: flex-end;
+    padding: 25px;
 }
 
 #logs-section #single-log {
@@ -36,4 +37,8 @@
     padding-left: 5px;
     padding-right: 40px;
     width: 140px;
+}
+
+.note {
+    width: 500px
 }

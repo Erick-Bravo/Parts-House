@@ -8,12 +8,22 @@ import "./index.css"
 const ShowAllLogs = ({ setHidden }) => {
 
     const logs = useSelector(state => state.logs)
+    const reversedLogs = []
+
+    if(logs) {
+        logs.map(log => reversedLogs.unshift(log))
+    }
 
 
     const handleHidden = (e) => {
         e.preventDefault();
         setHidden(true)
     };
+
+    const handleDelete = (e) => {
+        e.preventDefault();
+      
+    }
 
     return (
         <>
@@ -22,11 +32,13 @@ const ShowAllLogs = ({ setHidden }) => {
                     <button onClick={handleHidden} className="small-buttons">Hide Logs</button>
                 </div>
                 <div id="logs-section">
-                    {logs && logs.map(log => {
-                        return <div id="single-log" key={log.id}>
+                    {reversedLogs && reversedLogs.map(log => {
+                        return <> <div id="single-log" key={log.id}>
                             <p className="plr">{format(new Date(log.date), "PP")}</p>
-                            <p>{`Note: ${log.note}`}</p>
+                            <p className="note">{`${log.note}`}</p>
                         </div>
+                        <button className="small-buttons" onClick={handleDelete}>delete</button>
+                        </>
                     })}
                 </div>
             </div>
