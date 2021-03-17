@@ -105,7 +105,7 @@
     border: 5px solid #2F496E; 
     border-radius: 15px;
     margin: 40px;
-    padding: 15px
+    padding: 35px
 }  
 
 #part-container .right {
@@ -115,15 +115,16 @@
     flex-direction: column;
     border: 5px solid #2F496E; 
     border-radius: 15px;
-    height: 300px;
+    height: 400px;
     width: 300px;
     margin: 40px;
 }  
 
 #part-container .right p {
-    font-size: 25px;
+    font-size: 20px;
     margin: 10px;
 }
+
 #part-container .right button {
     margin-top: 35px;
 }
@@ -149,7 +150,7 @@
     margin: 10px;
 }
 #part-container .small-buttons {
-    margin-top: 40px;
+  
     margin-bottom: 40px;
 }
 

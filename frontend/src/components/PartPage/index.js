@@ -5,7 +5,7 @@ import { deletePart } from "../../store/parts";
 import BackButton from "../Utilities/BackButton";
 import Logs from "./Logs"
 
-import "./index.css";
+
 
 
 
@@ -34,7 +34,6 @@ const PartPage = () => {
         }
     }, [part, numpartId, parts])
 
-    console.log(part.buyUrl)
 
     const goToBuyUrl = () => {
         // window.location.href = part.buyUrl;
