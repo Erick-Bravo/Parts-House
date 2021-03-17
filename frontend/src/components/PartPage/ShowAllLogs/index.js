@@ -4,7 +4,6 @@ import "./index.css"
 
 
 const ShowAllLogs = () => {
-    const [hidden, setHidden] = useState();
 
 
     return (

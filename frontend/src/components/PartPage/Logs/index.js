@@ -7,8 +7,8 @@ import { format } from "date-fns"
 import "./index.css"
 
 
-const Logs = () => {
-    
+const Logs = ({ setHidden }) => {
+
     const dispatch = useDispatch();
     const { partId } = useParams();
     const numPartId = parseInt(partId);
@@ -25,34 +25,38 @@ const Logs = () => {
 
     const logs = useSelector(state => state.logs);
     const lastLog = logs[logs.length - 1];
-    
+
     useEffect(() => {
-        if(logs.length === 0) {
+        if (logs.length === 0) {
             return
         } else {
             const lastLog = logs[logs.length - 1];
             setLog(lastLog);
         };
 
-        if(!date) {
+        if (!date) {
             return
         } else {
             setParseDate(new Date(date))
         };
     }, [numPartId, logs, lastLog, date]);
-    
-    // console.log(Log.date.toISOString())
- /* {lastLog && <p>{format(lastLog.date, "PPP")}</p>} */
 
-
+    const handleHidden = (e) => {
+        e.preventDefault();
+        setHidden(false)
+    }
 
     return (
         <>
-            <h2>Last Log</h2>
-            {parseDate && <p>{format(parseDate, "PPP")}</p>}
-            <p>Note: {note ? note : "none"}</p>
-            <LogsFormModal />
-            <buttom className="small-buttons pads">Show logs</buttom>
+            <div id="log-top">
+                <h2>Last Log</h2>
+                {parseDate && <p>{format(parseDate, "PPP")}</p>}
+                <p>Note: {note ? note : "none"}</p>
+            </div>
+            <div id="log-utils">
+                <LogsFormModal />
+                <button onClick={handleHidden} className="small-buttons pads" >Show logs</button>
+            </div>
         </>
     );
 };

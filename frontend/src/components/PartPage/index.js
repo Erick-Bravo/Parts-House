@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { deletePart } from "../../store/parts";
 import BackButton from "../Utilities/BackButton";
-import Logs from "./Logs"
+import ShowAllLogs from "../PartPage/ShowAllLogs";
+import Logs from "./Logs";
 
 
 
@@ -19,9 +20,10 @@ const PartPage = () => {
     const numpartId = parseInt(partId);
 
     const parts = useSelector(state => state.parts)
+
     const [part, setPart] = useState([]);
-
-
+    const [hidden, setHidden] = useState(true);
+    
 
     useEffect(() => {
 
@@ -65,10 +67,13 @@ const PartPage = () => {
                     </div>
 
                     <div className="right">
-                        <Logs />
+                        <Logs setHidden={setHidden}/>
                     </div>
                 </div>
 
+                <div hidden={hidden}>
+                    <ShowAllLogs />
+                </div>
                 {!part.buyUrl && <button className="button">Add Buy Url</button>}
                 {part.buyUrl && <button className="button" onClick={goToBuyUrl}>Go to purchase website</button>}
                 <BackButton />

@@ -111,11 +111,11 @@
 #part-container .right {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     flex-direction: column;
     border: 5px solid #2F496E; 
     border-radius: 15px;
-    height: 400px;
+    height: 600px;
     width: 300px;
     margin: 40px;
 }  
@@ -125,9 +125,9 @@
     margin: 10px;
 }
 
-#part-container .right button {
-    margin-top: 35px;
-}
+/* #part-container .right button {
+    
+} */
 
 #part-container h1 {
     font-size: 50px;
