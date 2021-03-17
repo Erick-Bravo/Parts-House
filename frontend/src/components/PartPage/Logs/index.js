@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAllLogs } from "../../../store/logs";
 import { format } from "date-fns"
+import "./index.css"
 
 
 const Logs = () => {
@@ -51,6 +52,7 @@ const Logs = () => {
             {parseDate && <p>{format(parseDate, "PPP")}</p>}
             <p>Note: {note ? note : "none"}</p>
             <LogsFormModal />
+            <buttom className="small-buttons pads">Show logs</buttom>
         </>
     );
 };
