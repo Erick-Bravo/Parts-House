@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
+import { format } from "date-fns"
 import "./index.css"
 
 
@@ -7,7 +8,8 @@ import "./index.css"
 const ShowAllLogs = ({ setHidden }) => {
 
     const logs = useSelector(state => state.logs)
-    console.log(logs)
+
+
     const handleHidden = (e) => {
         e.preventDefault();
         setHidden(true)
@@ -17,10 +19,15 @@ const ShowAllLogs = ({ setHidden }) => {
         <>
             <div id="all-logs">
                 <div id="all-top">
-                    <button onClick={handleHidden}>Hide Logs</button>
+                    <button onClick={handleHidden} className="small-buttons">Hide Logs</button>
                 </div>
                 <div id="logs-section">
-                    <p>this is the showallLogs component</p>
+                    {logs && logs.map(log => {
+                        return <div id="single-log" key={log.id}>
+                            <p className="plr">{format(new Date(log.date), "PP")}</p>
+                            <p>{`Note: ${log.note}`}</p>
+                        </div>
+                    })}
                 </div>
             </div>
         </>
