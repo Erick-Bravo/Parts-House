@@ -12,32 +12,44 @@ const Logs = () => {
     const { partId } = useParams();
     const numPartId = parseInt(partId);
 
-    const [Log, setLog] = useState("")
+    const [Log, setLog] = useState("");
+    const [parseDate, setParseDate] = useState("");
+
+    const date = Log.date;
+    const note = Log.note;
 
     useEffect(() => {
         dispatch(fetchAllLogs(numPartId))
     }, [dispatch, numPartId])
 
-    const logs = useSelector(state => state.logs)
-    const lastLog = logs[logs.length - 1]
-    console.log(lastLog)
+    const logs = useSelector(state => state.logs);
+    const lastLog = logs[logs.length - 1];
     
     useEffect(() => {
         if(logs.length === 0) {
             return
         } else {
-            const lastLog = logs[logs.length - 1]
-            setLog(lastLog)
-            console.log(`INSIDE USEEFFECT: ${lastLog}`)
-        }
-    }, [numPartId, logs, lastLog]);
+            const lastLog = logs[logs.length - 1];
+            setLog(lastLog);
+        };
 
+        if(!date) {
+            return
+        } else {
+            setParseDate(new Date(date))
+        };
+    }, [numPartId, logs, lastLog, date]);
+    
+    // console.log(Log.date.toISOString())
  /* {lastLog && <p>{format(lastLog.date, "PPP")}</p>} */
+
+
+
     return (
         <>
             <h2>Last Log</h2>
-            {Log && <p>{format(Log.date, "PP")}</p>}
-            <p>Note: {Log.note ? Log.note : "none"}</p>
+            {parseDate && <p>{format(parseDate, "PPP")}</p>}
+            <p>Note: {note ? note : "none"}</p>
             <LogsFormModal />
         </>
     );

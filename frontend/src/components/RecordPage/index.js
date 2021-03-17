@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import { NavLink, Redirect, useHistory, useParams } from "react-router-dom";
+import { NavLink, useHistory, useParams } from "react-router-dom";
 import { fetchAllRecParts } from "../../store/parts";
 // import { deleteRecord } from "../../store/records";
 

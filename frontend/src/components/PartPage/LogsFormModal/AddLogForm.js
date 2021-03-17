@@ -36,8 +36,6 @@ const AddLogForm = ({ setShowModal }) => {
     }
   };
 
-
-
   return (
     <div id="newlog-form-container">
       <h2>New Log</h2>
