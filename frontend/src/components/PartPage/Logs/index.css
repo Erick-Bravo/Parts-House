@@ -3,3 +3,17 @@
     padding-right: 7px;
     margin-top: 0;
 }
+
+#log-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#log-utils {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}

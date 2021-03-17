@@ -1,0 +1,44 @@
+#all-logs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border: 5px solid #2F496E; 
+    border-radius: 15px;
+    width: 650px;
+    padding: 30px;
+    margin-bottom: 20px;
+}
+
+#all-logs #all-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+#logs-section {
+    display: flex;
+    align-items:flex-end;
+    flex-direction: column;
+    /* border: 2px solid green; */
+    justify-content: flex-end;
+    padding: 25px;
+}
+
+#logs-section #single-log {
+    display: flex;
+    justify-content: left;
+    /* border: 2px solid black; */
+    width: 80%;
+}
+
+.plr {
+    padding-left: 5px;
+    padding-right: 40px;
+    width: 140px;
+}
+
+.note {
+    width: 500px
+}
