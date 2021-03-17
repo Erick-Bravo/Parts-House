@@ -67,12 +67,12 @@ const PartPage = () => {
                     </div>
 
                     <div className="right">
-                        <Logs setHidden={setHidden}/>
+                        <Logs setHidden={setHidden} />
                     </div>
                 </div>
 
                 <div hidden={hidden}>
-                    <ShowAllLogs />
+                    <ShowAllLogs setHidden={setHidden} />
                 </div>
                 {!part.buyUrl && <button className="button">Add Buy Url</button>}
                 {part.buyUrl && <button className="button" onClick={goToBuyUrl}>Go to purchase website</button>}
