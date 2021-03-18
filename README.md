@@ -1,4 +1,4 @@
-# National Routes
+# PartsHouse
 
 ## Table of Contents
 
@@ -12,14 +12,14 @@
 ## Introduction
 
 Hello, Welcome to Parts House.
-Parts House is your very own customizable parts tracker, where you can record valuable info of individual parts from your appliances and/or electronics. Record model numbers, serial numbers
-and even where to re-purchase these items when you need them most.
-Parts House is your very own customizable parts-house!
+Parts House is your very own customizable parts tracker, where you can record valuable info of individual parts from your appliances and/or electronics. Save model/serial numbers, logs when something was installed, record date of purchase, and even save where to re-purchase these items when you need to.
+Parts House is your very own customizable parts and asset tracker!
 
 ## Technologies
 
 - Heroku
 - Node
+- PostGreSQL
 - Express Server
 - Sequelize
 - React
@@ -40,7 +40,10 @@ Parts House is your very own customizable parts-house!
 	User has ability to create/edit/delete appliances/electronics.
   User ability to create/edit/delete parts.
   
-- ### Where to Buy Part
+ - ### Log Dates
+ - 	User can log date of part install or date of purchase, along with a note.
+  
+- ### Save Part Purchase Link
   User can save the URL of the exact place to purchase the part (optional)
 
 ## Routes
