@@ -149,10 +149,6 @@
     border: 2px solid black;
     margin: 10px;
 }
-#part-container .small-buttons {
-  
-    margin-bottom: 40px;
-}
 
 #part-container .button:hover {
     color:#2F496E;

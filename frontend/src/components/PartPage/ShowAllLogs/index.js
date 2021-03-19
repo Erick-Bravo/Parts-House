@@ -3,14 +3,31 @@ import { useSelector } from "react-redux";
 import { format } from "date-fns"
 import "./index.css"
 
+const Log = ({ log }) => {
 
+    const handleDelete = (e) => {
+        e.preventDefault();
+    }
+
+    return (
+        <>
+            <div id="single-log" key={log.id}>
+                <p className="plr">{format(new Date(log.date), "PP")}</p>
+                <p className="note mr">{`${log.note}`}</p>
+                <button className="small-buttons mr" onClick={handleDelete}>delete</button>
+            </div>
+            <div id="button-section">
+            </div>
+        </>
+    );
+};
 
 const ShowAllLogs = ({ setHidden }) => {
 
     const logs = useSelector(state => state.logs)
     const reversedLogs = []
 
-    if(logs) {
+    if (logs) {
         logs.map(log => reversedLogs.unshift(log))
     }
 
@@ -20,10 +37,6 @@ const ShowAllLogs = ({ setHidden }) => {
         setHidden(true)
     };
 
-    const handleDelete = (e) => {
-        e.preventDefault();
-      
-    }
 
     return (
         <>
@@ -33,12 +46,7 @@ const ShowAllLogs = ({ setHidden }) => {
                 </div>
                 <div id="logs-section">
                     {reversedLogs && reversedLogs.map(log => {
-                        return <> <div id="single-log" key={log.id}>
-                            <p className="plr">{format(new Date(log.date), "PP")}</p>
-                            <p className="note mr">{`${log.note}`}</p>
-                        </div>
-                        <button className="small-buttons mr" onClick={handleDelete}>delete</button>
-                        </>
+                        return <Log log={log} />
                     })}
                 </div>
             </div>
