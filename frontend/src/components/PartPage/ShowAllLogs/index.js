@@ -35,9 +35,9 @@ const ShowAllLogs = ({ setHidden }) => {
                     {reversedLogs && reversedLogs.map(log => {
                         return <> <div id="single-log" key={log.id}>
                             <p className="plr">{format(new Date(log.date), "PP")}</p>
-                            <p className="note">{`${log.note}`}</p>
+                            <p className="note mr">{`${log.note}`}</p>
                         </div>
-                        <button className="small-buttons" onClick={handleDelete}>delete</button>
+                        <button className="small-buttons mr" onClick={handleDelete}>delete</button>
                         </>
                     })}
                 </div>

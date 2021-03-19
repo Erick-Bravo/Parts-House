@@ -22,7 +22,7 @@
     align-items:flex-end;
     flex-direction: column;
     /* border: 2px solid green; */
-    justify-content: flex-end;
+    justify-content: center;
     padding: 25px;
 }
 
@@ -41,4 +41,8 @@
 
 .note {
     width: 500px
+}
+
+.mr {
+    margin-right: 50px;
 }
