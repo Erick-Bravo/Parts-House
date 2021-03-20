@@ -152,6 +152,7 @@
     border-radius: 20px;
     margin-top: 10px;
     margin-bottom: 30px;
+    cursor: pointer;
 }
 
 #part-container .button:hover {

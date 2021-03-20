@@ -2,6 +2,7 @@ import { fetch } from "./csrf";
 
 const GET_ALL_LOGS = "get/All_logs"
 const ADD_LOG = "add/log"
+const DELETE_LOG = "delete/log"
 
 const setAllLogsAC = (payload) => ({
     type: GET_ALL_LOGS,
@@ -30,6 +31,21 @@ export const addLog = (formData, partId) => {
     };
 };
 
+const deleteLogAC = (payload) => ({
+    type: DELETE_LOG,
+    payload
+});
+
+export const deleteLog = (logId) => {
+    return async (dispatch) => {
+        const response = await fetch(`/api/parts/logs/${logId}/delete`, {
+            method: "DELETE",
+            body: JSON.stringify({ logId })
+        });
+        dispatch(deleteLogAC(response.data.log))
+    };
+};
+
 
 const reducer = (state = [], action) => {
     let newState;
@@ -42,6 +58,14 @@ const reducer = (state = [], action) => {
 
         case ADD_LOG:
             newState = [...state, action.payload]
+            return newState
+
+        case DELETE_LOG:
+            newState = state.filter((log) => {
+                const ret = log.id !== Number(action.payload.id)
+                return ret    
+            });
+
             return newState
         
         default:

@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteLog } from "../../../store/logs"
 import { format } from "date-fns";
 import "./index.css";
 
 const Log = ({ log, deleteb }) => {
+    
+    const dispatch = useDispatch();
 
     const handleDelete = (e) => {
         e.preventDefault();
-    }
+        dispatch(deleteLog(log.id));
+    };
 
     return (
         <>
