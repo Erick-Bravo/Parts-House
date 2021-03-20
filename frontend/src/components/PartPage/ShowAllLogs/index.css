@@ -50,3 +50,9 @@
 .mr {
     margin-right: 50px;
 }
+
+#single-log button {
+    height: 25px;
+    position: relative;
+    top: 15px;
+}
