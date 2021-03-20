@@ -14,6 +14,7 @@ const Logs = ({ setHidden }) => {
     const numPartId = parseInt(partId);
 
     const [Log, setLog] = useState("");
+    const [hiddenButtons, setHiddenButtons] = useState(true);
     const [parseDate, setParseDate] = useState("");
 
     const date = Log.date;
@@ -21,7 +22,7 @@ const Logs = ({ setHidden }) => {
 
     useEffect(() => {
         dispatch(fetchAllLogs(numPartId))
-    }, [dispatch, numPartId])
+    }, [dispatch, numPartId]);
 
     const logs = useSelector(state => state.logs);
     const lastLog = logs[logs.length - 1];
@@ -38,13 +39,20 @@ const Logs = ({ setHidden }) => {
             return
         } else {
             setParseDate(new Date(date))
-        };
+        }
     }, [numPartId, logs, lastLog, date]);
 
-    const handleHidden = (e) => {
+    const setHiddenF = (e) => {
         e.preventDefault();
-        setHidden(false)
-    }
+        setHidden(false);
+        setHiddenButtons(false);
+    };
+    
+    const setHiddenT = (e) => {
+        e.preventDefault();
+        setHidden(true);
+        setHiddenButtons(true);
+    };
 
     return (
         <>
@@ -55,10 +63,11 @@ const Logs = ({ setHidden }) => {
             </div>
             <div id="log-utils">
                 <LogsFormModal />
-                <button onClick={handleHidden} className="small-buttons pads" >Show logs</button>
+                {hiddenButtons && <button onClick={setHiddenF} className="small-buttons pads" >Show logs</button>}
+                {!hiddenButtons && <button onClick={setHiddenT} className="small-buttons pads" >Hide Logs</button>}
             </div>
         </>
     );
 };
 
-export default Logs
+export default Logs;

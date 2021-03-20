@@ -69,8 +69,10 @@
     justify-content: center;
     
 }
-#delete-record p {
-    margin: 20px;
+#delete-record p{
+    margin-right: 40px;
+    margin-top: 40px;
+    margin-bottom: 40px;
 }
 
 
@@ -147,6 +149,7 @@
     background-color: #ED8C72;
     color: white;
     border: 2px solid black;
+    border-radius: 20px;
     margin: 10px;
 }
 

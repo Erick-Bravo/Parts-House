@@ -22,7 +22,7 @@ const Log = ({ log }) => {
     );
 };
 
-const ShowAllLogs = ({ setHidden }) => {
+const ShowAllLogs = () => {
 
     const logs = useSelector(state => state.logs)
     const reversedLogs = []
@@ -31,19 +31,9 @@ const ShowAllLogs = ({ setHidden }) => {
         logs.map(log => reversedLogs.unshift(log))
     }
 
-
-    const handleHidden = (e) => {
-        e.preventDefault();
-        setHidden(true)
-    };
-
-
     return (
         <>
             <div id="all-logs">
-                <div id="all-top">
-                    <button onClick={handleHidden} className="small-buttons">Hide Logs</button>
-                </div>
                 <div id="logs-section">
                     {reversedLogs && reversedLogs.map(log => {
                         return <Log log={log} />

@@ -8,9 +8,6 @@ import Logs from "./Logs";
 
 
 
-
-
-
 const PartPage = () => {
 
     const dispatch = useDispatch();
@@ -21,8 +18,8 @@ const PartPage = () => {
 
     const parts = useSelector(state => state.parts)
 
-    const [part, setPart] = useState([]);
     const [hidden, setHidden] = useState(true);
+    const [part, setPart] = useState([]);
     
 
     useEffect(() => {
@@ -72,7 +69,7 @@ const PartPage = () => {
                 </div>
 
                 <div hidden={hidden}>
-                    <ShowAllLogs setHidden={setHidden} />
+                    <ShowAllLogs />
                 </div>
                 {!part.buyUrl && <button className="button">Add Buy Url</button>}
                 {part.buyUrl && <button className="button" onClick={goToBuyUrl}>Go to purchase website</button>}
@@ -82,7 +79,7 @@ const PartPage = () => {
 
             <div id="delete-record">
                 <p>Delete this Part and all its info</p>
-                <button className="small-buttons" onClick={deleteHandler}>delete</button>
+                <button className="small-buttons " onClick={deleteHandler}>delete</button>
             </div>
         </div>
     );
