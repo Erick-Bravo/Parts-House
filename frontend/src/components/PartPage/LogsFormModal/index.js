@@ -8,7 +8,7 @@ function LogsFormModal() {
   
   return (
     <>
-      <button className="small-buttons" onClick={() => setShowModal(true)}>Add new log</button>
+      <button className="small-buttons mb" onClick={() => setShowModal(true)}>Add new log</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <AddLogsForm setShowModal={setShowModal}/>

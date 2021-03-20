@@ -92,6 +92,15 @@ router.post("/:partId/logs/create", asyncHandler(async(req, res) => {
     return res.json({ log });
 }));
 
+router.delete("/logs/:logId/delete", asyncHandler(async(req, res) => {
+    const { logId } = req.body;
+
+    const log = await Log.findByPk(logId);
+    await log.destroy();
+
+    return res.json({ log })
+}));
+
 
 
 module.exports = router

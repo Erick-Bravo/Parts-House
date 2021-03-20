@@ -5,8 +5,10 @@
     flex-direction: column;
     border: 5px solid #2F496E; 
     border-radius: 15px;
-    width: 650px;
+
+    width: 600px;
     padding: 30px;
+
     margin-bottom: 20px;
 }
 
@@ -14,6 +16,7 @@
     display: flex;
     align-items: flex-start;
     justify-content: flex-end;
+    margin-bottom: 35px;
     width: 100%;
 }
 
@@ -22,23 +25,34 @@
     align-items:flex-end;
     flex-direction: column;
     /* border: 2px solid green; */
-    justify-content: flex-end;
-    padding: 25px;
+    justify-content: center;
+    
+   
 }
 
 #logs-section #single-log {
     display: flex;
     justify-content: left;
     /* border: 2px solid black; */
-    width: 80%;
+    width: 600px;
 }
 
 .plr {
-    padding-left: 5px;
+    padding-left: 55px;
     padding-right: 40px;
-    width: 140px;
+   
 }
 
 .note {
     width: 500px
+}
+
+.mr {
+    margin-right: 50px;
+}
+
+#single-log button {
+    height: 25px;
+    position: relative;
+    top: 15px;
 }
