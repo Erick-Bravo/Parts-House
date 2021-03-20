@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { format } from "date-fns"
-import "./index.css"
+import { format } from "date-fns";
+import "./index.css";
 
-const Log = ({ log }) => {
+const Log = ({ log, deleteb }) => {
 
     const handleDelete = (e) => {
         e.preventDefault();
@@ -14,9 +14,7 @@ const Log = ({ log }) => {
             <div id="single-log" key={log.id}>
                 <p className="plr">{format(new Date(log.date), "PP")}</p>
                 <p className="note mr">{`${log.note}`}</p>
-                <button className="small-buttons mr" onClick={handleDelete}>delete</button>
-            </div>
-            <div id="button-section">
+                {!deleteb && <button className="small-buttons mr" onClick={handleDelete}>delete</button>}
             </div>
         </>
     );
@@ -24,19 +22,36 @@ const Log = ({ log }) => {
 
 const ShowAllLogs = () => {
 
-    const logs = useSelector(state => state.logs)
-    const reversedLogs = []
-
+    
+    const logs = useSelector(state => state.logs);
+    const reversedLogs = [];
+    
     if (logs) {
         logs.map(log => reversedLogs.unshift(log))
-    }
+    };
+    
+    const [deleteButtons, setDeleteButtons] = useState(true)
+
+    const setHiddenF = (e) => {
+        e.preventDefault();
+        setDeleteButtons(false);
+    };
+    
+    const setHiddenT = (e) => {
+        e.preventDefault();
+        setDeleteButtons(true);
+    };
 
     return (
         <>
             <div id="all-logs">
+                <div id="all-top">
+                    {deleteButtons && <button onClick={setHiddenF} className="small-buttons pads" >Edit</button>}
+                    {!deleteButtons && <button onClick={setHiddenT} className="small-buttons pads" >hide Edit</button>}
+                </div>
                 <div id="logs-section">
                     {reversedLogs && reversedLogs.map(log => {
-                        return <Log log={log} />
+                        return <Log log={log} deleteb={deleteButtons}/>
                     })}
                 </div>
             </div>

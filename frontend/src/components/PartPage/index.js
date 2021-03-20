@@ -43,7 +43,6 @@ const PartPage = () => {
     const deleteHandler = (e) => {
         e.preventDefault();
         dispatch(deletePart(numpartId));
-        // history.push("/");
         history.go(-1)
     };
 
