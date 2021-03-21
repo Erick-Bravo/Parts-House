@@ -37,6 +37,17 @@ font-size: 30px;
     color: blanchedalmond;
 }
 
+.form-button {
+    background-color: #2F496E;
+    color: #F4EADE;
+    font-size: 25px;
+    border: none;
+    width: 200px;
+    height: 40px;
+    border-radius: 10px;
+    margin: 10px;
+}
+
 #delete-record-section button:hover{
     cursor: pointer;
 }

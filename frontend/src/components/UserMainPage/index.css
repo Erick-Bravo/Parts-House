@@ -6,8 +6,8 @@
     position: absolute;
     background-color: #F4EADE;
     min-height: 100vh;
-    width: calc(100% - 400px);
-    margin-left: 400px;
+    width: calc(100% - 300px);
+    margin-left: 300px;
     /* overflow: scroll; */
 }
 
@@ -23,7 +23,7 @@
     min-height: 100vh;
     height: 100%;
     
-    width: 400px;
+    width: 300px;
     background-color: #2F496E;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: #F4EADE;
@@ -135,7 +135,9 @@
     height: 30px; 
 }
 
-#new-record-form button{
+
+
+#new-record-form .form-button{
     font-size: 20px;
     width: 200px;
     height: 40px; 
@@ -143,6 +145,7 @@
     border: none;
     background-color: #2F496E;
     color: #F4EADE;
+    cursor: pointer;
 }
 
 #new-record-form label{
