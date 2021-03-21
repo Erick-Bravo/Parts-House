@@ -44,6 +44,10 @@
     text-align: left;
 }
 
+#left-nav-bar button {
+    cursor: pointer;
+}
+
 #left-nav-bar a {
     text-decoration: none;
 }
