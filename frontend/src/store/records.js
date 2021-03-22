@@ -2,6 +2,7 @@ import { fetch } from "./csrf"
 
 const GET_ALL_RECORDS = "get/All_Records";
 const ADD_RECORD = "create/Record";
+const UPDATE_RECORD = "update/Record";
 const DELETE_RECORD = "delete/Record";
 
 
@@ -21,8 +22,6 @@ export const fetchAllRecords = (partsHouseId) => {
 };
 
 
-
-
 const addRecordAC = (payload) => ({
     type: ADD_RECORD,
     payload
@@ -39,7 +38,20 @@ export const addRecord = (formData) => {
     };
 };
 
+const updateRecordAC = (payload) => ({
+    type: UPDATE_RECORD,
+    payload
+})
 
+export const updateRecord = (formData, recordId) => {
+    return async (dispatch) => {
+        const response = await fetch(`/api/records/${recordId}/update`, {
+            method: "PUT",
+            body: JSON.stringify({formData})
+        });
+        dispatch(updateRecordAC(response.data.record));
+    };
+};
 
 
 
@@ -60,9 +72,6 @@ export const deleteRecord = (recordId) => {
 
 
 
-
-
-
 const reducer = (state = [], action) => {
 
     let newState;
@@ -73,6 +82,10 @@ const reducer = (state = [], action) => {
             return newState
 
         case ADD_RECORD:
+            newState = [...state, action.payload]
+            return newState
+
+        case UPDATE_RECORD:
             newState = [...state, action.payload]
             return newState
 

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import BackButton from "../../Utilities/BackButton";
-import { deleteRecord } from "../../../store/records";
+import { updateRecord, deleteRecord } from "../../../store/records";
 import "./index.css"
 import Calendar from "../../Calendar";
 
@@ -68,13 +68,11 @@ const UpdateRecordPage = () => {
             serial,
             purchaseUrl,
             description: descript,
-            // partsHouseId: numPartsHouseId
         };
 
-        // dispatch(addRecord(formData)
-        // dispatch(updateRecord(formData))
+        dispatch(updateRecord(formData, numRecordId))
 
-        history.go(-1)
+        // history.go(-1)  
     };
 
     const hiddenFalse = (e) => {
@@ -173,7 +171,7 @@ const UpdateRecordPage = () => {
                 </label>
 
                 <div id="button-section">
-                    <button className="form-button" type="submit">Add</button>
+                    <button className="form-button" type="submit">Update</button>
                     <BackButton />
                 </div>
 

@@ -18,10 +18,11 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 200px;
+    height: 400px;
     width: 350px;
     border: 10px solid rgb(245, 75, 75);
     border-radius: 10px;
+    margin-top: 100px;
     margin-bottom: 200px;
 
 }
@@ -37,16 +38,6 @@ font-size: 30px;
     color: blanchedalmond;
 }
 
-.form-button {
-    background-color: #2F496E;
-    color: #F4EADE;
-    font-size: 25px;
-    border: none;
-    width: 200px;
-    height: 40px;
-    border-radius: 10px;
-    margin: 10px;
-}
 
 #delete-record-section button:hover{
     cursor: pointer;
