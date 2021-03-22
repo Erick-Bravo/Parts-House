@@ -1,0 +1,17 @@
+#top-nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+}
+
+.top-nav-button {
+    height: 40px;
+    width: 80px;
+    border: none;
+    border-radius: 5px;
+    background-color: #2F496E;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #F4EADE;
+}

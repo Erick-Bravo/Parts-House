@@ -11,10 +11,6 @@
     /* overflow: scroll; */
 }
 
-#user-main-page img {
-    padding: 25px;
-}
-
 #left-nav-bar {
     display: flex;
     /* justify-content: space-between; */
@@ -23,7 +19,7 @@
     min-height: 100vh;
     height: 100%;
     
-    width: 300px;
+    width: 350px;
     background-color: #2F496E;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: #F4EADE;
@@ -64,17 +60,16 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 300px;
+    width: 225px;
     margin-left: 40px;
     
 }
 
 #add-partshouse-form input {
-
-    height: 30px;
-    width: 275px;
+    height: 25px;
+    width: 250px;
     margin: 5px;
-    font-size: 20px;
+    font-size: 17px;
 }
 
 #display-box {

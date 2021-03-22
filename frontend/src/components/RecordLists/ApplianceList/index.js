@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams, NavLink } from "react-router-dom";
 import { fetchAllRecords } from "../../../store/records"
+import TopNavBar from "../../UserMainPage/TopNavBar"
 import RecordCard from "../RecordCard"
 import NameSection from "../zNameSection"
 import "../index.css";
@@ -51,6 +52,7 @@ const ApplianceList = () => {
 
     return (
         <div id="user-main-page">
+            <TopNavBar />
             <NameSection ph={ph} />
 
             <div id="record-navbar">
