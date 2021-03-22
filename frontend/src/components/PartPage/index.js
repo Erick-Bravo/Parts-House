@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { deletePart } from "../../store/parts";
-import BackButton from "../Utilities/BackButton";
 import ShowAllLogs from "../PartPage/ShowAllLogs";
 import Logs from "./Logs";
 
@@ -72,7 +71,7 @@ const PartPage = () => {
                 </div>
                 {!part.buyUrl && <button className="button">Add Buy Url</button>}
                 {part.buyUrl && <button className="button" onClick={goToBuyUrl}>Go to purchase website</button>}
-                <BackButton />
+                
 
             </div>
 

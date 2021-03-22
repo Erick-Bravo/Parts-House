@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteLog } from "../../../store/logs"
 import { format } from "date-fns";
@@ -15,7 +15,7 @@ const Log = ({ log, deleteb }) => {
 
     return (
         <>
-            <div id="single-log" key={log.id}>
+            <div id="single-log">
                 <p className="plr">{format(new Date(log.date), "PP")}</p>
                 <p className="note mr">{`${log.note}`}</p>
                 {!deleteb && <button className="small-buttons mr" onClick={handleDelete}>delete</button>}
@@ -55,7 +55,7 @@ const ShowAllLogs = () => {
                 </div>
                 <div id="logs-section">
                     {reversedLogs && reversedLogs.map(log => {
-                        return <Log log={log} deleteb={deleteButtons}/>
+                        return <Log log={log} deleteb={deleteButtons} key={log.updatedAt}/>
                     })}
                 </div>
             </div>

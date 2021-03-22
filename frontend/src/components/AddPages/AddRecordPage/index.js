@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from 'react-redux';
 import { useHistory, useParams } from "react-router-dom";
 import { addRecord } from "../../../store/records"
+import Calendar from "../../Calendar"
+import TopNavBar from "../../UserMainPage/TopNavBar";
 import "./index.css";
 
 
@@ -21,6 +23,7 @@ const AddRecordPage = () => {
     const [cost, setCost] = useState(0);
     const [model, setModel] = useState("");
     const [serial, setSerial] = useState("");
+    const [date, setDate] = useState(new Date());
     const [descript, setDescript] = useState("");
     const [errors, setErrors] = useState([]);
     const [hidden, setHidden] = useState(true);
@@ -60,6 +63,7 @@ const AddRecordPage = () => {
             make,
             model,
             serial,
+            date,
             partsHouseId: numPartsHouseId
         };
 
@@ -91,6 +95,9 @@ const AddRecordPage = () => {
     return (
 
         <div id="user-main-page">
+
+            <TopNavBar />
+            
             <div></div>
             <form id="new-record-form" onSubmit={onSubmit}>
                 <h2>Add New Record</h2>
@@ -101,8 +108,8 @@ const AddRecordPage = () => {
                     ))}
                 </ul>
 
-                {!hidden && <button onClick={hiddenTrue}>Show Simple Form</button>}
-                {hidden && <button onClick={hiddenFalse}>Show More Fields</button>}
+                {!hidden && <button className="form-button" onClick={hiddenTrue}>Show Simple Form</button>}
+                {hidden && <button className="form-button" onClick={hiddenFalse}>Show More Fields</button>}
 
                 <label>
                     Select a Type:
@@ -149,13 +156,18 @@ const AddRecordPage = () => {
                         onChange={e => setSerial(e.target.value)} />
                 </label>
 
+                <label >
+                    Date of Purchase:
+                    <Calendar value={date} onChange={setDate} />
+                </label>
+
                 <label hidden={hidden}>
                     Short Description:
                 <textarea type="text" name="description" value={descript} hidden={hidden}
                         onChange={e => setDescript(e.target.value)} />
                 </label>
 
-                <button type="submit">Add</button>
+                <button className="form-button" type="submit">Add</button>
 
             </form>
         </div>

@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
-import BackButton from "../../Utilities/BackButton";
-import { deleteRecord } from "../../../store/records";
+import { updateRecord, deleteRecord } from "../../../store/records";
+import Calendar from "../../Calendar";
+import TopNavBar from "../../UserMainPage/TopNavBar";
 import "./index.css"
 
 const UpdateRecordPage = () => {
@@ -24,6 +25,7 @@ const UpdateRecordPage = () => {
     const [cost, setCost] = useState(record.cost);
     const [model, setModel] = useState(record.model);
     const [serial, setSerial] = useState(record.serial);
+    const [date, setDate] = useState(new Date());
     const [purchaseUrl, setPurchaseUrl] = useState(record.purchaseUrl);
     const [descript, setDescript] = useState(record.description);
     const [errors, setErrors] = useState([]);
@@ -66,13 +68,11 @@ const UpdateRecordPage = () => {
             serial,
             purchaseUrl,
             description: descript,
-            // partsHouseId: numPartsHouseId
         };
 
-        // dispatch(addRecord(formData)
-        // dispatch(updateRecord(formData))
+        dispatch(updateRecord(formData, parseInt(recordId)))
 
-        history.go(-1)
+        history.go(-1)  
     };
 
     const hiddenFalse = (e) => {
@@ -93,11 +93,11 @@ const UpdateRecordPage = () => {
     return (
 
         <div id="user-main-page">
+
+            <TopNavBar />
             
             <form id="new-record-form" onSubmit={onSubmit}>
                 <h2>Update {record.name}</h2>
-
-
 
                 <ul className="red-error">
                     {errors.map(error => (
@@ -105,8 +105,8 @@ const UpdateRecordPage = () => {
                     ))}
                 </ul>
 
-                {!hidden && <button onClick={hiddenTrue}>Show Simple Form</button>}
-                {hidden && <button onClick={hiddenFalse}>Show More Fields</button>}
+                {!hidden && <button className="form-button" onClick={hiddenTrue}>Show Simple Form</button>}
+                {hidden && <button className="form-button" onClick={hiddenFalse}>Show More Fields</button>}
 
                 <label>
                     Select a Type:
@@ -154,6 +154,12 @@ const UpdateRecordPage = () => {
                         onChange={e => setSerial(e.target.value)} />
                 </label>
 
+                <label >
+                    Date of Purchase:
+                    <Calendar value={date} onChange={setDate} />
+                </label>
+
+
                 <label hidden={hidden}>
                     Purchase URL Link:
                 <input type="text" name="purchaseUrl" value={purchaseUrl} hidden={hidden}
@@ -167,8 +173,7 @@ const UpdateRecordPage = () => {
                 </label>
 
                 <div id="button-section">
-                    <button type="submit">Add</button>
-                    <BackButton />
+                    <button className="form-button" type="submit">Update</button>
                 </div>
 
             </form>

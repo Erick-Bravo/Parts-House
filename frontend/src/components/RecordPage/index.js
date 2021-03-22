@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 
 import { NavLink, useHistory, useParams } from "react-router-dom";
 import { fetchAllRecParts } from "../../store/parts";
+import { format } from "date-fns";
+import TopNavBar from "../UserMainPage/TopNavBar";
 // import { deleteRecord } from "../../store/records";
 
 import "./index.css";
@@ -55,7 +57,7 @@ const RecordPage = () => {
 
     useEffect(() => {
         dispatch(fetchAllRecParts(numRecordId));
-    }, [dispatch, numRecordId]);
+    }, [dispatch, numRecordId, records]);
 
 
     // const deleteHandler = (e) => {
@@ -73,6 +75,8 @@ const RecordPage = () => {
     return (
         <div id="user-main-page">
 
+            <TopNavBar />
+
             <div id="display-box">
                 {record &&
                     <div id="record-container">
@@ -89,7 +93,8 @@ const RecordPage = () => {
                                 {record.model && <p>Model - {record.model}</p>}
                                 {record.serial && <p>Serial - {record.serial}</p>}
                                 {record.cost && <p>Initial Purchase Cost - ${record.cost}</p>}
-                                <p>Date of Purchase: Dec 21st, 2017</p>
+                                {record.purchaseDate && <p>{format(new Date(record.purchaseDate), "PP")}</p>}
+                                
                             </div>
                         </div>
 

@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useParams, NavLink } from "react-router-dom";
 import RecordCard from "../RecordCard"
-import "../index.css";
 import NameSection from "../zNameSection";
+import TopNavBar from "../../UserMainPage/TopNavBar"
+import "../index.css";
 
 
 
@@ -45,7 +46,10 @@ const ElectronicList = () => {
 
 
     return (
-        <div id="user-main-page">
+        <div id="user-main-page"> 
+
+            <TopNavBar />
+            
             <NameSection ph={ph} />
 
             <div id="record-navbar">
@@ -70,16 +74,13 @@ const ElectronicList = () => {
                 <img src="https://i.ibb.co/zNWRjHY/Electronic-Icon.png" alt="Electronic-Icon" border="0" width="100px"></img>
                 <div>
                     {electronics.map(electronic => {
-                        return <NavLink to={`/records/${electronic.id}`} key={electronic.id}>
-                            <RecordCard record={electronic} key={electronic.id} />
+                        return <NavLink to={`/records/${electronic.id}`} key={electronic.name}>
+                            <RecordCard record={electronic} />
                         </NavLink>
                     })}
                 </div>
             </div>
 
-            <div id="mascot">
-                <img src="https://i.ibb.co/Sx3THPm/vector-creator-1500-1by1.png" alt="vector-creator-1500-1by1" border="0" height="100px" />
-            </div>
         </div>
     );
 };

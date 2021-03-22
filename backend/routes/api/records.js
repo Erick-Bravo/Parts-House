@@ -15,6 +15,7 @@ router.get("/:recordId", asyncHandler(async(req, res) => {
     return res.json({ record })
 }))
 
+
 router.post("/create", asyncHandler(async(req, res) => {
     
     const { 
@@ -24,6 +25,7 @@ router.post("/create", asyncHandler(async(req, res) => {
         cost,
         model,
         serial,
+        date,
         description,
         purchaseUrl,
         partsHouseId, 
@@ -36,10 +38,46 @@ router.post("/create", asyncHandler(async(req, res) => {
         cost,
         model,
         serial,
+        date,
         description,
         purchaseUrl,
         partsHouseId, 
     });
+
+    return res.json({ record });
+
+}));
+
+
+router.put("/:recordId/update", asyncHandler(async(req, res) => {
+    
+    const { 
+        type,
+        name,
+        make,
+        cost,
+        model,
+        serial,
+        date,
+        description,
+        purchaseUrl,
+    } = req.body.formData
+
+    const { recordId } = req.params; 
+
+    const record = await Record.findByPk(parseInt(recordId));
+
+    await record.update({
+        type,
+        name,
+        make,
+        cost,
+        model,
+        serial,
+        date,
+        description,
+        purchaseUrl, 
+    })
 
     return res.json({ record });
 

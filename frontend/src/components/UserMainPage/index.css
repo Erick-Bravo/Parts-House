@@ -6,13 +6,9 @@
     position: absolute;
     background-color: #F4EADE;
     min-height: 100vh;
-    width: calc(100% - 400px);
-    margin-left: 400px;
+    width: calc(100% - 300px);
+    margin-left: 300px;
     /* overflow: scroll; */
-}
-
-#user-main-page img {
-    padding: 25px;
 }
 
 #left-nav-bar {
@@ -23,7 +19,7 @@
     min-height: 100vh;
     height: 100%;
     
-    width: 400px;
+    width: 350px;
     background-color: #2F496E;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: #F4EADE;
@@ -64,17 +60,16 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 300px;
+    width: 225px;
     margin-left: 40px;
     
 }
 
 #add-partshouse-form input {
-
-    height: 30px;
-    width: 275px;
+    height: 25px;
+    width: 250px;
     margin: 5px;
-    font-size: 20px;
+    font-size: 17px;
 }
 
 #display-box {
@@ -135,7 +130,7 @@
     height: 30px; 
 }
 
-#new-record-form button{
+#new-record-form .form-button{
     font-size: 20px;
     width: 200px;
     height: 40px; 
@@ -143,6 +138,7 @@
     border: none;
     background-color: #2F496E;
     color: #F4EADE;
+    cursor: pointer;
 }
 
 #new-record-form label{

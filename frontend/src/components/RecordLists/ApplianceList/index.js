@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams, NavLink } from "react-router-dom";
 import { fetchAllRecords } from "../../../store/records"
+import TopNavBar from "../../UserMainPage/TopNavBar"
 import RecordCard from "../RecordCard"
 import NameSection from "../zNameSection"
 import "../index.css";
@@ -51,6 +52,7 @@ const ApplianceList = () => {
 
     return (
         <div id="user-main-page">
+            <TopNavBar />
             <NameSection ph={ph} />
 
             <div id="record-navbar">
@@ -75,16 +77,13 @@ const ApplianceList = () => {
                 <img src="https://i.ibb.co/1J6XgXY/Appliance-Icon.png" alt="Appliance-Icon" border="0" width="100px"></img>
                 <div>
                     {appliances.map(appliance => {
-                        return <NavLink to={`/records/${appliance.id}`} key={appliance.id} >
+                        return <NavLink to={`/records/${appliance.id}`} key={appliance.name} >
                             <RecordCard record={appliance} />
                         </NavLink>
                     })}
                 </div>
             </div>
 
-            <div id="mascot">
-                <img src="https://i.ibb.co/Sx3THPm/vector-creator-1500-1by1.png" alt="vector-creator-1500-1by1" border="0" height="100px" />
-            </div>
         </div>
     );
 };

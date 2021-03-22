@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from "react-router-dom";
 import { addPart } from "../../../store/parts"
+import TopNavBar from "../../UserMainPage/TopNavBar";
 import "./index.css"
 
 
@@ -90,6 +91,8 @@ const PartPage = () => {
 
     return (
         <div id="user-main-page">
+
+            <TopNavBar />
 
             <form id="new-record-form" onSubmit={onSubmit}>
                 <h2>Add New Part</h2>
