@@ -86,14 +86,19 @@ const reducer = (state = [], action) => {
             return newState
 
         case UPDATE_RECORD:
-            newState = [action.payload, ...state]
-            return newState
+            newState = state.filter((record) => {
+                const ret = record.id !== Number(action.payload.id)
+                return ret
+            })
+            let upDatedState = [...newState, action.payload]
+
+            return upDatedState
 
         case DELETE_RECORD:
             newState = state.filter((record) => {
                 const ret = record.id !== Number(action.payload.id)
                 return ret
-            });
+            })
             return newState
 
         default:
