@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useHistory, useParams } from "react-router-dom";
 import { addRecord } from "../../../store/records"
 import Calendar from "../../Calendar"
+import TopNavBar from "../../UserMainPage/TopNavBar";
 import "./index.css";
 
 
@@ -94,6 +95,9 @@ const AddRecordPage = () => {
     return (
 
         <div id="user-main-page">
+
+            <TopNavBar />
+            
             <div></div>
             <form id="new-record-form" onSubmit={onSubmit}>
                 <h2>Add New Record</h2>

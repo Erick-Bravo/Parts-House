@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useParams, NavLink } from "react-router-dom";
 import RecordCard from "../RecordCard"
-import "../index.css";
+import TopNavBar from "../../UserMainPage/TopNavBar";
 import NameSection from "../zNameSection";
+import "../index.css";
 
 
 
@@ -45,6 +46,9 @@ const OtherList = () => {
 
     return (
         <div id="user-main-page">
+
+            <TopNavBar />
+
             <NameSection ph={ph} />
 
             <div id="record-navbar">
@@ -76,9 +80,6 @@ const OtherList = () => {
                 </div>
             </div>
 
-            <div id="mascot">
-                <img src="https://i.ibb.co/Sx3THPm/vector-creator-1500-1by1.png" alt="vector-creator-1500-1by1" border="0" height="100px" />
-            </div>
         </div>
     );
 };

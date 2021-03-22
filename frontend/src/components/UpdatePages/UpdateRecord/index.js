@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
-import BackButton from "../../Utilities/BackButton";
-import { fetchAllRecords, updateRecord, deleteRecord } from "../../../store/records";
-import "./index.css"
+import { updateRecord, deleteRecord } from "../../../store/records";
 import Calendar from "../../Calendar";
+import TopNavBar from "../../UserMainPage/TopNavBar";
+import "./index.css"
 
 const UpdateRecordPage = () => {
 
@@ -71,7 +71,6 @@ const UpdateRecordPage = () => {
         };
 
         dispatch(updateRecord(formData, parseInt(recordId)))
-        // dispatch(fetchAllRecords(record.partsHouseId))
 
         history.go(-1)  
     };
@@ -94,6 +93,8 @@ const UpdateRecordPage = () => {
     return (
 
         <div id="user-main-page">
+
+            <TopNavBar />
             
             <form id="new-record-form" onSubmit={onSubmit}>
                 <h2>Update {record.name}</h2>
@@ -173,7 +174,6 @@ const UpdateRecordPage = () => {
 
                 <div id="button-section">
                     <button className="form-button" type="submit">Update</button>
-                    <BackButton />
                 </div>
 
             </form>
