@@ -8,7 +8,6 @@ import "./index.css"
 
 const UpdateRecordPage = () => {
 
-
     const dispatch = useDispatch();
     const history = useHistory();
     const { recordId } = useParams();
@@ -25,7 +24,7 @@ const UpdateRecordPage = () => {
     const [cost, setCost] = useState(record.cost);
     const [model, setModel] = useState(record.model);
     const [serial, setSerial] = useState(record.serial);
-    const [date, setDate] = useState(new Date());
+    const [date, setDate] = useState(record.purchaseDate);
     const [purchaseUrl, setPurchaseUrl] = useState(record.purchaseUrl);
     const [descript, setDescript] = useState(record.description);
     const [errors, setErrors] = useState([]);
@@ -66,6 +65,7 @@ const UpdateRecordPage = () => {
             make,
             model,
             serial,
+            purchaseDate: date,
             purchaseUrl,
             description: descript,
         };

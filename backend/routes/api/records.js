@@ -58,7 +58,7 @@ router.put("/:recordId/update", asyncHandler(async(req, res) => {
         cost,
         model,
         serial,
-        date,
+        purchaseDate,
         description,
         purchaseUrl,
     } = req.body.formData
@@ -74,7 +74,7 @@ router.put("/:recordId/update", asyncHandler(async(req, res) => {
         cost,
         model,
         serial,
-        date,
+        purchaseDate,
         description,
         purchaseUrl, 
     })
