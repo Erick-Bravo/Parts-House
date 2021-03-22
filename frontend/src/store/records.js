@@ -86,7 +86,7 @@ const reducer = (state = [], action) => {
             return newState
 
         case UPDATE_RECORD:
-            newState = [...state, action.payload]
+            newState = [action.payload, ...state]
             return newState
 
         case DELETE_RECORD:

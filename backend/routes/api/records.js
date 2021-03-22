@@ -61,7 +61,6 @@ router.put("/:recordId/update", asyncHandler(async(req, res) => {
         date,
         description,
         purchaseUrl,
-        partsHouseId, 
     } = req.body.formData
 
     const { recordId } = req.params; 
@@ -77,8 +76,7 @@ router.put("/:recordId/update", asyncHandler(async(req, res) => {
         serial,
         date,
         description,
-        purchaseUrl,
-        partsHouseId, 
+        purchaseUrl, 
     })
 
     return res.json({ record });

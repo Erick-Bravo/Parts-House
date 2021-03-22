@@ -69,8 +69,8 @@ const OtherList = () => {
                 <div id="empty-space"></div>
                 <div>
                     {others.map(other => {
-                        return <NavLink to={`/records/${other.id}/`} key={other.id}>
-                            <RecordCard record={other} key={other.id} />
+                        return <NavLink to={`/records/${other.id}/`} key={other.name}>
+                            <RecordCard record={other} />
                         </NavLink>
                     })}
                 </div>

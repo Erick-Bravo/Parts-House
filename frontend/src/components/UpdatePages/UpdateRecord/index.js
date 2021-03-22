@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import BackButton from "../../Utilities/BackButton";
-import { updateRecord, deleteRecord } from "../../../store/records";
+import { fetchAllRecords, updateRecord, deleteRecord } from "../../../store/records";
 import "./index.css"
 import Calendar from "../../Calendar";
 
@@ -70,9 +70,10 @@ const UpdateRecordPage = () => {
             description: descript,
         };
 
-        dispatch(updateRecord(formData, numRecordId))
+        dispatch(updateRecord(formData, parseInt(recordId)))
+        // dispatch(fetchAllRecords(record.partsHouseId))
 
-        // history.go(-1)  
+        history.go(-1)  
     };
 
     const hiddenFalse = (e) => {
