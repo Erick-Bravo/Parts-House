@@ -54,29 +54,29 @@ Pages
  - About Page ("/about")
  - SignUp Page ("/singup")
  - Default Page ("/users/:userId")
- 
+ <br>
  - Appliances ("/parts-house/:partsHouseId/appliances")
  - Electronics ("/parts-house/:partsHouseId/electronics")
  - Other ("/parts-house/:partsHouseId/other")
- 
+ <br>
  - Record Page ("/records/:recordId")
  - Add Record Page ("/parts-house/:partsHouseId/records/add-record-page")
  - PartPage ("/parts/:partId")
  - Update Record Page ("/records/:recordIs/update-record-page")
  - Add Part Page ("/records/:recordId/parts/add-part-page")
-
-
+<br>
+<br>
  API
  
  - Users 
   	- GET ("/")
   	- GET ("/:userId/partshouses")
- 
+ <br>
  - Partshouses
  	- POST ("/create")
  	- DELETE("/:partsHouseId/delete")
  	- GET ("/:partsHouseId/records")
-
+<br>
 - Records
 	- GET ("/:recordId")
  	- POST ("/create")
@@ -84,7 +84,7 @@ Pages
  	- DELETE ("/:recordId/delete")
  	- GET ("/:recordId/parts")
  	
- 
+ <br>
  - Parts
   	- GET ("/:partId")
 	- POST ("/create")
