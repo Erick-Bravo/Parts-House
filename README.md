@@ -48,19 +48,47 @@ Parts House is your very own customizable parts and asset tracker!
 
 ## Routes
 
-(Get)
- - Splash Page (/)
- - User Parts House (/user/:userId/parts-house/:partsHouseId) 
- - Appliances (/user/:userId/parts-house/:partsHouseId/locations/:locationId/appliances)
- - Electronics (/user/:userId/parts-house/:partsHouseId/locations/:locationId/electronics)
- - Other (/user/:userId/parts-house/:partsHouseId/locations/:locationId/other)
-  
- (POST/DELETE)
- - Create "location" (/user/:userId/parts-house/:partsHouseId/locations/create)
- - Delete "location" (/user/:userId/parts-house/:partsHouseId/locations/:locationId/delete)
+Pages
+
+ - Splash Page ("/")
+ - About Page ("/about")
+ - SignUp Page ("/singup")
+ - Default Page ("/users/:userId")
  
- - Create "Record" (/user/:userId/parts-house/:partsHouseId/locations/:locationId/records/create)
- - Delete "Record" (/user/:userId/parts-house/:partsHouseId/locations/:locationId/records/:recordsId/delete)
+ - Appliances ("/parts-house/:partsHouseId/appliances")
+ - Electronics ("/parts-house/:partsHouseId/electronics")
+ - Other ("/parts-house/:partsHouseId/other")
  
- - Create "Part" (/user/:userId/parts-house/:partsHouseId/locations/:locationId/records/:recordsId/parts/create)
- - Delete "Part" (/user/:userId/parts-house/:partsHouseId/locations/:locationId/records/:recordsId/parts/:partsId/delete)
+ - Record Page ("/records/:recordId")
+ - Add Record Page ("/parts-house/:partsHouseId/records/add-record-page")
+ - PartPage ("/parts/:partId")
+ - Update Record Page ("/records/:recordIs/update-record-page")
+ - Add Part Page ("/records/:recordId/parts/add-part-page")
+
+
+ API
+ 
+ - Users 
+  	- GET ("/")
+  	- GET ("/:userId/partshouses")
+ 
+ - Partshouses
+ 	- POST ("/create")
+ 	- DELETE("/:partsHouseId/delete")
+ 	- GET ("/:partsHouseId/records")
+
+- Records
+	- GET ("/:recordId")
+ 	- POST ("/create")
+ 	- PUT ("/:recordId/update")
+ 	- DELETE ("/:recordId/delete")
+ 	- GET ("/:recordId/parts")
+ 	
+ 
+ - Parts
+  	- GET ("/:partId")
+	- POST ("/create")
+	- DELETE ("/:partId/delete")
+	- GET ("/:partId/logs")
+	- POST ("/:partId/logs/create")
+	- DELETE ("/logs/:logId/delete")
