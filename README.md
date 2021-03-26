@@ -12,8 +12,7 @@
 ## Introduction
 
 Hello, Welcome to Parts House.
-Parts House is your very own customizable parts tracker, where you can record valuable info of individual parts from your appliances and/or electronics. Save model/serial numbers, logs when something was installed, record date of purchase, and even save where to re-purchase these items when you need to.
-Parts House is your very own customizable parts and asset tracker!
+Parts House is your very own customizable parts tracker, where you can record valuable info of individual parts from your appliances and/or electronics. Save model/serial numbers, logs when an asset was installed, record date of purchase, and even save where to re-purchase these items when you need to.
 
 ## Technologies
 
@@ -27,28 +26,28 @@ Parts House is your very own customizable parts and asset tracker!
 
 ## Features
 
- - ### Hosting on Heroku
+ ### Hosting on Heroku
 	 Hosted on a live dependable server
 
-- ### Sign-Up, Login, Demo, and About
+ ### Sign-Up, Login, Demo, and About
 	A function integrated into the splash page that will allow the user to login, sign-up, use a demo version the site, or read an about section with a detailed walkthrough.
 
-- ### User Parts House
+ ### User Parts House
   Registered users have access to a user-parts-house page, which contains a side NavBar with all necessary tools and ability to view owned items.
 	
-- ### Side NavBar
+ ### Side NavBar
 	User has ability to create/edit/delete appliances/electronics.
   User ability to create/edit/delete parts.
   
- - ### Log Dates
- - 	User can log date of part install or date of purchase, along with a note.
+ ### Logs
+ - 	User can record date when part was installed or date of purchase, along with a note.
   
-- ### Save Part Purchase Link
-  User can save the URL of the exact place to purchase the part (optional)
+ ### Save Part Purchase Link
+-	  User can save the URL of product page for future re-puchase.
 
 ## Routes
  
-### Pages
+ Pages
  
  - Splash Page ("/")
  - About Page ("/about")
