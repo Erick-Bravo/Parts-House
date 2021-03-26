@@ -48,16 +48,18 @@ Parts House is your very own customizable parts and asset tracker!
 
 ## Routes
 
-Pages
+### Pages
 
  - Splash Page ("/")
  - About Page ("/about")
  - SignUp Page ("/singup")
  - Default Page ("/users/:userId") <br />
 
+
  - Appliances ("/parts-house/:partsHouseId/appliances")
  - Electronics ("/parts-house/:partsHouseId/electronics")
  - Other ("/parts-house/:partsHouseId/other") <br />
+
 
  - Record Page ("/records/:recordId")
  - Add Record Page ("/parts-house/:partsHouseId/records/add-record-page")
@@ -65,24 +67,29 @@ Pages
  - Update Record Page ("/records/:recordIs/update-record-page")
  - Add Part Page ("/records/:recordId/parts/add-part-page") <br />
 
- API <br />
+
+ ### API <br />
+ 
+ 
  
  - Users 
   	- GET ("/")
   	- GET ("/:userId/partshouses") <br />
+      
  
  - Partshouses
  	- POST ("/create")
  	- DELETE("/:partsHouseId/delete")
  	- GET ("/:partsHouseId/records") <br />
 
+   
 - Records
 	- GET ("/:recordId")
  	- POST ("/create")
  	- PUT ("/:recordId/update")
  	- DELETE ("/:recordId/delete")
  	- GET ("/:recordId/parts") <br />
- 	
+ 	   
  
  - Parts
   	- GET ("/:partId")
