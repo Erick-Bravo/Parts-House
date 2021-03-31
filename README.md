@@ -30,17 +30,31 @@ Parts House is your very own customizable parts tracker, where you can record va
 	 Hosted on a live dependable server
 
  ### Sign-Up, Login, Demo, and About
-	A function integrated into the splash page that will allow the user to login, sign-up, use a demo version the site, or read an about section with a detailed walkthrough.
+	A function integrated into the splash page that will allow the user to login, sign-up, use a demo version the site, or read an about section.
+
+![](./zResources/Screenshots/splash.PNG)
 
  ### User Parts House
-  Registered users have access to a user-parts-house page, which contains a side NavBar with all necessary tools and ability to view owned items.
+ -	Registered users have access to a user-parts-house page, which contains a side NavBar with all necessary tools and ability to view owned items.
 	
- ### Side NavBar
-	User has ability to create/edit/delete appliances/electronics.
-  User ability to create/edit/delete parts.
+ ### Records Display
+ -	An organized and friendly display of user records for assets categorized by appliances, electronics, and other.
+
+![](./zResources/Screenshots/home.PNG)
+
+ ### Records Page
+ -	Individual Records have their own page with the ability to save and update model/serial numbers, date of purchase, and list of associated parts.
+
+![](./zResources/Screenshots/record.PNG)
+![](./zResources/Screenshots/update-form.PNG)
   
- ### Logs
- - 	User can record date when part was installed or date of purchase, along with a note.
+ ### Part Page and Logs
+ - 	On Part Page, user can save a log of specific date and note when part has been changed or updated.
+ - 	Logs can be hidden or viewed
+
+![](./zResources/Screenshots/part.PNG)
+![](./zResources/Screenshots/new-log.PNG)
+![](./zResources/Screenshots/new-log-calendar.PNG)
   
  ### Save Part Purchase Link
 -	  User can save the URL of product page for future re-puchase.
