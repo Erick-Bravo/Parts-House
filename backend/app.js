@@ -11,6 +11,7 @@ const { environment } = require('./config');
 const isProduction = environment === 'production';
 
 const app = express();
+const bodyParser = require("body-parser")
 
 app.use(morgan('dev'));
 
