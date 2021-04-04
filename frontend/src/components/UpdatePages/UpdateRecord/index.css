@@ -37,6 +37,8 @@ font-size: 30px;
     border: none;
     background-color: rgb(253, 102, 102);
     color: blanchedalmond;
+    border-radius: 10px;
+    font-size: 25px;
 }
 
 #delete-record-section button:hover{
