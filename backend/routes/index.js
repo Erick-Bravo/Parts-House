@@ -1,8 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const apiRouter = require('./api');
+const uploadS3Router = require("./upload-s3")
 
 router.use('/api', apiRouter);
+router.use('/uploadS3', uploadS3Router);
+
 
 router.get('/hello/world', function (req, res) {
   res.cookie('XSRF-TOKEN', req.csrfToken());

@@ -15,6 +15,7 @@ import AddPartPage from "./components/AddPages/AddPartPage"
 import UpdateRecordPage from "./components/UpdatePages/UpdateRecord"
 import PartPage from "./components/PartPage"
 import About from "./components/About"
+import S3Form from "./components/S3Form";
 
 import "./index.css"
 
@@ -74,6 +75,9 @@ function App() {
                 </Route>
                 <Route exact path="/records/:recordId/parts/add-part-page">
                   <AddPartPage />
+                </Route>
+                <Route exact path="/upload-image-form">
+                  <S3Form />
                 </Route>
                 <Route path="*">
                     <h2>404 NOT FOUND</h2>

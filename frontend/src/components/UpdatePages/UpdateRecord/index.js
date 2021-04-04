@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { updateRecord, deleteRecord } from "../../../store/records";
+import { format } from "date-fns";
 import Calendar from "../../Calendar";
 import TopNavBar from "../../UserMainPage/TopNavBar";
 import "./index.css"
@@ -24,7 +25,7 @@ const UpdateRecordPage = () => {
     const [cost, setCost] = useState(record.cost);
     const [model, setModel] = useState(record.model);
     const [serial, setSerial] = useState(record.serial);
-    const [date, setDate] = useState(record.purchaseDate);
+    const [date, setDate] = useState(new Date(record.purchaseDate));
     const [purchaseUrl, setPurchaseUrl] = useState(record.purchaseUrl);
     const [descript, setDescript] = useState(record.description);
     const [errors, setErrors] = useState([]);
