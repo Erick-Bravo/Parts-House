@@ -1,15 +1,15 @@
-#new-record-form {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    margin-top: 45px;
+
+
+h2 {
+    font-size: 40px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-top: 125px;
 }
 
 #button-section {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items:flex-start;
+    justify-content:flex-start;
     flex-direction: row;
     margin-top: 20px;
 }
@@ -23,7 +23,7 @@
     width: 350px;
     border: 10px solid rgb(245, 75, 75);
     border-radius: 10px;
-    margin-top: 100px;
+    /* margin-top: 100px; */
     margin-bottom: 200px;
 
 }
@@ -38,7 +38,6 @@ font-size: 30px;
     background-color: rgb(253, 102, 102);
     color: blanchedalmond;
 }
-
 
 #delete-record-section button:hover{
     cursor: pointer;

@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { updateRecord, deleteRecord } from "../../../store/records";
-import { format } from "date-fns";
 import Calendar from "../../Calendar";
 import TopNavBar from "../../UserMainPage/TopNavBar";
+import S3Form from "../../S3Form";
 import "./index.css"
 
 const UpdateRecordPage = () => {
@@ -95,10 +95,12 @@ const UpdateRecordPage = () => {
 
         <div id="user-main-page">
 
+            <h2>Update {record.name}</h2>
             <TopNavBar />
+            <S3Form />
             
             <form id="new-record-form" onSubmit={onSubmit}>
-                <h2>Update {record.name}</h2>
+
 
                 <ul className="red-error">
                     {errors.map(error => (

@@ -4,7 +4,6 @@ import { useHistory, useParams } from "react-router-dom";
 import { addRecord } from "../../../store/records"
 import Calendar from "../../Calendar"
 import TopNavBar from "../../UserMainPage/TopNavBar";
-import "./index.css";
 
 
 
