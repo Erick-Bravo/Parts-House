@@ -21,6 +21,7 @@ const UpdateRecordPage = () => {
 
     const [type, setType] = useState(record.type);
     const [name, setName] = useState(record.name);
+    const [imgUrl, setImgUrl] = useState(record.imgUrl)
     const [make, setMake] = useState(record.make);
     const [cost, setCost] = useState(record.cost);
     const [model, setModel] = useState(record.model);
@@ -91,13 +92,42 @@ const UpdateRecordPage = () => {
         history.go(-2);
     };
 
+
+    const S3SOnChange = async(e) => {
+        const rawInputElement = e.target;
+        const fileUpload = rawInputElement.files[0];
+        const formData = new FormData();
+
+        formData.append("image", fileUpload);
+
+        const response = await fetch("/uploadS3", {
+            method: "POST",
+            body: formData,
+            headers: {
+                "Content-Type": "multipart/form-data",
+              },
+        });
+
+        console.log(response.data.imageUrl)
+    }
+
     return (
 
         <div id="user-main-page">
+            <TopNavBar />
 
             <h2>Update {record.name}</h2>
-            <TopNavBar />
-            <S3Form />
+            <img src={imgUrl} alt="Record Url" border="0" width="100px"></img>
+
+            <form onSubmit={(e) => {
+                e.preventDefault();
+            }}>
+                <input
+                    type="file"
+                    onChange={S3SOnChange} 
+                />
+                <button type="submit">Submit</button>
+            </form>
             
             <form id="new-record-form" onSubmit={onSubmit}>
 
