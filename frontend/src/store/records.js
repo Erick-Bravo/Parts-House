@@ -62,15 +62,22 @@ export const updateRecord = (formData, recordId) => {
 
 
 
+
+
+const updateImageAC = (payload) => ({
+    type: UPDATE_IMAGE,
+    payload
+});
+
 export const awsS3ImageUpdate = (formData, recordId) => {
     return async (dispatch) => {
-        debugger
-        const response = await fetch(`/api/records/${recordId}/update`, {
+
+        const response = await fetch(`/api/records/${recordId}/image-update`, {
             method: "PUT",
             body: JSON.stringify({ formData })
         });
 
-        dispatch(updateRecordAC(response.data.record))
+        dispatch(updateImageAC(response.data.record))
     };
 };
 
@@ -100,6 +107,7 @@ export const deleteRecord = (recordId) => {
 const reducer = (state = [], action) => {
 
     let newState;
+    let upDatedState;
     switch (action.type) {
 
         case GET_ALL_RECORDS:
@@ -109,13 +117,22 @@ const reducer = (state = [], action) => {
         case ADD_RECORD:
             newState = [...state, action.payload]
             return newState
-        debugger
+
         case UPDATE_RECORD:
             newState = state.filter((record) => {
                 const ret = record.id !== Number(action.payload.id)
                 return ret
             })
-            let upDatedState = [...newState, action.payload]
+            upDatedState = [...newState, action.payload]
+
+            return upDatedState
+
+        case UPDATE_IMAGE:
+            newState = state.filter((record) => {
+                const ret = record.id !== Number(action.payload.id)
+                return ret
+            })
+            upDatedState = [...newState, action.payload]
 
             return upDatedState
 

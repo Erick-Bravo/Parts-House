@@ -60,6 +60,8 @@ const UpdateRecordPage = () => {
     }, [name, make, cost, type, imgUrl])
 
 
+
+
     const onSubmit = async e => {
         e.preventDefault();
         const formData = {
@@ -74,10 +76,29 @@ const UpdateRecordPage = () => {
             description: descript,
         };
 
+        console.log(formData)
         dispatch(updateRecord(formData, parseInt(recordId)))
 
         history.go(-1)  
     };
+
+
+
+
+    const awsS3Submit = async e => {
+        e.preventDefault();
+    
+        const formData = {
+            imgUrl
+        };
+
+        console.log(formData)
+    
+        dispatch(awsS3ImageUpdate(formData, numRecordId))
+    
+    };
+
+
 
 
 
@@ -99,16 +120,6 @@ const UpdateRecordPage = () => {
 
 
 
-    const awsS3Submit = async e => {
-        e.preventDefault();
-
-        const formData = {
-            imgUrl
-        };
-
-        dispatch(awsS3ImageUpdate(formData, numRecordId))
-
-    };
 
 
 
