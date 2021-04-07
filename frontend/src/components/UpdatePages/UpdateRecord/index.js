@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
-import { updateRecord, deleteRecord } from "../../../store/records";
+import { updateRecord, deleteRecord, awsS3ImageUpdate } from "../../../store/records";
+import { fetch } from "../../../store/csrf"
 import Calendar from "../../Calendar";
 import TopNavBar from "../../UserMainPage/TopNavBar";
-import S3Form from "../../S3Form";
+
 import "./index.css"
 
 const UpdateRecordPage = () => {
@@ -18,10 +19,11 @@ const UpdateRecordPage = () => {
     const records = useSelector(state => state.record);
     const record = records.find(rec => rec.id === numRecordId);
 
+    const [imgUrl, setImgUrl] = useState(record.imgUrl)
+    console.log(imgUrl)
 
     const [type, setType] = useState(record.type);
     const [name, setName] = useState(record.name);
-    const [imgUrl, setImgUrl] = useState(record.imgUrl)
     const [make, setMake] = useState(record.make);
     const [cost, setCost] = useState(record.cost);
     const [model, setModel] = useState(record.model);
@@ -55,7 +57,7 @@ const UpdateRecordPage = () => {
             errors.push("Choose a type");
         };
         setErrors(errors)
-    }, [name, make, cost, type])
+    }, [name, make, cost, type, imgUrl])
 
 
     const onSubmit = async e => {
@@ -77,6 +79,9 @@ const UpdateRecordPage = () => {
         history.go(-1)  
     };
 
+
+
+//Interchanges simple or advanced form fields
     const hiddenFalse = (e) => {
         e.preventDefault();
         setHidden(false);
@@ -93,7 +98,22 @@ const UpdateRecordPage = () => {
     };
 
 
-    const S3SOnChange = async(e) => {
+
+    const awsS3Submit = async e => {
+        e.preventDefault();
+
+        const formData = {
+            imgUrl
+        };
+
+        dispatch(awsS3ImageUpdate(formData, numRecordId))
+
+    };
+
+
+
+//Uses AWS S3 then sets recieved URL to useState
+    const awsS3OnChange = async(e) => {
         const rawInputElement = e.target;
         const fileUpload = rawInputElement.files[0];
         const formData = new FormData();
@@ -107,30 +127,33 @@ const UpdateRecordPage = () => {
                 "Content-Type": "multipart/form-data",
               },
         });
+        setImgUrl(response.data.imageUrl)
+    };
 
-        console.log(response.data.imageUrl)
-    }
+
 
     return (
 
         <div id="user-main-page">
+
+
             <TopNavBar />
 
-            <h2>Update {record.name}</h2>
-            <img src={imgUrl} alt="Record Url" border="0" width="100px"></img>
 
-            <form onSubmit={(e) => {
-                e.preventDefault();
-            }}>
+            <h2>Update {record.name}</h2>
+            {!imgUrl && <h3>No image uploaded</h3>}
+            {imgUrl && <img src={imgUrl} alt="Record Url" border="0" width="100px"></img>}
+
+            <form onSubmit={awsS3Submit}>
                 <input
                     type="file"
-                    onChange={S3SOnChange} 
+                    onChange={awsS3OnChange} 
                 />
-                <button type="submit">Submit</button>
+                <button type="submit">Change Image</button>
             </form>
             
-            <form id="new-record-form" onSubmit={onSubmit}>
 
+            <form id="new-record-form" onSubmit={onSubmit}>
 
                 <ul className="red-error">
                     {errors.map(error => (
@@ -154,14 +177,12 @@ const UpdateRecordPage = () => {
                     </select>
                 </label>
 
-
                 <label>
                     Name:
                 <input type="text" name="name" value={name}
                         placeholder="ex: Refrigerator, TV, .."
                         onChange={e => setName(e.target.value)} />
                 </label>
-
                 <label>
                     Make:
                 <input type="text" name="make" value={make}
@@ -191,7 +212,6 @@ const UpdateRecordPage = () => {
                     Date of Purchase:
                     <Calendar value={date} onChange={setDate} />
                 </label>
-
 
                 <label hidden={hidden}>
                     Purchase URL Link:
