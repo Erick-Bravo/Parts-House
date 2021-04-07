@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
-import { updateRecord, deleteRecord } from "../../../store/records";
+import { updateRecord, deleteRecord, awsS3ImageUpdate } from "../../../store/records";
+import { fetch } from "../../../store/csrf"
 import Calendar from "../../Calendar";
 import TopNavBar from "../../UserMainPage/TopNavBar";
+
 import "./index.css"
 
 const UpdateRecordPage = () => {
@@ -17,6 +19,8 @@ const UpdateRecordPage = () => {
     const records = useSelector(state => state.record);
     const record = records.find(rec => rec.id === numRecordId);
 
+    const [imgUrl, setImgUrl] = useState(record.imgUrl)
+    console.log(imgUrl)
 
     const [type, setType] = useState(record.type);
     const [name, setName] = useState(record.name);
@@ -24,7 +28,7 @@ const UpdateRecordPage = () => {
     const [cost, setCost] = useState(record.cost);
     const [model, setModel] = useState(record.model);
     const [serial, setSerial] = useState(record.serial);
-    const [date, setDate] = useState(record.purchaseDate);
+    const [date, setDate] = useState(new Date(record.purchaseDate));
     const [purchaseUrl, setPurchaseUrl] = useState(record.purchaseUrl);
     const [descript, setDescript] = useState(record.description);
     const [errors, setErrors] = useState([]);
@@ -53,7 +57,9 @@ const UpdateRecordPage = () => {
             errors.push("Choose a type");
         };
         setErrors(errors)
-    }, [name, make, cost, type])
+    }, [name, make, cost, type, imgUrl])
+
+
 
 
     const onSubmit = async e => {
@@ -70,11 +76,33 @@ const UpdateRecordPage = () => {
             description: descript,
         };
 
+        console.log(formData)
         dispatch(updateRecord(formData, parseInt(recordId)))
 
         history.go(-1)  
     };
 
+
+
+
+    const awsS3Submit = async e => {
+        e.preventDefault();
+    
+        const formData = {
+            imgUrl
+        };
+
+        console.log(formData)
+    
+        dispatch(awsS3ImageUpdate(formData, numRecordId))
+    
+    };
+
+
+
+
+
+//Interchanges simple or advanced form fields
     const hiddenFalse = (e) => {
         e.preventDefault();
         setHidden(false);
@@ -90,14 +118,53 @@ const UpdateRecordPage = () => {
         history.go(-2);
     };
 
+
+
+
+
+
+//Uses AWS S3 then sets recieved URL to useState
+    const awsS3OnChange = async(e) => {
+        const rawInputElement = e.target;
+        const fileUpload = rawInputElement.files[0];
+        const formData = new FormData();
+
+        formData.append("image", fileUpload);
+
+        const response = await fetch("/uploadS3", {
+            method: "POST",
+            body: formData,
+            headers: {
+                "Content-Type": "multipart/form-data",
+              },
+        });
+        setImgUrl(response.data.imageUrl)
+    };
+
+
+
     return (
 
         <div id="user-main-page">
 
+
             <TopNavBar />
+
+
+            <h2>Update {record.name}</h2>
+            {!imgUrl && <h3>No image uploaded</h3>}
+            {imgUrl && <img src={imgUrl} alt="Record Url" border="0" width="100px"></img>}
+
+            <form onSubmit={awsS3Submit}>
+                <input
+                    type="file"
+                    onChange={awsS3OnChange} 
+                />
+                <button type="submit">Change Image</button>
+            </form>
             
+
             <form id="new-record-form" onSubmit={onSubmit}>
-                <h2>Update {record.name}</h2>
 
                 <ul className="red-error">
                     {errors.map(error => (
@@ -121,14 +188,12 @@ const UpdateRecordPage = () => {
                     </select>
                 </label>
 
-
                 <label>
                     Name:
                 <input type="text" name="name" value={name}
                         placeholder="ex: Refrigerator, TV, .."
                         onChange={e => setName(e.target.value)} />
                 </label>
-
                 <label>
                     Make:
                 <input type="text" name="make" value={make}
@@ -158,7 +223,6 @@ const UpdateRecordPage = () => {
                     Date of Purchase:
                     <Calendar value={date} onChange={setDate} />
                 </label>
-
 
                 <label hidden={hidden}>
                     Purchase URL Link:

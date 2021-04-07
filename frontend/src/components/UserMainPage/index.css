@@ -83,13 +83,17 @@
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;  
 }
 
+
+
+
+
 #new-record-form {
     display: flex;
     align-items: center;
-    justify-content: center;
     flex-direction: column;
-    height: 1200px;
+    height: 1150px;
     width: 450px;
+    margin-top: 50px;
     /* border: .2px solid black; */
 }
 

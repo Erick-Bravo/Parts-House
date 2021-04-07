@@ -83,6 +83,25 @@ router.put("/:recordId/update", asyncHandler(async(req, res) => {
 
 }));
 
+router.put("/:recordId/image-update", asyncHandler(async(req, res) => {
+   
+    const { imgUrl } = req.body.formData
+
+    const { recordId } = req.params; 
+
+    const record = await Record.findByPk(parseInt(recordId));
+
+    await record.update({
+        imgUrl 
+    });
+
+    console.log("WOOOOOOOOOOOOOOW!!!!!! < ^ - ^ > = " + imgUrl)
+    console.log("WOOOOOOOOOOOOOOW!!!!!! < ^ - ^ > = " + req.body.formData)
+
+    return res.json({ record });
+
+}));
+
 router.delete("/:recordId/delete", asyncHandler(async(req, res) => {
 
     const { recordId } = req.body;
