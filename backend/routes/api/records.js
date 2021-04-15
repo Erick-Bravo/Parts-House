@@ -95,9 +95,6 @@ router.put("/:recordId/image-update", asyncHandler(async(req, res) => {
         imgUrl 
     });
 
-    console.log("WOOOOOOOOOOOOOOW!!!!!! < ^ - ^ > = " + imgUrl)
-    console.log("WOOOOOOOOOOOOOOW!!!!!! < ^ - ^ > = " + req.body.formData)
-
     return res.json({ record });
 
 }));
