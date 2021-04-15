@@ -30,12 +30,12 @@ const Splash = () => {
         history.push("/about");
     };
 
-    /* <img src="https://i.ibb.co/Sx3THPm/vector-creator-1500-1by1.png" alt="vector-creator-1500-1by1" border="0" height="450px"/> */
-
+    
     return (
         <> 
             <div id="splash-page">
                 <div id="splash-logo">
+                    <img src="https://i.ibb.co/Sx3THPm/vector-creator-1500-1by1.png" alt="vector-creator-1500-1by1" border="0" height="450px"/> 
                     <p>Parts House</p>
                 </div>
                 <div id="splash-button-container">
