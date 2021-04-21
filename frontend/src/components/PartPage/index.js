@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { deletePart } from "../../store/parts";
 import ShowAllLogs from "../PartPage/ShowAllLogs";
+import TopNavBar from "../UserMainPage/TopNavBar";
 import Logs from "./Logs";
 
 
@@ -34,7 +35,7 @@ const PartPage = () => {
 
 
     const goToBuyUrl = () => {
-        // window.location.href = part.buyUrl;
+        // window.location.href = part.buyUrl; -- leaving this here to show the more simpler, but unprotected version
         const newWindow = window.open(part.buyUrl, '_blank', 'noopener,noreferrer')
         if (newWindow) newWindow.opener = null
     };
@@ -47,6 +48,8 @@ const PartPage = () => {
 
     return (
         <div id="user-main-page">
+
+            <TopNavBar />
 
             <div id="part-container">
 

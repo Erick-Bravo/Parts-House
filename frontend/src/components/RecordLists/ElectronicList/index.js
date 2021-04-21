@@ -18,13 +18,9 @@ const ElectronicList = () => {
     // for NameSection
     const partsHouses = useSelector(state => state.partsHouses);
     const selectedPartsHouse = partsHouses.find(ph => ph.id === numpartsHouseId);
-    // console.log(selectedPartsHouse)
-
 
     // for Records
-    const records = useSelector(state => state.record)
-
-    // console.log(records)
+    const records = useSelector(state => state.record);
 
     const [electronics, setElectronics] = useState([]);
     const [ph, setPh] = useState([]);

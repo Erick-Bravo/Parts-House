@@ -20,12 +20,12 @@ const Splash = () => {
     const credential = "user@demo.com";
     const password = "password";
 
-    const demoHandle = (e) => {
+    const demoLoginHandle = (e) => {
         e.preventDefault();
         return dispatch(sessionActions.login({ credential, password }))
     };
 
-    const aboutHandle = (e) => {
+    const toAboutPageHandle = (e) => {
         e.preventDefault();
         history.push("/about");
     };
@@ -41,8 +41,8 @@ const Splash = () => {
                 <div id="splash-button-container">
                     <LoginFormModal />
                     <NavLink to="/signup">Sign Up</NavLink>
-                    <button onClick={demoHandle}>Demo</button>
-                    <button onClick={aboutHandle}>About</button>
+                    <button onClick={demoLoginHandle}>Demo</button>
+                    <button onClick={toAboutPageHandle}>About</button>
                 </div>
                 
             </div>

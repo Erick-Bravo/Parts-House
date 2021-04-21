@@ -20,12 +20,10 @@ const ApplianceList = () => {
     const partsHouses = useSelector(state => state.partsHouses);
 
     const selectedPartsHouse = partsHouses.find(ph => ph.id === numpartsHouseId);
-    // console.log(selectedPartsHouse)
 
     // for Records
     const records = useSelector(state => state.record)
 
-    // console.log(records)
 
     const [appliances, setAppliances] = useState([]);
     const [ph, setPh] = useState([]);

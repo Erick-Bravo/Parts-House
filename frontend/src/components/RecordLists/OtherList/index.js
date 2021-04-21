@@ -18,13 +18,11 @@ const OtherList = () => {
     // for NameSection
     const partsHouses = useSelector(state => state.partsHouses);
     const selectedPartsHouse = partsHouses.find(ph => ph.id === numpartsHouseId);
-    // console.log(selectedPartsHouse)
 
 
     // for Records
-    const records = useSelector(state => state.record)
+    const records = useSelector(state => state.record);
 
-    // console.log(records)
 
     const [others, setOthers] = useState([]);
     const [ph, setPh] = useState([]);

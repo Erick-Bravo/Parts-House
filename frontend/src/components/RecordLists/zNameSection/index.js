@@ -20,8 +20,6 @@ const NameSection = ({ph}) => {
         history.push(`/users/${userId}`)
     };
 
-    // <button onClick={deleteHandler}>delete</button>
-
     return (
         <div id="name-section">
             <h1>{ph.name}</h1>
@@ -31,4 +29,4 @@ const NameSection = ({ph}) => {
     );
 };
 
-export default NameSection //imported - ApplianceList / ElectronicList / OtherList
+export default NameSection //imported in - ApplianceList / ElectronicList / OtherList
