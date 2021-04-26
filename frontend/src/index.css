@@ -26,3 +26,13 @@
     border-radius: 10px;
     margin: 10px;
 }
+
+.small-buttons {
+  border: none;
+  background-color: #2F496E;
+  color: #F4EADE;
+  border-radius: 5px;
+  cursor: pointer;
+  height: 40px;
+  width: 125px; 
+}

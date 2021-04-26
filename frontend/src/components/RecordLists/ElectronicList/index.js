@@ -61,13 +61,13 @@ const ElectronicList = () => {
             </div>
 
             <div id="add-record">
+                <img src="/powerbutton.png" alt="Electronic-Icon" border="0" width="100px"></img>
                 <NavLink to={`/parts-house/${partsHouseId}/records/add-record-page`}>
                     <button className="small-buttons">Add Electronic</button>
                 </NavLink>
             </div>
 
             <div id="display-box">
-                <img src="https://i.ibb.co/zNWRjHY/Electronic-Icon.png" alt="Electronic-Icon" border="0" width="100px"></img>
                 <div>
                     {electronics.map(electronic => {
                         return <NavLink to={`/records/${electronic.id}`} key={electronic.name}>

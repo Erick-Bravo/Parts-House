@@ -65,14 +65,16 @@ const ApplianceList = () => {
                 </NavLink>
             </div>
 
+            
             <div id="add-record">
+                <img src="/appliance.png" alt="Appliance-Icon" border="0" width="100px"></img>
+
                 <NavLink to={`/parts-house/${partsHouseId}/records/add-record-page`}>
                     <button className="small-buttons">Add Appliance</button>
                 </NavLink>
             </div>
 
             <div id="display-box">
-                <img src="https://i.ibb.co/1J6XgXY/Appliance-Icon.png" alt="Appliance-Icon" border="0" width="100px"></img>
                 <div>
                     {appliances.map(appliance => {
                         return <NavLink to={`/records/${appliance.id}`} key={appliance.name} >
