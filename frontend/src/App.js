@@ -17,7 +17,7 @@ import PartPage from "./components/PartPage"
 import About from "./components/About"
 
 import "./index.css"
-import UpdatePartsHouse from "./components/UpdatePages/UpgadePartsHouse";
+import UpdatePartsHouse from "./components/UpdatePages/UpdatePartsHouse";
 
 
 
@@ -61,20 +61,20 @@ function App() {
                 <Route exact path="/parts-house/:partsHouseId/other">
                   <OtherList />
                 </Route>
-                <Route exact path="/records/:recordId">
-                  <RecordPage />
-                </Route>
                 <Route exact path="/parts-house/:partsHouseId/records/add-record-page">
                   <AddRecordPage />
+                </Route>
+                <Route exact path="/parts-house/:partsHouseId/update-page">
+                  <UpdatePartsHouse />
+                </Route>
+                <Route exact path="/records/:recordId">
+                  <RecordPage />
                 </Route>
                 <Route exact path="/parts/:partId">
                   <PartPage />
                 </Route>
                 <Route exact path="/records/:recordId/update-record-page">
                   <UpdateRecordPage />
-                </Route>
-                <Route exact path="/parts-house/:partsHouseId/update-page">
-                  <UpdatePartsHouse />
                 </Route>
                 <Route exact path="/records/:recordId/parts/add-part-page">
                   <AddPartPage />

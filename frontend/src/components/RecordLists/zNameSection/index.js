@@ -1,7 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
-import { deletePartsHouse } from "../../../store/partshouse";
 import "./index.css";
 
 
@@ -10,11 +9,7 @@ import "./index.css";
 
 const NameSection = ({ph}) => {
 
-    const dispatch = useDispatch();
     const history = useHistory();
-    
-
-    const userId = useSelector(state => state.session.user.id);
 
     const { partsHouseId } = useParams();
 
