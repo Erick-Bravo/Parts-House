@@ -1,36 +1,26 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
-import { deletePartsHouse } from "../../../store/partshouse";
+import { Modal } from "../../../context/Modal";
 
 import TopNavBar from "../../UserMainPage/TopNavBar";
+import DeletePHForm from "./DeletePHForm";
 
 import "./index.css"
 
 const UpdatePartsHouse = () => {
 
-    const dispatch = useDispatch();
-    const history = useHistory();
-
     const { partsHouseId } = useParams();
     const numPHId = parseInt(partsHouseId)
 
-    
     const partsHouses = useSelector(state => state.partsHouses)
     const ph = partsHouses.find(ph => ph.id === numPHId)
 
-    const [ name, setName ] = useState(ph.name)
-
+    const [name, setName] = useState(ph.name)
+    const [showModal, setShowModal] = useState(false);
 
     const updatePH = (e) => {
         e.preventDefault();
-    };
-
-    // Delete PartsHouse then go back 2
-    const deletePH = (e) => {
-        e.preventDefault();
-        dispatch(deletePartsHouse(ph.id))
-        history.go(-2)
     };
 
 
@@ -49,7 +39,7 @@ const UpdatePartsHouse = () => {
                 <label>
                     Rename this parts house:
                 <input type="text" name="name" value={name}
-                    onChange={e => setName(e.target.value)} />
+                        onChange={e => setName(e.target.value)} />
                 </label>
 
                 <div id="button-section">
@@ -60,9 +50,14 @@ const UpdatePartsHouse = () => {
                     Delete this parts house with all info associated:
                 </label>
                 <div id="button-section">
-                    <button className="form-button" onClick={deletePH}>Delete</button>
+                    <button className="form-button" onClick={() => setShowModal(true)}>Delete</button>
+                    {showModal && (
+                        <Modal onClose={() => setShowModal(false)}>
+                            <DeletePHForm id={ph.id} />
+                        </Modal>
+                    )}
                 </div>
-                
+
 
             </form>
         </div>
