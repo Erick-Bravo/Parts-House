@@ -20,7 +20,7 @@ const UpdateRecordPage = () => {
     const record = records.find(rec => rec.id === numRecordId);
 
     const [imgUrl, setImgUrl] = useState(record.imgUrl)
-    console.log(imgUrl)
+    
 
     const [type, setType] = useState(record.type);
     const [name, setName] = useState(record.name);

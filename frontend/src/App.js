@@ -17,6 +17,7 @@ import PartPage from "./components/PartPage"
 import About from "./components/About"
 
 import "./index.css"
+import UpdatePartsHouse from "./components/UpdatePages/UpgadePartsHouse";
 
 
 
@@ -71,6 +72,9 @@ function App() {
                 </Route>
                 <Route exact path="/records/:recordId/update-record-page">
                   <UpdateRecordPage />
+                </Route>
+                <Route exact path="/parts-house/:partsHouseId/update-page">
+                  <UpdatePartsHouse />
                 </Route>
                 <Route exact path="/records/:recordId/parts/add-part-page">
                   <AddPartPage />
