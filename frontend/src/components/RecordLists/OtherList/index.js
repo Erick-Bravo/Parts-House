@@ -63,7 +63,7 @@ const OtherList = () => {
 
             <div id="add-record">
                 <NavLink to={`/parts-house/${partsHouseId}/records/add-record-page`}>
-                    <button>Add Other</button>
+                    <button className="small-buttons">Add Other</button>
                 </NavLink>
             </div>
 

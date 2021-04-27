@@ -34,7 +34,7 @@ const PartCard = ({ part }) => {
             <div id="right">
                 {part.model && <p>Model --- {part.model}</p>}
                 {part.serial && <p>Serial --- {part.serial}</p>}
-                <button hidden={addHidden}>Add Buy Url</button>
+                <button className="small-buttons" hidden={addHidden}>Add Buy Url</button>
             </div>
         </div>
     );

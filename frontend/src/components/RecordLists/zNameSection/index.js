@@ -24,7 +24,7 @@ const NameSection = ({ph}) => {
         <div id="name-section">
             <h1>{ph.name}</h1>
             <p>Delete this parts house</p>
-            <button className="small-buttons" onClick={deleteHandler}>delete</button>
+            <button className="small-buttons" onClick={deleteHandler}>Delete</button>
         </div>
     );
 };

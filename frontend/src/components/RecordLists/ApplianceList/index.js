@@ -68,7 +68,6 @@ const ApplianceList = () => {
             
             <div id="add-record">
                 <img src="/appliance.png" alt="Appliance-Icon" border="0" width="100px"></img>
-
                 <NavLink to={`/parts-house/${partsHouseId}/records/add-record-page`}>
                     <button className="small-buttons">Add Appliance</button>
                 </NavLink>

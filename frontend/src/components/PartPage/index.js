@@ -80,7 +80,7 @@ const PartPage = () => {
 
             <div id="delete-record">
                 <p>Delete this Part and all its info</p>
-                <button className="small-buttons " onClick={deleteHandler}>delete</button>
+                <button className="small-buttons" onClick={deleteHandler}>delete</button>
             </div>
         </div>
     );
