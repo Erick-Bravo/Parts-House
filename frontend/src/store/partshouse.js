@@ -78,6 +78,7 @@ export const deletePartsHouse = (partsHouseId) => {
 const reducer = (state = [], action) => {
 
     let newState;
+    let upDatedState;
 
     switch (action.type) {
 
