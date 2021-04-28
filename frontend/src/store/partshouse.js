@@ -48,8 +48,8 @@ export const updatePartsHouse = (name, partsHouseId) => {
     return async (dispatch) => {
 
         const response = await fetch(`api/parts-house/${partsHouseId}/update`, {
-            method: "POST",
-            body: JSON.stringify({ name })
+            method: "PUT",
+            body: JSON.stringify({ name, partsHouseId })
         });
         dispatch(updatePartsHouseAC(response.data.ph))
     };

@@ -14,6 +14,18 @@ router.post("/create", asyncHandler(async(req, res) => {
 }))
 
 
+router.put("/:partsHouseId/update", asyncHandler(async(req, res) => {
+    
+    const { name, partsHouseId } = req.body
+    const ph = await PartsHouse.findByPk(partsHouseId);
+    // const ph = await PartsHouse.update({ name, partsHouseId })
+    await ph.update({
+        name
+    })
+    
+    return res.json({ ph })
+}))
+
 
 router.delete("/:partsHouseId/delete", asyncHandler(async(req, res) => {
     
