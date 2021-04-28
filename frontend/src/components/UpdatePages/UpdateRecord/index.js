@@ -76,7 +76,6 @@ const UpdateRecordPage = () => {
             description: descript,
         };
 
-        console.log(formData)
         dispatch(updateRecord(formData, parseInt(recordId)))
 
         history.go(-1)  

@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useHistory, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { Modal } from "../../../context/Modal";
+import { updatePartsHouse } from "../../../store/partshouse";
 
 import TopNavBar from "../../UserMainPage/TopNavBar";
 import DeletePHForm from "./DeletePHForm";
@@ -9,6 +10,8 @@ import DeletePHForm from "./DeletePHForm";
 import "./index.css"
 
 const UpdatePartsHouse = () => {
+
+    const dispatch = useDispatch();
 
     const { partsHouseId } = useParams();
     const numPHId = parseInt(partsHouseId)
@@ -19,8 +22,11 @@ const UpdatePartsHouse = () => {
     const [name, setName] = useState(ph.name)
     const [showModal, setShowModal] = useState(false);
 
-    const updatePH = (e) => {
+
+    const updatePHName = (e) => {
         e.preventDefault();
+
+        dispatch(updatePartsHouse(name, numPHId));
     };
 
 
@@ -34,7 +40,7 @@ const UpdatePartsHouse = () => {
                 <h1>{ph.name}</h1>
             </div>
 
-            <form id="new-record-form" onSubmit={updatePH}>
+            <form id="new-record-form" onSubmit={updatePHName}>
 
                 <label>
                     Rename this parts house:
@@ -45,6 +51,8 @@ const UpdatePartsHouse = () => {
                 <div id="button-section">
                     <button className="form-button" type="submit">Update</button>
                 </div>
+
+
 
                 <label className="mt">
                     Delete this parts house with all info associated:
@@ -57,7 +65,6 @@ const UpdatePartsHouse = () => {
                         </Modal>
                     )}
                 </div>
-
 
             </form>
         </div>

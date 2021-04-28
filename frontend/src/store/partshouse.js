@@ -45,9 +45,10 @@ const updatePartsHouseAC = (payload) => ({
 });
 
 export const updatePartsHouse = (name, partsHouseId) => {
+    
     return async (dispatch) => {
 
-        const response = await fetch(`api/parts-house/${partsHouseId}/update`, {
+        const response = await fetch(`/api/parts-houses/${partsHouseId}/update`, {
             method: "PUT",
             body: JSON.stringify({ name, partsHouseId })
         });
