@@ -11,7 +11,7 @@ const DeletePHForm = ({id}) => {
     const deletePH = (e) => {
         e.preventDefault(); 
         dispatch(deletePartsHouse(id))
-        history.go(-2)
+        history.push("/")
     };
 
     return (
