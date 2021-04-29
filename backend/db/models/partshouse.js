@@ -11,7 +11,8 @@ module.exports = (sequelize, DataTypes) => {
     });
 
     PartsHouse.hasMany(models.Record, {
-      foreignKey: "partsHouseId"
+      foreignKey: "partsHouseId",
+      onDelete: "CASCADE",
     });
   };
   return PartsHouse;

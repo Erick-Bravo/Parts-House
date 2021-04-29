@@ -52,11 +52,13 @@ module.exports = (sequelize, DataTypes) => {
   User.associate = function (models) {
     // associations can be defined here
     User.hasMany(models.PartsHouse, {
-      foreignKey: "userId"
+      foreignKey: "userId",
+      onDelete: "CASCADE",
     });
     User.hasMany(models.Notification, {
-      foreignKey: "userId"
-    })
+      foreignKey: "userId",
+      onDelete: "CASCADE",
+    });
 
 
 

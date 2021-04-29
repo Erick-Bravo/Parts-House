@@ -16,7 +16,8 @@ module.exports = (sequelize, DataTypes) => {
   Record.associate = function(models) {
     // associations can be defined here
     Record.hasMany(models.Part, {
-      foreignKey: 'recordId'
+      foreignKey: 'recordId',
+      onDelete: "CASCADE",
     });
 
     Record.belongsTo(models.PartsHouse, {
