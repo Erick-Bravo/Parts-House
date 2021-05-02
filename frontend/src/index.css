@@ -13,6 +13,10 @@ body {
 .mb {
   margin-bottom: 40px;
 }
+
+.mB {
+  margin-bottom: 80px;
+}
   
 .mt {
   margin-top: 40px;
@@ -54,4 +58,15 @@ body {
   cursor: pointer;
   height: 40px;
   width: 125px; 
+}
+
+.delete-button{
+  border: none;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  background-color: rgb(253, 102, 102);
+  color: blanchedalmond;
+  border-radius: 10px;
+  font-size: 25px;
+  height: 40px;
+  width: 150px;
 }

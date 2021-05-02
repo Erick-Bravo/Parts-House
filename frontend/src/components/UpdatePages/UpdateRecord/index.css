@@ -1,46 +1,27 @@
 
-
 h2 {
     font-size: 40px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-
 }
 
 #button-section {
     display: flex;
     align-items:flex-start;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     justify-content:flex-start;
     flex-direction: row;
     margin-top: 20px;
 }
 
-#delete-record-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 400px;
-    width: 350px;
-    border: 10px solid rgb(245, 75, 75);
-    border-radius: 10px;
-    /* margin-top: 100px; */
-    margin-bottom: 200px;
 
-}
-#delete-record-section p{
-color:  rgb(245, 75, 75);
+p {
+color: rgb(0, 0, 0);
 font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 font-size: 30px;
 }
 
-#delete-record-section button{
-    border: none;
-    background-color: rgb(253, 102, 102);
-    color: blanchedalmond;
-    border-radius: 10px;
-    font-size: 25px;
-}
 
-#delete-record-section button:hover{
+
+button:hover{
     cursor: pointer;
 }

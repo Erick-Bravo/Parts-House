@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory, useParams } from "react-router";
+import { useHistory } from "react-router";
 import { deletePartsHouse } from "../../../store/partshouse";
 
 const DeletePHForm = ({id}) => {
@@ -13,8 +13,8 @@ const DeletePHForm = ({id}) => {
     //Finding the partshouse in Redux --- might not even need this. 
     //we already have the id, compare to see if records exist
     //
-    const partsHouses = useSelector(state => state.partsHouses)
-    const partsHouse = partsHouses.find(ph => ph.id === id)
+    const partsHouses = useSelector(state => state.partsHouses);
+    const partsHouse = partsHouses.find(ph => ph.id === id);
     // console.log(partsHouse)
 
     const records = useSelector(state => state.record);
@@ -44,6 +44,6 @@ const DeletePHForm = ({id}) => {
             <button className="form-button-disabled" hidden={hasRecords}>Delete</button>
         </div>
     )
-}
+};
 
 export default DeletePHForm

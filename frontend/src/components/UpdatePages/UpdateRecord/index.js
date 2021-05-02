@@ -2,11 +2,13 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { updateRecord, deleteRecord, awsS3ImageUpdate } from "../../../store/records";
+import { Modal } from "../../../context/Modal";
 import { fetch } from "../../../store/csrf"
 import Calendar from "../../Calendar";
 import TopNavBar from "../../UserMainPage/TopNavBar";
 
 import "./index.css"
+import DeleteRecordForm from "./DeleteRecord";
 
 const UpdateRecordPage = () => {
 
@@ -20,7 +22,7 @@ const UpdateRecordPage = () => {
     const record = records.find(rec => rec.id === numRecordId);
 
     const [imgUrl, setImgUrl] = useState(record.imgUrl)
-    
+
 
     const [type, setType] = useState(record.type);
     const [name, setName] = useState(record.name);
@@ -34,6 +36,7 @@ const UpdateRecordPage = () => {
     const [errors, setErrors] = useState([]);
     const [hidden, setHidden] = useState(true);
 
+    const [showModal, setShowModal] = useState(false);
 
     const options = [
         "SELECT",
@@ -61,7 +64,6 @@ const UpdateRecordPage = () => {
 
 
 
-
     const onSubmit = async e => {
         e.preventDefault();
         const formData = {
@@ -78,30 +80,27 @@ const UpdateRecordPage = () => {
 
         dispatch(updateRecord(formData, parseInt(recordId)))
 
-        history.go(-1)  
+        history.go(-1)
     };
-
 
 
 
     const awsS3Submit = async e => {
         e.preventDefault();
-    
+
         const formData = {
             imgUrl
         };
 
         console.log(formData)
-    
+
         dispatch(awsS3ImageUpdate(formData, numRecordId))
-    
+
     };
 
 
 
-
-
-//Interchanges simple or advanced form fields
+    //Interchanges simple or advanced form fields
     const hiddenFalse = (e) => {
         e.preventDefault();
         setHidden(false);
@@ -120,10 +119,8 @@ const UpdateRecordPage = () => {
 
 
 
-
-
-//Uses AWS S3 then sets recieved URL to useState
-    const awsS3OnChange = async(e) => {
+    //Uses AWS S3 then sets recieved URL to useState
+    const awsS3OnChange = async (e) => {
         const rawInputElement = e.target;
         const fileUpload = rawInputElement.files[0];
         const formData = new FormData();
@@ -135,7 +132,7 @@ const UpdateRecordPage = () => {
             body: formData,
             headers: {
                 "Content-Type": "multipart/form-data",
-              },
+            },
         });
         setImgUrl(response.data.imageUrl)
     };
@@ -157,11 +154,11 @@ const UpdateRecordPage = () => {
             <form onSubmit={awsS3Submit}>
                 <input
                     type="file"
-                    onChange={awsS3OnChange} 
+                    onChange={awsS3OnChange}
                 />
                 <button type="submit">Change Image</button>
             </form>
-            
+
 
             <form id="new-record-form" onSubmit={onSubmit}>
 
@@ -239,12 +236,17 @@ const UpdateRecordPage = () => {
                     <button className="form-button" type="submit">Update</button>
                 </div>
 
+                {/* <DeletePHForm id={numRecordId} /> */}
+                <p>Delete this Record with all associated parts</p>
+                <button onClick={() => setShowModal(true)} className="delete-button mB">Delete</button>
             </form>
 
-            <div id="delete-record-section">
-                <p>!Delete this Record!</p>
-                <button onClick={deleteHandler}>Delete</button>
-            </div>
+            {showModal && (
+                <Modal onClose={() => setShowModal(false)}>
+                    <DeleteRecordForm id={numRecordId} />
+                </Modal>
+            )}
+
 
         </div>
 

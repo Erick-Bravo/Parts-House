@@ -92,7 +92,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    height: 1150px;
+    /* height: 1150px; */
     width: 450px;
     margin-top: 50px;
     /* border: .2px solid black; */

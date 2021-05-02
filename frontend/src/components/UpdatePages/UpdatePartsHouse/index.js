@@ -7,7 +7,7 @@ import { updatePartsHouse } from "../../../store/partshouse";
 import TopNavBar from "../../UserMainPage/TopNavBar";
 import DeletePHForm from "./DeletePHForm";
 
-import "./index.css"
+import "./index.css";
 
 const UpdatePartsHouse = () => {
 
