@@ -1,11 +1,30 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { useHistory } from "react-router";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory, useParams } from "react-router";
 import { deletePartsHouse } from "../../../store/partshouse";
 
 const DeletePHForm = ({id}) => {
     const dispatch = useDispatch();
     const history = useHistory();
+
+    const [hasRecords, setHasRecords] = useState(false);
+    const [noRecords, setNoRecords] = useState(false);
+
+    //Finding the partshouse in Redux --- might not even need this. 
+    //we already have the id, compare to see if records exist
+    //
+    const partsHouses = useSelector(state => state.partsHouses)
+    const partsHouse = partsHouses.find(ph => ph.id === id)
+    // console.log(partsHouse)
+
+    const records = useSelector(state => state.records);
+    useEffect(() => {
+        if(records) {
+            setHasRecords(true)
+        } else {
+            setNoRecords(true)
+        }
+    }, [records])
 
     // Delete PartsHouse then go back 2
     const deletePH = (e) => {
@@ -15,11 +34,14 @@ const DeletePHForm = ({id}) => {
     };
 
     return (
-        <>
-            <p>Are you sure you want to delete this parts house along with all info associated?</p>
-            <p>This action cannot be undone</p>
-            <button className="form-button" onClick={deletePH}>Delete</button>
-        </>
+        <div id="delete-modal-container">
+            <p hidden={hasRecords}>To delete this parts house, records must be deleted first</p>
+            <p hidden={noRecords}>Are you sure you want to delete this parts house along with all info associated?</p>
+            <p hidden={noRecords}>This action cannot be undone</p>
+
+            <button className="form-button" onClick={deletePH} hidden={noRecords}>Delete</button>
+            <button className="form-button-disabled" hidden={hasRecords}>Delete</button>
+        </div>
     )
 }
 

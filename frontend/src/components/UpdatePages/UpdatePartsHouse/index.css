@@ -1,0 +1,17 @@
+#delete-modal-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #F4EADE;
+    width: 450px;
+    height: 280px;
+    padding: 25px;
+    text-align: center;
+}
+
+#delete-modal-container p{
+    font-size: 25px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+

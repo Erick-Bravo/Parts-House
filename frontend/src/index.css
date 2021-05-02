@@ -33,6 +33,18 @@ body {
   margin: 10px;
 }
 
+.form-button-disabled {
+  background-color: #9b9b9b;
+  color: #F4EADE;
+  font-size: 25px;
+  border: none;
+  width: 200px;
+  height: 40px;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+
 .small-buttons {
   border: none;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
