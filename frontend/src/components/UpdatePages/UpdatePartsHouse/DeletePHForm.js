@@ -18,15 +18,12 @@ const DeletePHForm = ({id}) => {
     // console.log(partsHouse)
 
     const records = useSelector(state => state.record);
-    console.log(records)
 
     useEffect(() => {
         if(records.length === 0) {
             setNoRecords(false)
-            console.log("Set noRecords Hits")
         } else {
             setHasRecords(false)
-            console.log("Set hasRecords Hits")
         }
     }, [records])
 
