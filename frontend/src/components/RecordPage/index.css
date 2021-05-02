@@ -163,17 +163,17 @@
 .add-buy-url {
     background-color: #2F496E;
     color: #F4EADE;
-    font-size: 20px;
+    font-size: 15px;
     border: none;
     border-radius: 5px;
     margin: 10px;
-    padding: 5px;
+    padding: 10px;
 }
 
 .add-buy-url:hover {
     background-color: #5d718f;
     color: #F4EADE;
-    font-size: 20px;
+    font-size: 15px;
     border: none;
     border-radius: 5px;
     margin: 10px;
