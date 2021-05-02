@@ -11,15 +11,15 @@ import "./index.css";
 
 const PartCard = ({ part }) => {
 
-    const [buyHidden, setBuyHidden] = useState(true);
-    const [addHidden, setAddHidden] = useState(true);
+    const [buyHidden, setBuyHidden] = useState(false);
+    const [addHidden, setAddHidden] = useState(false);
 
 
     useEffect(() => {
         if (part.buyUrl === "") {
-            setAddHidden(false);
+            setAddHidden(true);
         } else {
-            setBuyHidden(false);
+            setBuyHidden(true);
         };
     }, [part.buyUrl]);
 
@@ -34,7 +34,8 @@ const PartCard = ({ part }) => {
             <div id="right">
                 {part.model && <p>Model --- {part.model}</p>}
                 {part.serial && <p>Serial --- {part.serial}</p>}
-                <button className="small-buttons" hidden={addHidden}>Add Buy Url</button>
+                
+                <NavLink to="/records/8/update-record-page" className="add-buy-url">Add Buy Url</NavLink>
             </div>
         </div>
     );
@@ -100,7 +101,7 @@ const RecordPage = () => {
 
                         <div id="delete-record">
                             <p>Update or delete this record</p>
-                            <button className="record-update" onClick={updatePageRedirect}>Update</button>
+                            <button className="small-buttons" onClick={updatePageRedirect}>Update</button>
                         </div>
 
                     </div>}
@@ -111,7 +112,7 @@ const RecordPage = () => {
                         <h2>Parts</h2>
                         <div>
                             <NavLink to={`/records/${recordId}/parts/add-part-page`}>
-                                <button className="record-add-parts">Add Part</button>
+                                <button className="small-buttons">Add Part</button>
                             </NavLink>
                         </div>
                     </div>
