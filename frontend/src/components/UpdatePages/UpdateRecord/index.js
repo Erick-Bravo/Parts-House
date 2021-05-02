@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
-import { updateRecord, deleteRecord, awsS3ImageUpdate } from "../../../store/records";
+import { updateRecord, awsS3ImageUpdate } from "../../../store/records";
 import { Modal } from "../../../context/Modal";
 import { fetch } from "../../../store/csrf"
 import Calendar from "../../Calendar";
@@ -99,7 +99,6 @@ const UpdateRecordPage = () => {
     };
 
 
-
     //Interchanges simple or advanced form fields
     const hiddenFalse = (e) => {
         e.preventDefault();
@@ -110,13 +109,6 @@ const UpdateRecordPage = () => {
         e.preventDefault();
         setHidden(true);
     };
-
-    const deleteHandler = (e) => {
-        dispatch(deleteRecord(recordId));
-        history.go(-2);
-    };
-
-
 
 
     //Uses AWS S3 then sets recieved URL to useState
@@ -238,15 +230,14 @@ const UpdateRecordPage = () => {
 
                 {/* <DeletePHForm id={numRecordId} /> */}
                 <p>Delete this Record with all associated parts</p>
-                <button onClick={() => setShowModal(true)} className="delete-button mB">Delete</button>
             </form>
 
+            <button onClick={() => setShowModal(true)} className="delete-button mB">Delete</button>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
                     <DeleteRecordForm id={numRecordId} />
                 </Modal>
             )}
-
 
         </div>
 
