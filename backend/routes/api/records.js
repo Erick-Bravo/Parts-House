@@ -101,12 +101,12 @@ router.put("/:recordId/image-update", asyncHandler(async(req, res) => {
 
 router.delete("/:recordId/delete", asyncHandler(async(req, res) => {
 
-    const { recordId } = req.body;
+    const { recordId } = req.params;
 
     const record = await Record.findByPk(recordId);
     await record.destroy();
 
-return res.json({ record })
+    return res.json({ record })
 
 }));
 

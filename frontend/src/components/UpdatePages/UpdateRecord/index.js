@@ -6,9 +6,9 @@ import { Modal } from "../../../context/Modal";
 import { fetch } from "../../../store/csrf"
 import Calendar from "../../Calendar";
 import TopNavBar from "../../UserMainPage/TopNavBar";
+import DeleteRecordForm from "./DeleteRecord";
 
 import "./index.css"
-import DeleteRecordForm from "./DeleteRecord";
 
 const UpdateRecordPage = () => {
 
@@ -148,7 +148,7 @@ const UpdateRecordPage = () => {
                     type="file"
                     onChange={awsS3OnChange}
                 />
-                <button type="submit">Change Image</button>
+                <button type="submit">Save Image</button>
             </form>
 
 
