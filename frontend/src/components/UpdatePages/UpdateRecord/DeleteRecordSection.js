@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useHistory, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { Modal } from "../../../context/Modal";
 import DeleteRecordModal from "./DeleteRecordModal";
 import { deletePart } from "../../../store/parts";
@@ -23,8 +23,6 @@ const DeletePartCard = ({ part }) => {
 
 const DeleteRecordSection = () => {
 
-    const dispatch = useDispatch();
-    const history = useHistory();
     const { recordId } = useParams();
 
     const numRecordId = parseInt(recordId);
@@ -39,9 +37,10 @@ const DeleteRecordSection = () => {
     useEffect(() => {
         if (parts.length === 0) {
             setNoParts(false);
+            setHasParts(true);
         } else {
-            setHasParts(false);
             setNoParts(true);
+            setHasParts(false);
         };
     }, [parts]);
 
