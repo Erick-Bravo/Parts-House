@@ -3,6 +3,23 @@ import { useSelector, useDispatch } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { Modal } from "../../../context/Modal";
 import DeleteRecordModal from "./DeleteRecordModal";
+import { deletePart } from "../../../store/parts";
+
+const DeletePartCard = ({ part }) => {
+    const dispatch = useDispatch();
+
+    const deleteSubmit = (e) => {
+        e.preventDefault();
+        dispatch(deletePart(part.id))
+    };
+
+    return (
+        <div id="delete-part-cards">
+            <p>{part.name}</p>
+            <button onClick={deleteSubmit}>Delete</button>
+        </div>
+    )
+};
 
 const DeleteRecordSection = () => {
 
@@ -14,21 +31,19 @@ const DeleteRecordSection = () => {
 
     const [showModal, setShowModal] = useState(false);
 
-    //for delete button hidden feature
     const [hasParts, setHasParts] = useState(true);
     const [noParts, setNoParts] = useState(true);
 
     const parts = useSelector(state => state.parts)
 
     useEffect(() => {
-        if(parts.length === 0) {
+        if (parts.length === 0) {
             setNoParts(false);
-            console.log("This hits!!! setNoParts")
         } else {
-            console.log("This hits!!! setHasParts")
             setHasParts(false);
-        }
-    })
+            setNoParts(true);
+        };
+    }, [parts]);
 
     return (
         <>
@@ -42,6 +57,13 @@ const DeleteRecordSection = () => {
                     <DeleteRecordModal id={numRecordId} />
                 </Modal>
             )}
+
+            <div>
+                {parts && parts.map(part => {
+                    return <DeletePartCard part={part} />
+                })}
+            </div>
+
         </>
     )
 };

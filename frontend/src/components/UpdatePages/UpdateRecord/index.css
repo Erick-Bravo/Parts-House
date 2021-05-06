@@ -25,3 +25,22 @@ font-size: 30px;
 button:hover{
     cursor: pointer;
 }
+
+#delete-part-cards {
+    display: flex;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    justify-content: space-between;
+    align-items: center;
+    width: 400px;
+    margin-bottom: 50px;
+}
+
+#delete-part-cards button{
+    height: 35px;
+    border-radius: 5px;
+    border: none;
+    background-color: #2F496E;
+    color: #F4EADE;
+    width: 90px;
+    font-size: 17px;
+}

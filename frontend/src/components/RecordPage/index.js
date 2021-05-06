@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-
 import { NavLink, useHistory, useParams } from "react-router-dom";
 import { fetchAllRecParts } from "../../store/parts";
 import { format } from "date-fns";
 import TopNavBar from "../UserMainPage/TopNavBar";
-// import { deleteRecord } from "../../store/records";
+
 
 import "./index.css";
 
