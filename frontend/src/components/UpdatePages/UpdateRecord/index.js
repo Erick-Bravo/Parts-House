@@ -2,11 +2,10 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { updateRecord, awsS3ImageUpdate } from "../../../store/records";
-import { Modal } from "../../../context/Modal";
 import { fetch } from "../../../store/csrf"
 import Calendar from "../../Calendar";
 import TopNavBar from "../../UserMainPage/TopNavBar";
-import DeleteRecordForm from "./DeleteRecord";
+import DeleteRecordSection from "./DeleteRecordSection";
 
 import "./index.css"
 
@@ -23,7 +22,6 @@ const UpdateRecordPage = () => {
 
     const [imgUrl, setImgUrl] = useState(record.imgUrl)
 
-
     const [type, setType] = useState(record.type);
     const [name, setName] = useState(record.name);
     const [make, setMake] = useState(record.make);
@@ -35,12 +33,6 @@ const UpdateRecordPage = () => {
     const [descript, setDescript] = useState(record.description);
     const [errors, setErrors] = useState([]);
     const [hidden, setHidden] = useState(true);
-
-    const [showModal, setShowModal] = useState(false);
-
-    //for delete button hidden feature
-    const [hasRecords, setHasParts] = useState(true);
-    const [noRecords, setNoParts] = useState(true);
 
     const options = [
         "SELECT",
@@ -233,16 +225,9 @@ const UpdateRecordPage = () => {
                 </div>
 
                 {/* <DeletePHForm id={numRecordId} /> */}
-                <p>Delete this Record with all associated parts</p>
-                <p>To Delete this record you must first delete all parts associated</p>
             </form>
 
-            <button onClick={() => setShowModal(true)} className="delete-button mB">Delete</button>
-            {showModal && (
-                <Modal onClose={() => setShowModal(false)}>
-                    <DeleteRecordForm id={numRecordId} />
-                </Modal>
-            )}
+            <DeleteRecordSection />
 
         </div>
 
