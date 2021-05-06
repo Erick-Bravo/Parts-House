@@ -14,7 +14,7 @@ const PartPage = () => {
     const numRecordId = parseInt(recordId)
 
     const records = useSelector(state => state.record);
-    const record = records.find(rec => rec.id === numRecordId)
+    const record = records.find(rec => rec.id === numRecordId);
 
     const history = useHistory();
 
@@ -104,8 +104,8 @@ const PartPage = () => {
                     ))}
                 </ul>
 
-                {!hidden && <button onClick={hiddenTrue}>Show Simple Form</button>}
-                {hidden && <button onClick={hiddenFalse}>Show More Fields</button>}
+                {!hidden && <button className="small-buttons" onClick={hiddenTrue}>Show Simple Form</button>}
+                {hidden && <button className="small-buttons" onClick={hiddenFalse}>Show More Fields</button>}
 
                 <label>
                     Name:
@@ -157,7 +157,7 @@ const PartPage = () => {
                         onChange={e => setDescript(e.target.value)} />
                 </label>
 
-                <button type="submit">Add</button>
+                <button className="small-buttons mB mt" type="submit">Add</button>
 
             </form>
 
