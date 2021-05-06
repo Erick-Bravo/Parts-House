@@ -7,9 +7,6 @@ const DeleteRecordForm = ({id}) => {
     const dispatch = useDispatch();
     const history = useHistory();
 
-    const parts = useSelector(state => state.parts)
-    console.log(parts)
-
     const deleteHandler = (e) => {
         dispatch(deleteRecord(id));
         history.go(-2);

@@ -12,10 +12,10 @@ const DeletePHForm = ({id}) => {
 
     //Finding the partshouse in Redux --- might not even need this. 
     //we already have the id, compare to see if records exist
-    //
+    
     const partsHouses = useSelector(state => state.partsHouses);
     const partsHouse = partsHouses.find(ph => ph.id === id);
-    // console.log(partsHouse)
+    
 
     const records = useSelector(state => state.record);
 

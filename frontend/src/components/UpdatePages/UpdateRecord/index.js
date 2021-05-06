@@ -87,11 +87,8 @@ const UpdateRecordPage = () => {
         const formData = {
             imgUrl
         };
-
-        console.log(formData)
-
+        
         dispatch(awsS3ImageUpdate(formData, numRecordId))
-
     };
 
 
@@ -224,7 +221,6 @@ const UpdateRecordPage = () => {
                     <button className="form-button" type="submit">Update</button>
                 </div>
 
-                {/* <DeletePHForm id={numRecordId} /> */}
             </form>
 
             <DeleteRecordSection />
