@@ -38,6 +38,10 @@ const UpdateRecordPage = () => {
 
     const [showModal, setShowModal] = useState(false);
 
+    //for delete button hidden feature
+    const [hasRecords, setHasParts] = useState(true);
+    const [noRecords, setNoParts] = useState(true);
+
     const options = [
         "SELECT",
         "Appliance",
@@ -230,6 +234,7 @@ const UpdateRecordPage = () => {
 
                 {/* <DeletePHForm id={numRecordId} /> */}
                 <p>Delete this Record with all associated parts</p>
+                <p>To Delete this record you must first delete all parts associated</p>
             </form>
 
             <button onClick={() => setShowModal(true)} className="delete-button mB">Delete</button>

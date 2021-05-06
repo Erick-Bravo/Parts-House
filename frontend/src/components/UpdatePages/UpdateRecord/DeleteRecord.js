@@ -1,11 +1,14 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
 import { deleteRecord } from "../../../store/records";
 
 const DeleteRecordForm = ({id}) => {
     const dispatch = useDispatch();
     const history = useHistory();
+
+    const parts = useSelector(state => state.parts)
+    console.log(parts)
 
     const deleteHandler = (e) => {
         dispatch(deleteRecord(id));
