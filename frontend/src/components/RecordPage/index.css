@@ -90,6 +90,7 @@
     justify-content: center;
     flex-direction: column;
     border-radius: 15px;
+    /* background-color: white; */
 }
 
 #part-container #top {
@@ -108,7 +109,10 @@
     border: 5px solid #2F496E; 
     border-radius: 15px;
     margin: 40px;
-    padding: 35px
+    padding: 35px;
+    height: 600px;
+    width: 300px;
+    background-color: white;
 }  
 
 #part-container .right {
@@ -118,9 +122,11 @@
     flex-direction: column;
     border: 5px solid #2F496E; 
     border-radius: 15px;
+    padding: 35px;
     height: 600px;
     width: 300px;
     margin: 40px;
+    background-color: white;
 }  
 
 #part-container .right p {

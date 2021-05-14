@@ -25,7 +25,7 @@ export const addLog = (formData, partId) => {
     return async (dispatch) => {
         const response = await fetch(`/api/parts/${partId}/logs/create`, {
             method: "POST",
-                body: JSON.stringify({ formData })
+            body: JSON.stringify({ formData })
         })
         dispatch(addLogAC(response.data.log))
     };

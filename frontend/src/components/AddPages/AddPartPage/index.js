@@ -26,7 +26,7 @@ const PartPage = () => {
     const [buyUrl, setBuyUrl] = useState("");
     const [descript, setDescript] = useState("");
     const [errors, setErrors] = useState([]);
-    const [imgUrl, setImgUrl] = useState("")
+    const [imgUrl, setImgUrl] = useState("");
     const [hidden, setHidden] = useState(true);
 
 

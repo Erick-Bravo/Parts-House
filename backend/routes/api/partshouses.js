@@ -17,7 +17,7 @@ router.post("/create", asyncHandler(async(req, res) => {
 router.put("/:partsHouseId/update", asyncHandler(async(req, res) => {
     
     const { name, partsHouseId } = req.body
-    console.log(`This is MEEEEE!!!!! ${name} + ${partsHouseId}`)
+
     const ph = await PartsHouse.findByPk(partsHouseId);
     
     await ph.update({
