@@ -7,12 +7,12 @@ module.exports = (sequelize, DataTypes) => {
   PartsHouse.associate = function (models) {
     // associations can be defined here
     PartsHouse.belongsTo(models.User, {
-      foreignKey: "userId"
+      foreignKey: "userId",
+      onDelete: "CASCADE",
     });
 
     PartsHouse.hasMany(models.Record, {
-      foreignKey: "partsHouseId",
-      onDelete: "CASCADE",
+      foreignKey: "partsHouseId"
     });
   };
   return PartsHouse;

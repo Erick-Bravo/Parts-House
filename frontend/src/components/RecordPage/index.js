@@ -5,7 +5,6 @@ import { fetchAllRecParts } from "../../store/parts";
 import { format } from "date-fns";
 import TopNavBar from "../UserMainPage/TopNavBar";
 
-
 import "./index.css";
 
 const PartCard = ({ part }) => {

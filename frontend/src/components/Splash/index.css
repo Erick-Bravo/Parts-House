@@ -12,6 +12,10 @@
     margin: 0px;
 }
 
+#splash-logo img {
+    height: 450px;
+}
+
 #splash-page p {
     font-size: 60px;
      /* border: 2px solid black ; */
@@ -67,4 +71,17 @@
 #splash-page #about {
     margin-left: 10px;
     margin-right: 10px;
+}
+
+@media only screen and (max-width: 1500px) {
+
+    #splash-logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    #splash-logo img {
+        height: 250px;
+    }
 }
