@@ -18,7 +18,7 @@ const About = () => {
             <div id="about-page">
 
                 <div id="left">
-                    <img src="https://i.ibb.co/sssb3nf/penguin.png" alt="penguin" border="0" height="700px" />
+                    <img src="tool.png" alt="penguin" border="0" height="450px" />
                 </div>
 
                 <div id="right">
@@ -26,10 +26,11 @@ const About = () => {
                     <ul>
                         <li>Parts House is your very own customizable parts tracker.</li>
                         <li>Record valuable model/serial info from home or office appliances and/or electronics.</li>
-                        <li>You can even record where to re-purchase these items, or parts for these items when you need them most.</li>
-                        <li>For example, save a record for your tv remote and save the type of batteries along with the link of where to re-purchase them.</li>
-                        <li>Parts House is your very own customizable parts-house!</li>
-                        <li>Tech used: Node.js, Express, PostgreSQL, JavaScript, React, Redux </li>
+                        <li>-</li>
+                        <li>Features Include:</li>
+                        <li>- Record where to re-purchase parts/items when you need them most.</li>
+                        <li>- Set notifications for reoccuring parts/items.</li>
+                        <li>- Save dates and information you might need in the future like model and serial numbers.</li>
                     </ul>
                     <button onClick={goBack}>Back</button>
                 </div>

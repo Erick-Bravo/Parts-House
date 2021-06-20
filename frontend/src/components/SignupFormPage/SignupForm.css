@@ -14,8 +14,7 @@
 
 #sign-up-container form {
     width: 500px;
-    height: 375px;
-    
+    height: 375px;  
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 30px;
 }
@@ -31,7 +30,6 @@
     width: 400px;
     height: 40px;
     margin: 5px;
-    /* border: 2px solid black; */
     font-size: 30px;
     border-radius: 10px;
 }
