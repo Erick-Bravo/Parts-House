@@ -3,10 +3,12 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    background-color: #F4EADE;
+    /* background-image: linear-gradient(45deg, #50c5fb, #005c64); */
+    background-image: linear-gradient(45deg, #50c0fb, #0b3674);
     width: 450px;
     height: 280px;
     padding: 25px;
+    border-radius: 10px;
     text-align: center;
 }
 
@@ -16,9 +18,20 @@
     margin: 10px;
     font-size: 25px;
 }
+#login-form-container h2 {
+    font-size: 40px;
+    font-family: 'Arsenal', sans-serif;
+    color: white;
+}
+#login-form-container h4 {
+    font-size: 25px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: rgb(245, 245, 245);
+}
 
 #login-form-container button {
     background-color: #2F496E;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: #F4EADE;
     font-size: 20px;
     border: none;

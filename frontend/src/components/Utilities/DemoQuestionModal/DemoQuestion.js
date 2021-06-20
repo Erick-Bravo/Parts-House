@@ -17,7 +17,7 @@ const DemoQuestion = () => {
 
     return (
         <div id="login-form-container">
-            <h2>Are you a Recruiter?</h2>
+            <h2>Are You A Recruiter?</h2>
             <h4>If you are not a recruiter, please sign up or login to use Partshouse</h4>
             <div>
                 <button onClick={demoLoginHandle}>I am a Recruiter</button>
