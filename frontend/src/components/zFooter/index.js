@@ -27,15 +27,15 @@ const Footer = () => {
         <div id="footer">
 
             <button onClick={linkedIn}>
-            <img src="https://i.ibb.co/BGjKkyC/linkedin-icon-18-128.png" alt="linkedin-icon-18-128" border="0" height="75px"/>
+                <img className="linkedin-logo" src="https://i.ibb.co/BGjKkyC/linkedin-icon-18-128.png" alt="linkedin-icon-18-128" border="0" />
             </button>
 
             <button onClick={gitHub}>
-                <img alt="none" src="https://www.sferalabs.cc/wp-content/uploads/github-logo-white-300x199.png" height="80px" />
+                <img className="github-logo" alt="none" src="https://www.sferalabs.cc/wp-content/uploads/github-logo-white-300x199.png" />
             </button>
 
-            <button onClick={angelList}>
-                <img alt="none" src="https://angel.co/assets/shared/peace/white_large-7f08f00fe68dacf8c1900f162d5e426a21ddd42f807d857a461b792562f040ff.png" height="80px" background-color="white" />
+            <button id="angel-logo" onClick={angelList}>
+                <img className="angel-logo" alt="none" src="https://angel.co/assets/shared/peace/white_large-7f08f00fe68dacf8c1900f162d5e426a21ddd42f807d857a461b792562f040ff.png" background-color="white" />
             </button>
 
         </div>

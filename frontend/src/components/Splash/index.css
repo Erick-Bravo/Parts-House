@@ -73,7 +73,7 @@
     margin-right: 10px;
 }
 
-@media only screen and (max-width: 1500px) {
+@media only screen and (max-width: 1800px) {
 
     #splash-logo {
         display: flex;

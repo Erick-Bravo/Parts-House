@@ -11,14 +11,42 @@
     background:#0c2649;
   }
 
-
-
 #footer button {
     background-color: #0c2649;
     border: none;
     margin-left: 40px;
     margin-right: 40px;
-    cursor: pointer;
-    
+    cursor: pointer;  
+}
+
+.linkedin-logo {
+  height: 75px;
+}
+
+.github-logo {
+  height: 80px;
+}
+
+.angel-logo {
+  height: 80px;
+}
+
+@media only screen and (max-width: 1800px) {
+  #footer {
+    height: 80px;
+  }
+
+  .linkedin-logo {
+    height: 60px;
+  }
+  
+  .github-logo {
+    height: 65px;
+  }
+  
+  .angel-logo {
+    height: 65px;
+  }
+
 }
 
