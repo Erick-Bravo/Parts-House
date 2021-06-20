@@ -4,7 +4,7 @@
     align-items: center;
     
     width: 100%;
-    height: 100px;
+    height: 50px;
     position:fixed;
     left:0px;
     bottom:0px;
@@ -20,33 +20,16 @@
 }
 
 .linkedin-logo {
-  height: 75px;
+  height: 35px;
 }
 
 .github-logo {
-  height: 80px;
+  height: 40px;
 }
 
 .angel-logo {
-  height: 80px;
+  height: 35px;
 }
 
-@media only screen and (max-width: 1800px) {
-  #footer {
-    height: 50px;
-  }
 
-  .linkedin-logo {
-    height: 35px;
-  }
-  
-  .github-logo {
-    height: 40px;
-  }
-  
-  .angel-logo {
-    height: 35px;
-  }
-
-}
 
