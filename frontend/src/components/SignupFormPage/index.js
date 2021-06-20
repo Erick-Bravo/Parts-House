@@ -42,8 +42,9 @@ function SignupFormPage() {
   return (
     <>
       <div id="sign-up-container">
-        <img src="https://i.ibb.co/Sx3THPm/vector-creator-1500-1by1.png" alt="vector-creator-1500-1by1" border="0" height="200px" />
-        <h1>Sign Up</h1>
+        
+        <h1>Ready to start using PartsHouse?</h1>
+        <h1>SIGN-UP</h1>
         <form onSubmit={handleSubmit}>
           <ul>
             {errors.map((error, idx) => <li key={idx}>{error}</li>)}
@@ -76,8 +77,8 @@ function SignupFormPage() {
             placeholder="confirm password"
             required
           />
-          <button type="submit">Sign Up</button>
-          <buttton onClick={goHome}>Back</buttton>
+          <button type="submit">Create Account</button>
+          <button onClick={goHome}>Back</button>
         </form>
       </div>
 
