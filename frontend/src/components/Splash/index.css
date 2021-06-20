@@ -19,9 +19,10 @@
 #splash-page p {
     font-size: 60px;
      /* border: 2px solid black ; */
+    /* color: #ED8C72; */
     color: #ED8C72;
     text-align: center;
-    font-family:cursive;
+    font-family: 'Racing Sans One', cursive;
     margin-top: 0px;
 }
 
