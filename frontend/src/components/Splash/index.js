@@ -35,8 +35,7 @@ const Splash = () => {
         <> 
             <div id="splash-page">
                 <div id="splash-logo">
-                    <img src="https://i.ibb.co/Sx3THPm/vector-creator-1500-1by1.png" alt="vector-creator-1500-1by1" border="0" /> 
-                    <p>Parts House</p>
+                    <img src="PartsHouse5.png" alt="vector-creator-1500-1by1" border="0" /> 
                 </div>
                 <div id="splash-button-container">
                     <LoginFormModal />
@@ -44,7 +43,6 @@ const Splash = () => {
                     <button onClick={demoLoginHandle}>Demo</button>
                     <button onClick={toAboutPageHandle}>About</button>
                 </div>
-                
             </div>
 
             <Footer />

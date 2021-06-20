@@ -33,19 +33,19 @@
 
 @media only screen and (max-width: 1800px) {
   #footer {
-    height: 80px;
+    height: 50px;
   }
 
   .linkedin-logo {
-    height: 60px;
+    height: 35px;
   }
   
   .github-logo {
-    height: 65px;
+    height: 40px;
   }
   
   .angel-logo {
-    height: 65px;
+    height: 35px;
   }
 
 }
