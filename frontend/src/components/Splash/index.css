@@ -54,7 +54,6 @@
     background-color: #2F496E;
     color: #F4EADE;
     font-family: sans-serif;
-    
     font-size: 30px;
     border: none;
     text-decoration: none;
@@ -86,4 +85,31 @@
         height: 350px;
         margin-bottom: 50px;
     }
+}
+
+@media only screen and (max-width: 600px) {
+
+    #splash-button-container {
+        width: 225px;
+    }
+
+    #splash-page a {
+        font-size: 16px;
+        border-radius: 20px;
+        margin: 10px;
+        padding-left: 16px;
+        padding-right: 16px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    
+    #splash-page button {
+        width: 90px;
+        border-radius: 20px;
+        font-size: 16px;
+        margin: 10px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+
 }
