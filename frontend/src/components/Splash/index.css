@@ -39,7 +39,7 @@
     font-size: 30px;
     border: none;
     text-decoration: none;
-    border-radius: 10px;
+    border-radius: 20px;
     margin: 10px;
     cursor: pointer;
     /* font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
@@ -57,7 +57,7 @@
     font-size: 30px;
     border: none;
     text-decoration: none;
-    border-radius: 10px;
+    border-radius: 20px;
     margin: 10px;
     padding: 1.25px;
     padding-left: 12px;
