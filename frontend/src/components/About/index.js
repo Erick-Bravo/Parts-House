@@ -18,16 +18,18 @@ const About = () => {
             <div id="about-page">
 
                 <div id="left">
-                    <img src="tool.png" alt="penguin" border="0" height="450px" />
+                    <img src="tool.png" alt="penguin" border="0" />
                 </div>
 
-                <div id="right">
+                <div id="message">
                     <h2>About</h2>
                     <ul>
                         <li>Parts House is your very own customizable parts tracker.</li>
                         <li>Record valuable model/serial info from home or office appliances and/or electronics.</li>
+                        <br></br>
+                        <li>What You Can Do :</li>
                         <li>-</li>
-                        <li>Features Include:</li>
+                        <br></br>
                         <li>- Record where to re-purchase parts/items when you need them most.</li>
                         <li>- Set notifications for reoccuring parts/items.</li>
                         <li>- Save dates and information you might need in the future like model and serial numbers.</li>

@@ -11,7 +11,11 @@
     margin: 0px;
 }
 
-#about-page #right {
+#about-page img {
+    height: 450px;
+}
+
+#about-page #message {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -20,19 +24,21 @@
     margin-right: 60px;
 }
 
-#about-page #right h2{
+#about-page #message h2{
     font-size: 60px;
     color: #1c3864;
     text-align: center;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-#about-page #right ul{
+#about-page #message ul{
     font-size: 25px;
     color: white;
     text-align: center;
     font-family:Arial, Helvetica, sans-serif;
     list-style-type: none;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 #about-page button {
@@ -45,4 +51,45 @@
     font-family:Arial, Helvetica, sans-serif;
     color: #F4EADE;
     border-radius: 5px;
+}
+
+@media only screen and (max-width: 600px) {
+    
+    #about-page {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    
+    #about-page img {
+        height: 100px;
+    }
+    
+    #about-page #message h2{
+        font-size: 40px;
+    }
+    
+    #about-page #message {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        border: 2px solid black;
+        width: 100%;
+        margin-right: 0px;
+    }
+    
+    #about-page #message ul{
+        font-size: 17px;
+    }
+    
+    #about-page button {
+        margin: 0px;
+        height: 30px;
+        width: 120px;
+        font-size: 20px;
+        border-radius: 5px;
+    }
+    
 }
