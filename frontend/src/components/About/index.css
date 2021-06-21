@@ -63,7 +63,7 @@
     }
     
     #about-page img {
-        height: 100px;
+     display: none;
     }
     
     #about-page #message h2{
