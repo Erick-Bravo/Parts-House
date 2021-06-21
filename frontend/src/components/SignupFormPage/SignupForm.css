@@ -9,7 +9,6 @@
     position: absolute;
     height: 100%;
     width: 100%;
-
 }
 
 #sign-up-container form {
@@ -20,7 +19,7 @@
 }
 
 #sign-up-container h1 {
-    font-family: 'Arsenal', sans-serif;
+    font-family: 'Roboto Condensed', sans-serif;
     font-size: 40px;
     color: white;
     font-weight: bolder;
@@ -42,13 +41,25 @@
     border: none;
     background-color:  #2F496E;
     color: #F4EADE;
-    border-radius: 5px;
+    border-radius: 20px;
 }
 
 #sign-up-container button:hover {
     background-color:  #3a4e69
 }
 
-#img {
-    size: 400px;
+
+@media only screen and (max-width: 600px) {
+
+    #sign-up-container h1 {  
+        font-size: 30px;
+    }
+
+    #sign-up-container input {
+        width: 350px;
+        height: 30px;
+        margin: 5px;
+        font-size: 25px;
+    }
+
 }

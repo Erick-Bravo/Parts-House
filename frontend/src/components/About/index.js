@@ -25,7 +25,7 @@ const About = () => {
                     <h2>About</h2>
                     <ul>
                         <li>Parts House is your very own customizable parts tracker.</li>
-                        <li>Record valuable model/serial info from home or office appliances and/or electronics.</li>
+                        <li>Record valuable model/serial info for home or office appliances and/or electronics.</li>
                         <br></br>
                         <li>What You Can Do :</li>
                         <li>-</li>
