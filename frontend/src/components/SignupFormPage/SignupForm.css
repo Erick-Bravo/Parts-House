@@ -55,6 +55,12 @@
         font-size: 30px;
     }
 
+    #sign-up-container form {
+        width: 100%;
+        height: 375px;  
+        font-size: 25px;
+    }
+
     #sign-up-container input {
         width: 350px;
         height: 30px;
