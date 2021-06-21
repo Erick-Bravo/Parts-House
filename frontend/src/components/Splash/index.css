@@ -89,6 +89,11 @@
 
 @media only screen and (max-width: 600px) {
 
+    #splash-logo img {
+        height: 300px;
+        margin-bottom: 40px;
+    }
+
     #splash-button-container {
         width: 225px;
     }
