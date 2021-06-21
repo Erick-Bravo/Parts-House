@@ -44,7 +44,7 @@ function SignupFormPage() {
       <div id="sign-up-container">
         
         <h1>Ready to start using PartsHouse?</h1>
-        <h1>SIGN-UP</h1>
+        <h1>Sign up</h1>
         <form onSubmit={handleSubmit}>
           <ul>
             {errors.map((error, idx) => <li key={idx}>{error}</li>)}
