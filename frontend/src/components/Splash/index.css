@@ -73,7 +73,7 @@
     margin-right: 10px;
 }
 
-@media only screen and (max-width: 1800px) {
+@media only screen and (max-width: 1920px) {
 
     #splash-logo {
         display: flex;
@@ -82,7 +82,7 @@
         flex-direction: column;
     }
     #splash-logo img {
-        height: 350px;
+        height: 300px;
         margin-bottom: 50px;
     }
 }
@@ -90,7 +90,7 @@
 @media only screen and (max-width: 600px) {
 
     #splash-logo img {
-        height: 300px;
+        height: 280px;
         margin-bottom: 40px;
     }
 
