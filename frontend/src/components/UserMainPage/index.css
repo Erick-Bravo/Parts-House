@@ -5,11 +5,14 @@
     flex-direction: column;
     position: absolute;
     background-color: #F9F9F9;
-   
     min-height: 100vh;
     width: calc(100% - 300px);
     margin-left: 300px;
     /* overflow: scroll; */
+}
+
+#user-main-page #mascot {
+    display: flex;
 }
 
 #top-section-navbar p {
@@ -25,8 +28,7 @@
     align-items: center;
     flex-direction: column;
     width: 225px;
-    margin-left: 40px;
-    
+    margin-left: 40px;  
 }
 
 #add-partshouse-form input {
@@ -44,7 +46,11 @@
 }
 
 #display-box h2{
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;  
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+#display-box p{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; 
+    font-size: 16px; 
 }
 
 
@@ -113,3 +119,5 @@
     font-size: 30px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
+
+
