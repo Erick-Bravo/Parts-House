@@ -1,20 +1,34 @@
 #record-navbar {
     display: flex;
     justify-content: center;
+    background-color: rgb(236, 236, 236);
+    width: 100%;
+    height: 80px;
 }
 
 #record-navbar a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-decoration: none;
     color: #2F496E;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     /* border: 2px solid black; */
-    margin: 40px;
-    font-size: 25px;
+    width: 250px;
+    font-size: 30px;
+    height: 100%;
+    
 }
 
-.active {
-    color: #ED8C72;
+#record-navbar a:hover{
+    background-color: rgb(202, 202, 202);
 }
+
+#record-navbar .active-list {
+    color: rgb(27, 125, 182)
+}
+
+
 
 #display-box {
     display: flex;
@@ -28,6 +42,8 @@
 #display-box a {
     text-decoration: none;
 }
+
+
 
 #display-box #empty-space {
     height: 50px;

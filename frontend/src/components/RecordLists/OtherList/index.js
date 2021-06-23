@@ -56,7 +56,7 @@ const OtherList = () => {
                 <NavLink to={`/parts-house/${partsHouseId}/electronics`}>
                     Electronics
                 </NavLink>
-                <NavLink to={`/parts-house/${partsHouseId}/other`}>
+                <NavLink className="active-list" to={`/parts-house/${partsHouseId}/other`}>
                     Other
                 </NavLink>
             </div>

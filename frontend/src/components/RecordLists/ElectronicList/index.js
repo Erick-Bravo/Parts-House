@@ -52,7 +52,7 @@ const ElectronicList = () => {
                 <NavLink to={`/parts-house/${partsHouseId}/appliances`} >
                     Appliances
                 </NavLink>
-                <NavLink to={`/parts-house/${partsHouseId}/electronics`}>
+                <NavLink className="active-list" to={`/parts-house/${partsHouseId}/electronics`}>
                     Electronics
                 </NavLink>
                 <NavLink to={`/parts-house/${partsHouseId}/other`}>

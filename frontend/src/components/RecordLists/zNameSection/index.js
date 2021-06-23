@@ -20,7 +20,7 @@ const NameSection = ({ph}) => {
     return (
         <div id="name-section">
             <h1>{ph.name}</h1>
-            <p>Edit this parts house</p>
+           
             <button className="small-buttons" onClick={updatePartsHousePage}>Edit</button>
         </div>
     );

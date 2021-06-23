@@ -54,7 +54,7 @@ const ApplianceList = () => {
             <NameSection ph={ph} />
 
             <div id="record-navbar">
-                <NavLink to={`/parts-house/${partsHouseId}/appliances`} >
+                <NavLink className="active-list" to={`/parts-house/${partsHouseId}/appliances`} >
                     Appliances
                 </NavLink>
                 <NavLink to={`/parts-house/${partsHouseId}/electronics`}>

@@ -6,6 +6,8 @@ import { fetchUserPartsHouses } from "../../../store/partshouse";
 import { addPartsHouse } from "../../../store/partshouse"
 // import { fetch } from "../../../store/csrf"
 
+import "./index.css"
+
 
 
 
