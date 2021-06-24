@@ -32,7 +32,7 @@ const PartCard = ({ part }) => {
             <div id="right">
                 {part.model && <p>Model --- {part.model}</p>}
                 {part.serial && <p>Serial --- {part.serial}</p>}
-                
+
                 <NavLink to="/records/8/update-record-page" className="add-buy-url">Add Buy Url</NavLink>
             </div>
         </div>
@@ -72,64 +72,67 @@ const RecordPage = () => {
 
 
     return (
-        <div id="user-main-page">
-
+        <>
             <TopNavBar />
 
-            <div id="display-box">
-                {record &&
-                    <div id="record-container">
+            <div id="user-main-page">
 
-                        <div id="top-section">
-                            <div id="left">
-                                <div id="record-name">{record.name}</div>
-                                <div id="record-make">{record.make}</div>
-                                {record.imgUrl && <img alt="none" src={record.imgUrl} />}
+
+                <div id="display-box">
+                    {record &&
+                        <div id="record-container">
+
+                            <div id="top-section">
+                                <div id="left">
+                                    <div id="record-name">{record.name}</div>
+                                    <div id="record-make">{record.make}</div>
+                                    {record.imgUrl && <img alt="none" src={record.imgUrl} />}
+                                </div>
+
+                                <div id="right">
+                                    <h2>Info</h2>
+                                    {record.model && <p>Model - {record.model}</p>}
+                                    {record.serial && <p>Serial - {record.serial}</p>}
+                                    {record.cost && <p>Initial Purchase Cost - ${record.cost}</p>}
+                                    {record.purchaseDate && <p>Date of Purchase: {format(new Date(record.purchaseDate), "PP")}</p>}
+
+                                </div>
                             </div>
 
-                            <div id="right">
-                                <h2>Info</h2>
-                                {record.model && <p>Model - {record.model}</p>}
-                                {record.serial && <p>Serial - {record.serial}</p>}
-                                {record.cost && <p>Initial Purchase Cost - ${record.cost}</p>}
-                                {record.purchaseDate && <p>Date of Purchase: {format(new Date(record.purchaseDate), "PP")}</p>}
-                                
+                            <div id="delete-record">
+                                <p>Update or delete this record</p>
+                                <button className="small-buttons" onClick={updatePageRedirect}>Update</button>
                             </div>
-                        </div>
 
-                        <div id="delete-record">
-                            <p>Update or delete this record</p>
-                            <button className="small-buttons" onClick={updatePageRedirect}>Update</button>
-                        </div>
-
-                    </div>}
+                        </div>}
 
 
-                <div>
                     <div>
-                        <h2>Parts</h2>
                         <div>
-                            <NavLink to={`/records/${recordId}/parts/add-part-page`}>
-                                <button className="small-buttons">Add Part</button>
-                            </NavLink>
+                            <h2>Parts</h2>
+                            <div>
+                                <NavLink to={`/records/${recordId}/parts/add-part-page`}>
+                                    <button className="small-buttons">Add Part</button>
+                                </NavLink>
+                            </div>
                         </div>
+                        {!parts && <p>loading..</p>}
+                        {parts && parts.map(part => {
+                            return <NavLink to={`/parts/${part.id}`} key={part.id}>
+                                <PartCard part={part} />
+                            </NavLink>
+                        })}
                     </div>
-                    {!parts && <p>loading..</p>}
-                    {parts && parts.map(part => {
-                        return <NavLink to={`/parts/${part.id}`} key={part.id}>
-                            <PartCard part={part} />
-                        </NavLink>
-                    })}
+
+                </div>
+
+
+                <div id="mascot">
+
                 </div>
 
             </div>
-
-
-            <div id="mascot">
-     
-            </div>
-
-        </div>
+        </>
     );
 };
 

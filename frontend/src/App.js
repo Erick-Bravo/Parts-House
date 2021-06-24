@@ -3,18 +3,18 @@ import { useDispatch, useSelector } from "react-redux";
 import { Redirect, Route, Switch } from "react-router-dom";
 import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
-import EmptyDisplayPage from "./components/UserMainPage"
-import Splash from "./components/Splash"
-import LeftNavBar from "./components/UserMainPage/LeftNavBar"
-import ApplianceList from "./components/RecordLists/ApplianceList"
-import ElectronicList from "./components/RecordLists/ElectronicList"
-import OtherList from "./components/RecordLists/OtherList"
-import RecordPage from "./components/RecordPage"
-import AddRecordPage from "./components/AddPages/AddRecordPage"
-import AddPartPage from "./components/AddPages/AddPartPage"
-import UpdateRecordPage from "./components/UpdatePages/UpdateRecord"
-import PartPage from "./components/PartPage"
-import About from "./components/About"
+import EmptyDisplayPage from "./components/UserMainPage";
+import Splash from "./components/Splash";
+import LeftNavBar from "./components/UserMainPage/LeftNavBar";
+import ApplianceList from "./components/RecordLists/ApplianceList";
+import ElectronicList from "./components/RecordLists/ElectronicList";
+import OtherList from "./components/RecordLists/OtherList";
+import RecordPage from "./components/RecordPage";
+import AddRecordPage from "./components/AddPages/AddRecordPage";
+import AddPartPage from "./components/AddPages/AddPartPage";
+import UpdateRecordPage from "./components/UpdatePages/UpdateRecord";
+import PartPage from "./components/PartPage";
+import About from "./components/About";
 
 import "./index.css"
 import UpdatePartsHouse from "./components/UpdatePages/UpdatePartsHouse";

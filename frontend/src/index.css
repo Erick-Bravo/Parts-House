@@ -11,10 +11,11 @@ body {
   overflow-x: hidden;
 }
 
-.website {
+/* .website {
   display: flex;
   height: 100%;
-}
+  width: 100%;
+} */
 
 .mb {
   margin-bottom: 40px;

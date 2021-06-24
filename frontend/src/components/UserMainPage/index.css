@@ -1,7 +1,7 @@
 #user-main-page {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     flex-direction: column;
     position: absolute;
     background-color: #F9F9F9;
@@ -42,6 +42,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 100%;
     width: 100%;
 }
 

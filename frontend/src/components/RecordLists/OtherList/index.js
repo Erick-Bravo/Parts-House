@@ -8,8 +8,6 @@ import "../index.css";
 
 
 
-
-
 const OtherList = () => {
 
     const { partsHouseId } = useParams();
@@ -43,42 +41,45 @@ const OtherList = () => {
 
 
     return (
-        <div id="user-main-page">
+    
 
-            <TopNavBar />
+            <div id="user-main-page">
 
-            <NameSection ph={ph} />
+                <TopNavBar />
 
-            <div id="record-navbar">
-                <NavLink to={`/parts-house/${partsHouseId}/appliances`} >
-                    Appliances
+                <NameSection ph={ph} />
+
+                <div id="record-navbar">
+                    <NavLink to={`/parts-house/${partsHouseId}/appliances`} >
+                        Appliances
                 </NavLink>
-                <NavLink to={`/parts-house/${partsHouseId}/electronics`}>
-                    Electronics
+                    <NavLink to={`/parts-house/${partsHouseId}/electronics`}>
+                        Electronics
                 </NavLink>
-                <NavLink className="active-list" to={`/parts-house/${partsHouseId}/other`}>
-                    Other
+                    <NavLink className="active-list" to={`/parts-house/${partsHouseId}/other`}>
+                        Other
                 </NavLink>
-            </div>
-
-            <div id="add-record">
-                <NavLink to={`/parts-house/${partsHouseId}/records/add-record-page`}>
-                    <button className="small-buttons">Add Other</button>
-                </NavLink>
-            </div>
-
-            <div id="display-box">
-                <div id="empty-space"></div>
-                <div>
-                    {others.map(other => {
-                        return <NavLink to={`/records/${other.id}/`} key={other.name}>
-                            <RecordCard record={other} />
-                        </NavLink>
-                    })}
                 </div>
-            </div>
 
-        </div>
+                <div id="add-record">
+                    <NavLink to={`/parts-house/${partsHouseId}/records/add-record-page`}>
+                        <button className="small-buttons">Add Other</button>
+
+                    </NavLink>
+                </div>
+                <div id="display-box">
+                    <div id="empty-space"></div>
+                    <div>
+                        {others.map(other => {
+                            return <NavLink to={`/records/${other.id}/`} key={other.name}>
+                                <RecordCard record={other} />
+                            </NavLink>
+                        })}
+                    </div>
+                </div>
+
+            </div>
+     
     );
 };
 
