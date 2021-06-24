@@ -14,7 +14,7 @@ const TopNavBar = () => {
         <div id="top-nav">
             <button className="top-nav-button" onClick={goBack}>Back</button>
             <NavLink to="/">
-                <img src="https://i.ibb.co/Sx3THPm/vector-creator-1500-1by1.png" alt="vector-creator-1500-1by1" border="0" height="100px" />
+                <img src={process.env.PUBLIC_URL + "/Logo.png"} alt="vector-creator-1500-1by1" border="0" height="75px" />
             </NavLink>
         </div>
     );
