@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import Footer from "../zFooter"
 
 import "./index.css";
 
 
 const RecMessage = () => {
+
     return (
         <>
             <div id="display-box">
@@ -26,26 +28,30 @@ const RecMessage = () => {
 
 const EmptyDisplayPage = () => {
 
+    //This is for the Recruiter. Have not figured out how to make this work once in App.js
     const [recruiter, setRecruiter] = useState(false);
 
-    const session = useSelector(state => state.session)
- 
+    const sessionUser = useSelector(state => state.session.user)
 
     useEffect(() => {
-
-        if(session.user.username === "User-Demo") {
+        if (sessionUser.username === "User-Demo") {
             setRecruiter(true)
         }
     }, [])
+
+    //End Recruiter code
 
     return (
         <div id="user-main-page">
 
             {!recruiter && <img src={process.env.PUBLIC_URL + "/Logo.png"} alt="logo" height="150px" />}
-            {recruiter && <RecMessage /> }
+            {recruiter && <RecMessage />}
+            {recruiter && <Footer />}
 
         </div>
     );
+
+    
 };
 
 export default EmptyDisplayPage;

@@ -5,17 +5,17 @@
     
     width: 100%;
     height: 50px;
-    position:fixed;
+    position: absolute;
     left:0px;
     bottom:0px;
-    background:#0c2649;
+    background:#1f324d;
   }
 
 #footer button {
-    background-color: #0c2649;
+    background-color: #1f324d;
     border: none;
-    margin-left: 40px;
-    margin-right: 40px;
+    margin-left: 60px;
+    margin-right: 60px;
     cursor: pointer;  
 }
 
