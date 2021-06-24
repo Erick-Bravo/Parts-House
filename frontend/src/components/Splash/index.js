@@ -25,7 +25,7 @@ const Splash = () => {
         <> 
             <div id="splash-page">
                 <div id="splash-logo">
-                    <img src="PartsHouse5.png" alt="vector-creator-1500-1by1" border="0" /> 
+                    <img src="FullLogo.png" alt="vector-creator-1500-1by1" border="0" /> 
                 </div>
                 <div id="splash-button-container">
                     <LoginFormModal />
