@@ -42,7 +42,7 @@ const EmptyDisplayPage = () => {
     //End Recruiter code
 
     return (
-        <div id="user-main-page">
+        <div id="recruiter-container">
 
             {!recruiter && <img src={process.env.PUBLIC_URL + "/Logo.png"} alt="logo" height="150px" />}
             {recruiter && <RecMessage />}

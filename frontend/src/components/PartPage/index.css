@@ -94,9 +94,7 @@
     cursor: pointer;
 }
 
-#part-container .button:hover {
-    color:#2F496E;
-}
+
 
 .add-buy-url {
     background-color: #2F496E;

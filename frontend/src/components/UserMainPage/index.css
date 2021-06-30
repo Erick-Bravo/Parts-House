@@ -8,12 +8,26 @@
     min-height: 100vh;
     width: calc(100% - 300px);
     margin-left: 300px;
-    /* overflow: scroll; */
 }
 
-#user-main-page #mascot {
+/* only for recruiter first page */
+#recruiter-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: absolute;
+    background-color: #F9F9F9;
+    min-height: 100vh;
+    width: calc(100% - 300px);
+    margin-left: 300px;
+}
+
+#recruiter-container #mascot {
     display: flex;
 }
+
+/* END */
 
 #top-section-navbar p {
     width: 100%;
@@ -53,8 +67,6 @@
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; 
     font-size: 16px; 
 }
-
-
 
 
 
