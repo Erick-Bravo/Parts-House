@@ -16,7 +16,7 @@
 
 #record-card-container:hover {
     color:rgb(27, 125, 182) ;
-    box-shadow: 0px 8px 10px rgb(70, 70, 70);
+    box-shadow: 0px 4px 10px rgb(70, 70, 70);
     width: 710px;
     height: 154px;
 }
