@@ -6,6 +6,8 @@ import ShowAllLogs from "../PartPage/ShowAllLogs";
 import TopNavBar from "../UserMainPage/TopNavBar";
 import Logs from "./Logs";
 
+import "./index.css";
+
 
 
 const PartPage = () => {
@@ -72,8 +74,8 @@ const PartPage = () => {
                 <div hidden={hidden}>
                     <ShowAllLogs />
                 </div>
-                {!part.buyUrl && <button className="button">Add Buy Url</button>}
-                {part.buyUrl && <button className="button" onClick={goToBuyUrl}>Go to purchase website</button>}
+                {!part.buyUrl && <button className="add-url-button">Add a purchase url</button>}
+                {part.buyUrl && <button className="purchase-button" onClick={goToBuyUrl}>Go to purchase website</button>}
                 
 
             </div>
